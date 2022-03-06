@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      forIn/ForOf
+    </title>
+  </head>
+  <body>
+    <div>forIn/ForOf 的差别</div>
+    <div style="border: 3px dashed black;">
+      for:in
+      <div>1.索引是String类型</div>
+      <div>
+        2.遍历顺序可能不是按照数组顺序 而是随机的（数组元素太少了 看不出来）
+      </div>
+      <div>
+        3.遍历不仅会打印出数组的元素，而且会打印出原型链上的方法（for:in会遍历数组所有的可枚举属性（？？？），包括原型）
+      </div>
+      <div>所以for:in适合用于遍历对象 而不是数组(因为对象主要是用到键值对)</div>
+    </div>
+    <div style="border: 3px dashed rgb(236, 166, 236);">
+      for:of
+      <div>可以遍历数组，且不会遍历name和原型method。for:of不可以遍历对象</div>
+      <div>for:of 只能遍历可迭代对象</div>
+      <pre>
+        可迭代对象:Set,Map,String,Array,Arguments,NodeList。
+        判断是不是可迭代对象的方法：Map.prototype.hasOwnProperty(Symbol.iterator);Array.prototype.hasOwnProperty(Symbol.iterator)
+      </pre>
+    </div>
+    <div style="border: 3px dashed rgb(134, 25, 25);">
+      <pre>
+        总结：
+        1.for:in可以遍历对象，但是 for:of不可以
+        2.for:in的索引是字符串类型，且会遍历原型链上的键和以及手动添加的键，但for:of不会
+        3.for:of可以中却的响应break,return,但是forEach不行
+        4.可迭代对象才可以使用for:of
+        5.遍历数组用for:of,遍历对象用for:in
+      </pre>
+    </div>
+    <script>
+      /*===================for:in===================*/
+      console.log(' /*===================for:in遍历数组===================*/')
+      Array.prototype.method = function () {
+        console.log(this.length)
+      }
+      let arr = [1, 2, 3, 4, 5]
+      for (let index in arr) {
+        console.log('arr[index]', arr[index])
+        console.log('typeof index=', typeof index)
+      }
+      console.log(
+        ' /*===================for:in遍历对象(😄)===================*/',
+      )
+      Object.prototype.method = function () {
+        console.log(this)
+      }
+      let obj = {
+        name: 'ava',
+        sex: 'woman',
+      }
+      for (let key in obj) {
+        console.log(key)
+        console.log(obj[key])
+      }
+      /*===================for:in===================*/
+      /*===================for:of===================*/
+      console.log('===================for:of===================')
+      let arrOf = [1, 2, 3, 4, 5]
+      arrOf.name = 'ArrOf'
+      arrOf.getName = function () {
+        return this.name
+      }
+      for (let value of arrOf) {
+        console.log(
+          value + ',' + typeof value,
+        ) /*这个value直接就是数组本身的元素*/
+      }
+      /*===================for:of===================*/
+    </script>
+  </body>
+</html>

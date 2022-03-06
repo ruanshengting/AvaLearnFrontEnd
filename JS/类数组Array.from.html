@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      类数组Array.from
+    </title>
+  </head>
+  <body>
+    <div>类数组转数组</div>
+    <pre>
+      一.什么是类数组？
+      1.具有length属性
+      2.但是不具备数组的方法
+      二·为啥要转成数组：
+      1.因为想用数组的方法
+      三·常见的类数组
+      1.函数里的arguments
+      2.返回的dom(eg:documents.getElementsByTagName())
+      四·常见的类数组转数组的6个方法
+    </pre>
+    <script>
+      function fn() {
+        console.log('arguments', arguments)
+        //方法1:用call 方法把slice方法转到arguments上
+        //提问：到底为啥能这么做？用join就不行？
+        console.log(
+          'Array.prototype.join.call(arguments)',
+          Array.prototype.join.call(arguments),
+        )
+        console.log(
+          'Array.prototype.keys.call(arguments)',
+          Array.prototype.keys.call(arguments),
+        )
+        console.log(
+          'Array.prototype.slice.call(arguments)',
+          Array.prototype.slice.call(arguments),
+        )
+        //方法2:用空数组 方法把slice方法转到arguments上（和第一种方法类似,空数组本身就有slice方法 不用去原型上找）
+        console.log([].slice.call(arguments))
+        //方法3:用三个点的扩展运算符
+        console.log([...arguments])
+        //方法4:把类数组中的每一个元素push到数组中
+        function transArr() {
+          let arr = []
+          for (let i = 0; i < arguments.length; i++) {
+            arr.push(arguments[i])
+          }
+          console.log(arr)
+        }
+        transArr(arguments) //方法5:不把它转化成数组，但是把数组的方法都给它
+        /*
+         * 提问：为什么这里直接传arguments 会变成[Arguments(6)]
+         [
+              {
+                  "0": 1,
+                  "1": 2,
+                  "2": 3,
+                  "3": 4,
+                  "4": 5,
+                  "5": 6
+              }
+          ]
+         */
+        //tip:让类数组继承数组的方法 ,但类数组还是类数组，么有变成数组
+        // arguments._prop_ = Array.prototype
+
+        //第五种
+        console.log(Array.from(arguments))
+      }
+      fn(1, 2, 3, 4, 5, 6)
+    </script>
+  </body>
+</html>
