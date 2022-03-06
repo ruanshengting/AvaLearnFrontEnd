@@ -17,6 +17,11 @@
       1.函数里的arguments
       2.返回的dom(eg:documents.getElementsByTagName())
       四·常见的类数组转数组的6个方法
+      1:用call 方法把slice方法转到arguments上
+      2:用空数组 方法把slice方法转到arguments上（和第一种方法类似,空数组本身就有slice方法 不用去原型上找）
+      3:用三个点的扩展运算符
+      4:把类数组中的每一个元素push到数组中
+      5.Array.from
     </pre>
     <script>
       function fn() {
