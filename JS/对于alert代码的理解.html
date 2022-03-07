@@ -7,6 +7,13 @@
   </head>
   <body>
     <div>对于alert代码的理解</div>
+    <pre>
+          提问：
+          1.为什么不直接lstAlerts.map((d, i)？？？这样还少写一行代码
+          const filteredData = lstAlerts;
+          this.alertDataSource = filteredData.map((d, i) =>
+          2.closureTimer是开始计时的意思？
+    </pre>
     <script>
       var arr = ['a', 'b', 'c', 'd']
 
@@ -17,10 +24,11 @@
         console.log(arr)
         console.log(this)
       }, 123) //这里的123参数，表示函数中的this指向，可写可不写，如果不写，则this指向window
+      console.log('=====================arr.map=====================')
       arr.map(function (item, index, arr) {
         //参数含义同forEach
-        console.log(item)
-        console.log(index)
+        console.log('item', item)
+        console.log('index', index)
         console.log(arr)
         console.log(this)
       }, 123)
