@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      快速掌握 JS 面试题之原型和原型链
+    </title>
+  </head>
+  <body>
+    <div>快速掌握 JS 面试题之原型和原型链</div>
+    <pre></pre>
+    <script>
+      console.log(
+        '===========================使用class实现继承===========================',
+      )
+      class Person {
+        constructor(name) {
+          this.name = name
+        }
+        drink() {
+          console.log(
+            '🚀 ~ file: 快速掌握 JS 面试题之原型和原型链.html ~ line 20 ~ Person ~ drink ~ drink',
+          )
+        }
+      }
+      class Student extends Person {
+        constructor(name, score) {
+          super(name)
+          this.score = score
+        }
+        introduce() {
+          console.log(`I am ${this.name}.I got ${this.score} `)
+        }
+      }
+      let student = new Student('ava', '99')
+      console.log(
+        '🚀 ~ file: 快速掌握 JS 面试题之原型和原型链.html ~ line 25 ~ student',
+        student,
+      )
+      student.introduce()
+      student.drink()
+    </script>
+  </body>
+</html>
