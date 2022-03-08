@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      js原型和原型链保姆级教学(纯理论)
+    </title>
+  </head>
+  <body>
+    <div>
+      1.函数和对象的关系
+      <pre style="width: 500px;">
+      1.函数是对象，对象都是通过函数创建的
+      2.原型的类别：
+            1.显式原型：prototype,是每个函数独有的属性
+            2.隐式原型：_proto_,每个对象都有的属性
+    
+    </pre
+      >
+    </div>
+    <div>
+      3.原型和原型链
+      1.原型：一个函数可以看成一个类，原型是所有类都有的一个属性，原型的作用就是给给这个类的对象都添加一个统一的方法
+      2.原型链：每个对象都有一个_proto_,这个_proto_又会指向它的prototype原型对象，它的prototype原型对象又会有一个_proto_指向它的prototype原型对象，直到找到最终的顶级Object的prototype，这样的查询路径我们称之为原型链
+    </div>
+    <div style="color: blueviolet;">4.js里最顶层的两个概念</div>
+    <div>
+      Function是最顶层的构造器（它构造了系统中的所有的对象，包括用户自定义对象，系统内置对象，甚至包括它自己）
+      1.自定义对象:自己创建了一个函数，用这个函数new出来的就是自定义对象
+      2.系统内置对象：例如Array，不用我们自己去写
+    </div>
+    <div>
+      Object是最顶层的对象:所有的对象都继承Object的原型。Object也是被Function构造出来的
+    </div>
+    <div style="color: rgb(76, 65, 129);">5.instanceof</div>
+    <div>常见的不够准确的描述：判断一个对象是否是某个构造函数的实例</div>
+    <div>
+      正确描述：沿着Object的原型链查找是否存在对象f.prototype,如果存在返回true，若查到原型链的终点Object.prototype还是没有找到就返回false
+    </div>
+    <img style="width: 300px;" src="yxl.png" />
+    <script>
+      //   自定义对象
+      console.log(
+        '=======自定义对象:自己创建了一个函数，用这个函数new出来的就是自定义对象======',
+      )
+      function fn() {}
+      var testFn = new fn()
+      //系统内置对象：例如Array，不用我们自己去写
+      console.log('=======系统内置对象：例如Array，不用我们自己去写======')
+      let testArr = new Array(1, 2, 3, 4, 5)
+      console.log(testArr)
+      console.log(
+        'instanceof常见的不够准确的描述：判断一个对象是否是某个构造函数的实例',
+      )
+      function fnTest() {}
+      var testmyfn = new fnTest()
+      console.log('testmyfn instanceof fnTest', testmyfn instanceof fnTest)
+    </script>
+  </body>
+</html>
