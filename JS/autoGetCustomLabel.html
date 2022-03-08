@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <input type="text" name="txt" value="" id="aaa" />
+    <input type="submit" onclick="getLabel()" value="提交LABEL" />
+    <script type="text/javascript">
+      var labelArr = []
+      function getLabel() {
+        var label = document.getElementById('aaa').value
+        if (label.includes(',')) {
+          let pushThings = label.split(',')
+          console.log(
+            '🚀 ~ file: autoGetCustomLabel.html ~ line 15 ~ getLabel ~ pushThings',
+            pushThings,
+          )
+
+          labelArr.push.apply(labelArr, label.split(','))
+        } else {
+          labelArr.push(label)
+        }
+        console.log('labelArr', labelArr)
+        /*=============get import ==================*/
+        const getImport = labelArr.map((item) => {
+          const trimItem = item.trim()
+          if (trimItem) {
+            return `import ${trimItem} from '@salesforce/label/c.${trimItem}';`
+          }
+        })
+        console.log('🚀 ~ ', getImport.toString().replaceAll(',', ''))
+        /*========get const cunstom label alert==========*/
+        const getConstAlert = labelArr.map((item) => {
+          const trimItem = item.trim()
+          if (trimItem) {
+            return `const ${trimItem}_LABEL = label.${trimItem};`
+          }
+        })
+        console.log(
+          '🚀 ~ getConstAlert:',
+          getConstAlert.toString().replaceAll(',', ''),
+        )
+        /*========get const cunstom label==========*/
+        const getConst = labelArr.map((item) => {
+          const trimItem = item.trim()
+          if (trimItem) {
+            return `${trimItem}_LABEL,`
+          }
+        })
+        console.log('🚀 ~ getConst:', getConst.toString().replaceAll(',', ''))
+      }
+    </script>
+  </body>
+</html>
