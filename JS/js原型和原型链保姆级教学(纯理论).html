@@ -36,7 +36,19 @@
     <div>
       正确描述：沿着Object的原型链查找是否存在对象f.prototype,如果存在返回true，若查到原型链的终点Object.prototype还是没有找到就返回false
     </div>
+
     <img style="width: 300px;" src="yxl.png" />
+
+    <div>经典原型和原型链分析</div>
+    <img style="width: 800px;" src="经典原型和原型链分析.png" />
+    <div style="border: 3px dashed red;">
+      (1)函数.prototype
+      <pre>
+        函数都是对象，每个函数都有自带属性prototype
+        每个函数下都有prototype属性，prototype的属性值是一个对象，prototype又只有一个constructor属性，指向这个函数本身
+      </pre>
+      <img style="width: 800px;" src="函数.prototype.png" />
+    </div>
     <script>
       //   自定义对象
       console.log(
