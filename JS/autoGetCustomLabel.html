@@ -47,10 +47,10 @@
         const getConst = labelArr.map((item) => {
           const trimItem = item.trim()
           if (trimItem) {
-            return `${trimItem}_LABEL,`
+            return `${trimItem}_LABEL`
           }
         })
-        console.log('🚀 ~ getConst:', getConst.toString().replaceAll(',', ''))
+        console.log('🚀 ~ getConst:', getConst.toString())
       }
     </script>
   </body>
