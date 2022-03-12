@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      js中foreach和for循环的区别
+    </title>
+  </head>
+  <body>
+    <div>js中foreach和for循环的区别</div>
+
+    <div style="border: 3px dashed rgb(236, 166, 236);">
+      定义：foreach又叫做增强for循环,相当于for循环的简化版，因此在一些较复杂的循环中不适用。
+      特点：foreach在
+      <span style="color: brown;">循环次数未知或者计算起来较复杂</span>
+      的情况下效率比for循环高。
+      foreach与for循环的明显差别在于foreach循环时循环对象（数组、集合）被锁定，不能对循环对象中的内容进行增删改操作。
+    </div>
+    <div style="border: 3px dashed rgb(25, 134, 98);">
+      <div style="font-size: larger;">(一)本质区别</div>
+      <div>1.for循环是js提出时就有的循环方法。</div>
+      <div>
+        2.forEach是es5提出的，挂载在可迭代对象(Map,Array,Set)原型上的方法.forEach是一个迭代器，负责遍历可迭代对象。迭代器是一种特殊的对象，它的标志是返回对象的next()方法，迭代行为判断在done之中。看代码
+      </div>
+    </div>
+    <div style="border: 3px dashed rgb(108, 94, 189);">
+      2.语法差别
+      <div>2.1 参数 : arr.forEach((self, index, arr)=>{},this)</div>
+      <div>
+        2.2 中断行为
+        <div>
+          在js中有break continue return对函数进行跳出或者中断的行为
+          但是在forEach中是不支持break continue
+          return（因为forEach属于迭代器，只能按序依次遍历完成，所以不支持上述行为）
+        </div>
+      </div>
+      <div>
+        2.3forEach删除自身元素(?????????)，index不可以被重置，foreach中我们不可以控制index的值
+      </div>
+      <div>
+        2.4:forEach的循环起点只能是0
+      </div>
+    </div>
+    <div style="border: 3px solid rgb(35, 136, 69);">性能：for>forEach>map</div>
+    <script>
+      console.log('===============^_^看不懂==============')
+      //1.本质区别forEach迭代器
+      let arr = [1, 2, 3, 4, 5]
+      let iterator = arr[Symbol.iterator]() //用Symbol.iterator生成了迭代器对象
+      console.log('🚀用Symbol.iterator生成了迭代器对象？？？不理解')
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log('===============^_^看不懂==============')
+      //2.语法差别
+      //2.1 参数
+      /*
+       * arr.forEach((self, index, arr)=>{},this)
+       */
+      let arr2 = [9, 8, 7]
+      let person = {
+        name: 'ava',
+      }
+      arr2.forEach((self, index, arr) => {
+        console.log('self, index, arr', self, index, arr)
+        console.log((this.name += 'hhh'))
+      }, person)
+      console.log('================= 2.2 中断行为=====================')
+      for (let i = 0; i < arr2.length; i++) {
+        if (arr2[i] === 8) {
+          break
+        }
+        console.log('===for中断行为===', arr2[i])
+      }
+      console.log('============forEach要通过try catch来跳出循环============')
+      let arr3 = [1, 2, 3, 4, 5, 6, 7]
+      try {
+        arr3.forEach((self, index) => {
+          if (self === 5) {
+            throw new Error('LoopEnd')
+          }
+          console.log('self', self)
+        })
+      } catch (e) {
+        if (e.message !== 'LoopEnd') {
+          throw e
+        }
+      }
+      console.log(
+        '============forEach删除自身元素，index不可以被重置，foreach中我们不可以控制index的值============',
+      )
+      arr3.forEach((self, index) => {
+        index++
+        console.log(
+          '🚀 ~ file: js中foreach和for循环的区别.html ~ line 90 ~ arr3.forEach ~ index',
+          index,
+        )
+      })
+    </script>
+  </body>
+</html>

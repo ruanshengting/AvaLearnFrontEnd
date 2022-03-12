@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      快速掌握 JS 面试题之原型和原型链
+    </title>
+  </head>
+  <body>
+    <div>使用class实现继承</div>
+    <pre></pre>
+    <script>
+      function arrayTransfer(data) {
+        const resultArr = []
+        data.forEach(function (el) {
+          let obj = {
+            name: el.protocolName,
+            value: el.protocolValue,
+            layer: el.protocolLayer,
+            count: el?.count || 0,
+          }
+          if (
+            [null, undefined, ''].includes(el.protocolCategory) ||
+            el.protocolCategory === '其他协议'
+          ) {
+            el.protocolCategory = '其他协议'
+          }
+          for (let i = 0; i < resultArr.length; i++) {
+            if (resultArr[i].protocolCategory === el.protocolCategory) {
+              resultArr[i].children.push(obj)
+              return
+            }
+          }
+          resultArr.push({
+            protocolCategory: el.protocolCategory,
+            children: [obj],
+          })
+        })
+        return resultArr
+      }
+    </script>
+  </body>
+</html>
