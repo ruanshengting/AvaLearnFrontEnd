@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      数组分类
+    </title>
+  </head>
+  <body>
+    <div>{getArray}</div>
+    <pre></pre>
+    <script>
+      var arr = [
+        {
+          id: 1,
+          DataCategoryName: 'wealth合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 3,
+          DataCategoryName: 'well-being合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 2,
+          DataCategoryName: 'health芜湖',
+          DataCategoryGroupName: '芜湖店',
+        },
+        {
+          id: 4,
+          DataCategoryName: 'health上海',
+          DataCategoryGroupName: '上海店',
+        },
+      ]
+      /*
+      var getArray = []
+      getArray = aa.map((item) => {
+        return {
+          label: item.DataCategoryGroupName,
+          name: item.DataCategoryGroupName,
+          expanded: true,
+          items: [
+            {
+              label: item.DataCategoryName,
+              name: item.DataCategoryName,
+              expanded: true,
+            },
+          ],
+        }
+      })
+      console.log('getArray', getArray)
+      */
+      /* var arr = ['A', 'B', 'C', 'A']
+
+      var r = arr.filter(function (element, index, self) {
+        console.log(element) // 依次打印'A', 'B', 'C'
+
+        console.log(index) // 依次打印0, 1, 2
+
+        console.log(self) // self就是变量arr
+        console.log('self.indexOf(element)', self.indexOf(element))
+        return true
+      })*/
+      /*1.先得到所有的DataCategoryGroupName的分类*/
+      var mapCategoryName = arr.map((item) => item.DataCategoryGroupName)
+      console.log(
+        '🚀 ~ file: 数组分类.html ~ line 64 ~ mapCategoryName',
+        mapCategoryName,
+      )
+      /*2.所有的DataCategoryGroupName的去重复*/
+      var categoryNameArr = mapCategoryName.filter((element, index, self) => {
+        return index === self.indexOf(element)
+      })
+      console.log('🚀 ~  categoryNameArr', categoryNameArr)
+      /*3.相同的DataCategoryGroupName放入*/
+    </script>
+  </body>
+</html>

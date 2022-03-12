@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      js操作数组分类（1）
+    </title>
+  </head>
+  <body>
+    <div>js操作数组分类（1）</div>
+    <pre></pre>
+    <script>
+      var aa = [
+        {
+          id: 1,
+          imei: '',
+          store_name: '合肥店',
+        },
+        {
+          id: 3,
+          imei: '3',
+          store_name: '合肥店',
+        },
+        {
+          id: 2,
+          imei: '1',
+          store_name: '芜湖店',
+        },
+        {
+          id: 4,
+          imei: '34343',
+          store_name: '上海店',
+        },
+      ]
+      var list = aa,
+        flag = 0,
+        data = []
+      for (var i = 0; i < list.length; i++) {
+        var az = ''
+        for (var j = 0; j < data.length; j++) {
+          console.log(
+            'data[j][0].store_name=',
+            data[j][0].store_name,
+            +'j=' + j,
+            +'data[j]=' + data[j],
+          )
+          console.log('list[i].store_name=', list[i].store_name, +'i=' + i)
+          if (data[j][0].store_name == list[i].store_name) {
+            flag = 1
+            az = j
+            break
+          }
+        }
+        if (flag == 1) {
+          data[az].push(list[i])
+          flag = 0
+        } else if (flag == 0) {
+          wdy = new Array()
+          wdy.push(list[i])
+          data.push(wdy)
+        }
+      }
+      console.log(data)
+    </script>
+  </body>
+</html>
