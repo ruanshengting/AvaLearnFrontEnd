@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      js操作数组分类（1）
+    </title>
+  </head>
+  <body>
+    <div>js操作数组分类（1）</div>
+    <pre></pre>
+    <script>
+      let test = [
+        { id: '7', city: '全部', name: '稀饭' },
+        { id: '6', city: '全部', name: '米饭' },
+        { id: '1', city: '重庆', name: '火锅' },
+        { id: '2', city: '江苏', name: '肥肠粉' },
+        { id: '3', city: '重庆', name: '小面' },
+        { id: '4', city: '北京', name: '北京烤鸭' },
+        { id: '5', city: '北京', name: '酸辣粉' },
+      ]
+
+      let list = test,
+        data = []
+      for (var i = 0, length = test.length; i < length; i++) {
+        console.log('list[i].city', list[i].city)
+        console.log('data[list[i].city]', data[list[i].city])
+        if (!data[list[i].city]) {
+          var arr = []
+          arr.push(list[i])
+          data[
+            list[i].city
+          ] = arr /*让 data[list[i].city] 成为一个新的数组 用类别来作为新数组的索引*/
+        } else {
+          data[list[i].city].push(list[i])
+        }
+      }
+      console.log('data', data)
+      console.log('======开始模仿=====')
+      var arr = [
+        {
+          id: 1,
+          DataCategoryName: 'wealth合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 3,
+          DataCategoryName: 'well-being合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 2,
+          DataCategoryName: 'health芜湖',
+          DataCategoryGroupName: '芜湖店',
+        },
+        {
+          id: 4,
+          DataCategoryName: 'health上海',
+          DataCategoryGroupName: '上海店',
+        },
+      ]
+      var storeCategoryArr = []
+      arr.forEach((item, index) => {
+        console.log(item, index)
+        if (!storeCategoryArr[item.DataCategoryGroupName]) {
+          let itemsArr = []
+          itemsArr.push(item)
+          storeCategoryArr[item.DataCategoryGroupName] = itemsArr
+        } else {
+          storeCategoryArr[item.DataCategoryGroupName].push(item)
+        }
+      })
+      console.log('storeCategoryArr', storeCategoryArr)
+      var mapCategoryName = arr
+        .map((item) => {
+          return item.DataCategoryGroupName
+        }) /*1.首先是得到所有的分类*/
+        .filter((element, index, self) => {
+          return index === self.indexOf(element)
+        }) /*2.删除重复的分类（这个element只能是单个的元素本身,不可以element.DataCategoryGroupName）*/
+        .map((item) => {
+          console.log('🚀 ~ file: 数组分类2.html ~ line 81 ~ .map ~ item', item)
+          return {
+            label: item,
+            name: item,
+            expanded: true,
+            items: [],
+          }
+        })
+        .map((mapItem) => {
+          if (storeCategoryArr[mapItem.label]) {
+            console.log(
+              'storeCategoryArr[item.label]',
+              ...storeCategoryArr[mapItem.label],
+            )
+            //console.log('final item', item)
+            mapItem.items.push(...storeCategoryArr[mapItem.label])
+          }
+          return mapItem
+        })
+
+      console.log('mapCategoryName', mapCategoryName)
+    </script>
+  </body>
+</html>

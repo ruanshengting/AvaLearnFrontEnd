@@ -71,7 +71,42 @@
         return index === self.indexOf(element)
       })
       console.log('🚀 ~  categoryNameArr', categoryNameArr)
-      /*3.相同的DataCategoryGroupName放入*/
+      /*3.相同的DataCategoryGroupName放入items*/
+      var getArray = []
+
+      /*  getArray = arr.map((item) => {
+        console.log(
+          'categoryNameArr.indexOf(item.DataCategoryGroupName)',
+          categoryNameArr.indexOf(item.DataCategoryGroupName),
+        )
+        if (categoryNameArr.indexOf(item.DataCategoryGroupName) !== -1) {
+          const obj = {
+            label: item.DataCategoryName,
+            name: item.DataCategoryName,
+            expanded: true,
+          }
+          let itemsArr = []
+          itemsArr.push(obj)
+          console.log(
+            '🚀 ~ file: 数组分类.html ~ line 85 ~ getArray=arr.map ~ itemsArr',
+            itemsArr,
+          )
+        } else {
+          return {
+            label: item.DataCategoryGroupName,
+            name: item.DataCategoryGroupName,
+            expanded: true,
+            items: [
+              {
+                label: item.DataCategoryName,
+                name: item.DataCategoryName,
+                expanded: true,
+              },
+            ],
+          }
+        }
+      })*/
+      console.log('getArray', getArray)
     </script>
   </body>
 </html>
