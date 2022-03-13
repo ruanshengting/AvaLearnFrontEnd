@@ -7,6 +7,23 @@
   </head>
   <body>
     <style>
+      .radio_display {
+        position: absolute;
+        width: 100%;
+        bottom: 40px;
+        text-align: center;
+      }
+      .radio_display label {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: #fff 0% no-repeat padding-box;
+        border-radius: 50%;
+        margin: 0 10px;
+        border: 1px solid #707070;
+        cursor: pointer;
+      }
+
       ul.slides {
         position: relative;
         width: 100%;
@@ -18,6 +35,56 @@
         box-shadow: 0px 2px 6px #00000014;
         overflow: hidden;
       }
+      .slide:nth-of-type(1) {
+      }
+
+      .slide:nth-of-type(2) {
+        left: 100%;
+      }
+
+      .slide:nth-of-type(3) {
+        left: 200%;
+      }
+      .slide:nth-of-type(4) {
+        left: 300%;
+      }
+
+      .slide:nth-of-type(5) {
+        left: 400%;
+      }
+
+      .slide:nth-of-type(6) {
+        left: 500%;
+      }
+      .slide:nth-of-type(7) {
+        left: 600%;
+      }
+
+      .slide:nth-of-type(8) {
+        left: 700%;
+      }
+
+      .slide:nth-of-type(9) {
+        left: 800%;
+      }
+      .slide:nth-of-type(10) {
+        left: 900%;
+      }
+      .slide:nth-of-type(11) {
+        left: 1000%;
+      }
+
+      .slide:nth-of-type(12) {
+        left: 1100%;
+      }
+
+      .slide:nth-of-type(13) {
+        left: 1200%;
+      }
+      .slide:nth-of-type(14) {
+        left: 1300%;
+      }
+
       .slides
         input[type='radio']:nth-of-type(1):checked
         ~ .radio_display
@@ -117,7 +184,7 @@
         background: #ffdb0a 0% 0% no-repeat padding-box;
         border: none;
       }
-
+      /*slides input[type='radio']:nth-of-type(1):checked ~ .slide  slides类底下第一个type=radio的被check的input元素 底下的每个slide类*/
       .slides input[type='radio']:nth-of-type(1):checked ~ .slide {
         transform: translate(0%);
       }
@@ -274,44 +341,108 @@
         }
       }
     </style>
-    <div>对于alert代码的理解</div>
+    <div>
+      对于alert代码的理解
+      <pre style="border: 3px dashed pink;">
+        问题：
+        1.transform: translate(-300%);和left: 300%;的关系
+        2.transition: 0.5s transform ease-in-out;这个是什么
+        3.为什么input的class要弄成sbd_radio_group sbd_radio_group_1，直接写sbd_radio_group_1，把sbd_radio_group省略不行吗？？
+        4.我这样调用定时器为什么不行
+      </pre>
+      <pre style="border: 3px dashed rgb(174, 201, 149);">
+        理解：
+        整体思路：
+        input在html的最顶层，这样可以方便用input作为选择器的开头来控制页面
+        CSS方面：
+        1.input不见了是因为   li.slide 中的position: absolute;top: 0; 把input radio给盖住了
+        2.选择input之后，根据是第几个input设定要移动多少
+        js方面：
+        通过map,增加了labelFor属性和classIndex,class。classIndex相当于给label标签编号，对应的是input的class:sbd_radio_group_{classIndex},由此可以让input 被选中。这里的class只作为选择器来用，让它可以在js中被选中为checked，并不给他增加样式（input会被盖住）
+      </pre>
+    </div>
     <div>
       <ul class="slides">
-        <input type="radio" name="radio" />
-        <input type="radio" name="radio" />
-        <input type="radio" name="radio" />
-        <input type="radio" name="radio" />
+        <input
+          type="radio"
+          name="radio"
+          id="radio-1"
+          class="sbd_radio_group sbd_radio_group_1"
+        />
+        <input
+          type="radio"
+          name="radio"
+          id="radio-2"
+          class="sbd_radio_group sbd_radio_group_2"
+        />
+        <input
+          type="radio"
+          name="radio"
+          id="radio-3"
+          class="sbd_radio_group sbd_radio_group_3"
+        />
+        <input
+          type="radio"
+          name="radio"
+          id="radio-4"
+          class="sbd_radio_group sbd_radio_group_4"
+        />
         <li class="slide">
           <div class="sbd_alert_tile">
-            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <div class="sbd_title">title1</div>
             <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
             <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
           </div>
         </li>
         <li class="slide">
           <div class="sbd_alert_tile">
-            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <div class="sbd_title">title2</div>
             <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
             <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
           </div>
         </li>
         <li class="slide">
           <div class="sbd_alert_tile">
-            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <div class="sbd_title">title3</div>
             <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
             <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
           </div>
         </li>
         <li class="slide">
           <div class="sbd_alert_tile">
-            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <div class="sbd_title">title4</div>
             <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
             <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
           </div>
         </li>
+        <div class="radio_display">
+          <label
+            for="radio-1"
+            class="1"
+            onclick="handleLabelClick(event)"
+          ></label>
+          <label
+            for="radio-2"
+            class="2"
+            onclick="handleLabelClick(event)"
+          ></label>
+          <label
+            for="radio-3"
+            class="3"
+            onclick="handleLabelClick(event)"
+          ></label>
+          <label
+            for="radio-4"
+            class="4"
+            onclick="handleLabelClick(event)"
+          ></label>
+        </div>
       </ul>
     </div>
     <script>
+      var SBD_INTERVAL_TIME_LABEL = 5000
+      var SBD_INTERVAL_TIME_CLICK_LABEL = 10000
+      var timer
       var alert = [
         {
           alertId: 'a0n3K000000aciCQAQ',
@@ -383,6 +514,36 @@
         alert,
       )
       console.log('alertMap', alertMap)
+      function handleLabelClick(event) {
+        console.log('handleLabelClick', event.target.className)
+        const currentCount = event.target.className
+        /*  const currentRadio = this.template.querySelector(
+          `.sbd_radio_group_${currentCount}`,
+        )*/
+        const currentRadio = document.getElementsByClassName(
+          `.sbd_radio_group_${currentCount}`,
+        )
+        currentRadio.checked = true
+        console.log('currentRadio', currentRadio)
+      }
+      /*========设置定时器========*/
+      function closureTimer(millisecond) {
+        let count = 1
+        // eslint-disable-next-line @lwc/lwc/no-async-operation
+        var timer = setInterval(() => {
+          const currentRadio = document.getElementsByClassName(
+            `.sbd_radio_group_${count}`,
+          )
+          currentRadio.checked = true
+          console.log('currentRadio', currentRadio)
+          count++
+          if (count > 4) {
+            count = 1
+          }
+          console.log('🚀 setInterval ~ count', count)
+        }, millisecond)
+      }
+      closureTimer(SBD_INTERVAL_TIME_LABEL)
     </script>
   </body>
 </html>
