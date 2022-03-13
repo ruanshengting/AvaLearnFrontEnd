@@ -1,0 +1,388 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      对于alert代码的理解
+    </title>
+  </head>
+  <body>
+    <style>
+      ul.slides {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: #eee;
+        box-shadow: 0px 2px 6px #00000014;
+        overflow: hidden;
+      }
+      .slides
+        input[type='radio']:nth-of-type(1):checked
+        ~ .radio_display
+        label:nth-of-type(1) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(2):checked
+        ~ .radio_display
+        label:nth-of-type(2) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(3):checked
+        ~ .radio_display
+        label:nth-of-type(3) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(4):checked
+        ~ .radio_display
+        label:nth-of-type(4) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+
+      .slides
+        input[type='radio']:nth-of-type(5):checked
+        ~ .radio_display
+        label:nth-of-type(5) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(6):checked
+        ~ .radio_display
+        label:nth-of-type(6) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(7):checked
+        ~ .radio_display
+        label:nth-of-type(7) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(8):checked
+        ~ .radio_display
+        label:nth-of-type(8) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(9):checked
+        ~ .radio_display
+        label:nth-of-type(9) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(10):checked
+        ~ .radio_display
+        label:nth-of-type(10) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(11):checked
+        ~ .radio_display
+        label:nth-of-type(11) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(12):checked
+        ~ .radio_display
+        label:nth-of-type(12) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(13):checked
+        ~ .radio_display
+        label:nth-of-type(13) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+      .slides
+        input[type='radio']:nth-of-type(14):checked
+        ~ .radio_display
+        label:nth-of-type(14) {
+        background: #ffdb0a 0% 0% no-repeat padding-box;
+        border: none;
+      }
+
+      .slides input[type='radio']:nth-of-type(1):checked ~ .slide {
+        transform: translate(0%);
+      }
+
+      .slides input[type='radio']:nth-of-type(2):checked ~ .slide {
+        transform: translate(-100%);
+      }
+
+      .slides input[type='radio']:nth-of-type(3):checked ~ .slide {
+        transform: translate(-200%);
+      }
+
+      .slides input[type='radio']:nth-of-type(4):checked ~ .slide {
+        transform: translate(-300%);
+      }
+
+      .slides input[type='radio']:nth-of-type(5):checked ~ .slide {
+        transform: translate(-400%);
+      }
+
+      .slides input[type='radio']:nth-of-type(6):checked ~ .slide {
+        transform: translate(-500%);
+      }
+
+      .slides input[type='radio']:nth-of-type(7):checked ~ .slide {
+        transform: translate(-600%);
+      }
+
+      .slides input[type='radio']:nth-of-type(8):checked ~ .slide {
+        transform: translate(-700%);
+      }
+
+      .slides input[type='radio']:nth-of-type(9):checked ~ .slide {
+        transform: translate(-800%);
+      }
+      .slides input[type='radio']:nth-of-type(10):checked ~ .slide {
+        transform: translate(-900%);
+      }
+      .slides input[type='radio']:nth-of-type(11):checked ~ .slide {
+        transform: translate(-1000%);
+      }
+      .slides input[type='radio']:nth-of-type(12):checked ~ .slide {
+        transform: translate(-1100%);
+      }
+      .slides input[type='radio']:nth-of-type(13):checked ~ .slide {
+        transform: translate(-1200%);
+      }
+      .slides input[type='radio']:nth-of-type(14):checked ~ .slide {
+        transform: translate(-1300%);
+      }
+      li.slide {
+        margin: 0;
+        padding: 0;
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        font-size: 120px;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        transition: 0.5s transform ease-in-out;
+      }
+      .sbd_alert_tile {
+        width: 74%;
+        margin: 0 auto;
+        min-height: 142px;
+        margin-top: 1rem;
+        padding: 16px;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        min-width: 500px;
+      }
+      .sbd_alert_tile .sbd_show_ellipsis {
+        width: 100%;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .sbd_alert_tile_full_page {
+        width: 100%;
+        padding-left: 80px;
+      }
+
+      .sbd_alert_tile .sbd_title {
+        font-family: 'Montserrat SemiBold';
+        color: #2d63bd;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+      }
+      .sbd_title_no_cursor {
+        cursor: none;
+      }
+
+      .sbd_alert_tile .sbd_description {
+        margin-top: 10px;
+        font-family: 'Montserrat Regular';
+        font-size: 14px;
+        color: #000000;
+      }
+
+      .close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.5;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .close:hover {
+        opacity: 1;
+      }
+      .close:before,
+      .close:after {
+        position: absolute;
+        left: 14px;
+        top: 3px;
+        content: ' ';
+        height: 23px;
+        width: 2px;
+        background-color: #706e6b;
+      }
+      .close:before {
+        transform: rotate(45deg);
+      }
+      .close:after {
+        transform: rotate(-45deg);
+      }
+
+      @media screen and (max-width: 600px) {
+        .sbd_alert_tile,
+        .sbd_alert_tile_full_page {
+          all: unset;
+          min-height: 142px;
+          margin-top: 1rem;
+          padding: 16px;
+          background: #ffffff 0% 0% no-repeat padding-box;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+      }
+    </style>
+    <div>对于alert代码的理解</div>
+    <div>
+      <ul class="slides">
+        <input type="radio" name="radio" />
+        <input type="radio" name="radio" />
+        <input type="radio" name="radio" />
+        <input type="radio" name="radio" />
+        <li class="slide">
+          <div class="sbd_alert_tile">
+            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
+            <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
+          </div>
+        </li>
+        <li class="slide">
+          <div class="sbd_alert_tile">
+            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
+            <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
+          </div>
+        </li>
+        <li class="slide">
+          <div class="sbd_alert_tile">
+            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
+            <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
+          </div>
+        </li>
+        <li class="slide">
+          <div class="sbd_alert_tile">
+            <div class="sbd_title" onclick="{handleClick}">title</div>
+            <!-- <a href={urlPath} class="sbd_title">{title}</a> -->
+            <div class="sbd_description sbd_show_ellipsis">sbd_description</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script>
+      var alert = [
+        {
+          alertId: 'a0n3K000000aciCQAQ',
+          strAlertDescription:
+            '<p><span style="font-size: 14px; color: rgb(0, 0, 0);">Test Alert Title1,Description</span></p>',
+          strAlertTitle: 'Test Alert Title1',
+        },
+        {
+          alertId: 'a0n3K000000aciHQAQ',
+          strAlertDescription:
+            '<p><span style="font-size: 14px;">Test Alert Title2，</span><span style="font-size: 14px; color: rgb(96, 22, 186);">Description</span></p>',
+          strAlertTitle: 'Test Alert Title2',
+        },
+        {
+          alertId: 'a0n3K000000aeVkQAI',
+          strAlertDescription:
+            '<p><span style="color: rgb(0, 0, 0);">﻿</span>Lorem ipsum,<b style="font-size: 22px; font-family: verdana;"><i> </i></b><b style="font-size: 22px; font-family: verdana; color: rgb(25, 189, 77);"><i>dolor sit amet consectetur adipisicing elit. Repellat, magnam? </i></b><b style="font-size: 22px; font-family: verdana; color: rgb(0, 0, 0);"><i>Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi</i></b><b style="font-size: 22px; font-family: verdana; color: rgb(25, 189, 77);"><i>! Mollitia.</i></b></p>',
+          strAlertTitle: 'caresual test three10',
+        },
+        {
+          alertId: 'a0n3K000000aeVaQAI',
+          strAlertDescription:
+            '<p><span style="color: rgb(0, 0, 0);"><span class="ql-cursor">﻿</span></span>Lorem ipsum,<b style="font-family: verdana; font-size: 22px;"><i> </i></b><b style="font-family: verdana; font-size: 22px; color: rgb(89, 39, 39);"><i>dolor sit amet consectetur adipisicing elit. Repellat, magnam? Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi! Mollitia.</i></b></p>',
+          strAlertTitle: 'caresual test three',
+        },
+        {
+          alertId: 'a0n3K000000aeVgQAI',
+          strAlertDescription:
+            '<p><span style="color: rgb(0, 0, 0);">﻿</span>Lorem ipsum,<b style="font-family: verdana; font-size: 22px;"><i> </i></b><b style="font-family: verdana; font-size: 22px; color: rgb(25, 189, 77);"><i>dolor sit amet consectetur adipisicing elit. Repellat, magnam? </i></b><b style="font-family: verdana; font-size: 22px; color: rgb(55, 24, 195);"><i>Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi</i></b><b style="font-family: verdana; font-size: 22px; color: rgb(25, 189, 77);"><i>! Mollitia.</i></b></p>',
+          strAlertTitle: 'caresual test three9',
+        },
+        {
+          alertId: 'a0n3K000000aeVfQAI',
+          strAlertDescription:
+            '<p><span style="color: rgb(0, 0, 0);">﻿</span>Lorem ipsum,<b style="font-size: 22px; font-family: verdana;"><i> </i></b><b style="font-size: 22px; font-family: verdana; color: rgb(25, 189, 77);"><i>dolor sit amet consectetur adipisicing elit. Repellat, magnam? Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi! Mollitia.</i></b></p>',
+          strAlertTitle: 'caresual test three',
+        },
+        {
+          alertId: 'a0n3K000000aciWQAQ',
+          strAlertDescription:
+            '<p>                    Lorem ipsum,<b style="font-size: 22px; font-family: verdana;"><i> dolor sit amet consectetur adipisicing elit. Repellat, magnam? Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi! Mollitia.</i></b></p>',
+          strAlertTitle: 'caresual test three',
+        },
+        {
+          alertId: 'a0n3K000000aciRQAQ',
+          strAlertDescription:
+            '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem quae excepturi voluptatum, soluta sed eaque voluptatem distinctio quos minus reiciendis hic consequatur eius id cum! Itaque, porro alias. Quo asperiores, exercitationem facilis dolorem officia a repudiandae nesciunt accusamus pariatur mollitia est nemo, molestiae alias nihil, rerum sint sapiente sit error.</p>',
+          strAlertTitle: 'caresual test one',
+        },
+        {
+          alertId: 'a0n3K000000aciSQAQ',
+          strAlertDescription:
+            '<p>                   <b style="color: rgb(0, 0, 0); font-size: 14px;"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, magnam? Commodi, iure accusantium omnis mollitia impedit sunt possimus maxime odio minima consequatur nemo exercitationem inventore harum esse provident eligendi! Mollitia.</b></p>',
+          strAlertTitle: 'caresual test two',
+        },
+      ]
+      let alertMap = alert.map((d, i) => {
+        let radioIndex = i + 1
+        return {
+          ...d,
+          labelFor: `radio-${radioIndex}`,
+          classIndex: radioIndex,
+          class: `sbd_radio_group sbd_radio_group_${radioIndex}`,
+          checked: i === 0,
+        }
+      })
+      console.log(
+        '🚀 ~ file: 对于alert代码的理解.html ~ line 78 ~ alert.map ~ alert',
+        alert,
+      )
+      console.log('alertMap', alertMap)
+    </script>
+  </body>
+</html>
