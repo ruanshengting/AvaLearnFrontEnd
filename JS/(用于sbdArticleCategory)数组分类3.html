@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      js操作数组分类（3）
+    </title>
+  </head>
+  <body>
+    <div>js操作数组分类（3）</div>
+    <pre></pre>
+    <script>
+      let dataCategory = [
+        {
+          Id: '02o3K000000IFklQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Health',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
+        },
+        {
+          Id: '02o3K000000IFkkQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Wealth',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
+        },
+        {
+          Id: '02o3K000000IFkjQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Time',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
+        },
+        {
+          Id: '02o3K000000IFkeQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Perks',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
+        },
+        {
+          Id: '02o3K000000IFkeQaG',
+          DataCategoryGroupName: 'Well-Being',
+          DataCategoryName: 'Happy',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
+        },
+      ]
+      const obj = {} /*使用键值对的方式，把数组分类好，存在object当中*/
+      dataCategory.forEach((item) => {
+        const formatItem = {
+          label: item.DataCategoryName,
+          name: item.Id,
+          expanded: true,
+        }
+        if (!obj[item.DataCategoryGroupName]) {
+          /*如果这个key下没有value了，那么就创建新数组*/
+          obj[item.DataCategoryGroupName] = [formatItem]
+        } else {
+          /*如果这个key下已经有value了，那么就直接把当前的formatItem放进这个object里面*/
+          obj[item.DataCategoryGroupName].push(formatItem)
+        }
+      })
+      /*这个forEach循环可以得到把数组分类好的object*/
+      let afterFormat = []
+      for (let item in obj) {
+        const categoryGroupNameItem = {
+          label: item,
+          name: item,
+          expanded: true,
+          items: obj[item],
+        }
+        afterFormat.push(categoryGroupNameItem)
+      }
+      /*通过for in 遍历object,然后把刚刚得到的分类好的数组放进items属性中*/
+    </script>
+  </body>
+</html>

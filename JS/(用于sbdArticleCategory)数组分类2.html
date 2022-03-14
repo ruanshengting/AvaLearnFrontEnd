@@ -38,24 +38,32 @@
       console.log('======开始模仿=====')
       var arr = [
         {
-          id: 1,
-          DataCategoryName: 'wealth合肥',
-          DataCategoryGroupName: '合肥店',
+          Id: '02o3K000000IFklQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Health',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
         },
         {
-          id: 3,
-          DataCategoryName: 'well-being合肥',
-          DataCategoryGroupName: '合肥店',
+          Id: '02o3K000000IFkkQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Wealth',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
         },
         {
-          id: 2,
-          DataCategoryName: 'health芜湖',
-          DataCategoryGroupName: '芜湖店',
+          Id: '02o3K000000IFkjQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Time',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
         },
         {
-          id: 4,
-          DataCategoryName: 'health上海',
-          DataCategoryGroupName: '上海店',
+          Id: '02o3K000000IFkeQAG',
+          DataCategoryGroupName: 'General',
+          DataCategoryName: 'Perks',
+          ParentId: 'ka03K0000005BqfQAE',
+          DataCategoryGroupId: '0D14x000000kACP',
         },
       ]
       var storeCategoryArr = []
@@ -97,7 +105,62 @@
           }
           return mapItem
         })
+      /*
+[
+    {
+        "Id": "02o3K000000IFklQAG",
+        "DataCategoryGroupName": "General",
+        "DataCategoryName": "Health",
+        "ParentId": "ka03K0000005BqfQAE",
+        "DataCategoryGroupId": "0D14x000000kACP"
+    },
+    {
+        "Id": "02o3K000000IFkkQAG",
+        "DataCategoryGroupName": "General",
+        "DataCategoryName": "Wealth",
+        "ParentId": "ka03K0000005BqfQAE",
+        "DataCategoryGroupId": "0D14x000000kACP"
+    },
+    {
+        "Id": "02o3K000000IFkjQAG",
+        "DataCategoryGroupName": "General",
+        "DataCategoryName": "Time",
+        "ParentId": "ka03K0000005BqfQAE",
+        "DataCategoryGroupId": "0D14x000000kACP"
+    },
+    {
+        "Id": "02o3K000000IFkeQAG",
+        "DataCategoryGroupName": "General",
+        "DataCategoryName": "Perks",
+        "ParentId": "ka03K0000005BqfQAE",
+        "DataCategoryGroupId": "0D14x000000kACP"
+    }
+]
 
+
+[
+        {
+          id: 1,
+          DataCategoryName: 'wealth合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 3,
+          DataCategoryName: 'well-being合肥',
+          DataCategoryGroupName: '合肥店',
+        },
+        {
+          id: 2,
+          DataCategoryName: 'health芜湖',
+          DataCategoryGroupName: '芜湖店',
+        },
+        {
+          id: 4,
+          DataCategoryName: 'health上海',
+          DataCategoryGroupName: '上海店',
+        },
+      ]
+*/
       console.log('mapCategoryName', mapCategoryName)
     </script>
   </body>
