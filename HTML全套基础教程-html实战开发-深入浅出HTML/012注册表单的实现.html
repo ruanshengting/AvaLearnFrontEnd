@@ -2,23 +2,68 @@
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>
-      011表单.html
+      012注册表单的实现
     </title>
   </head>
-  <body>
+  <body
+    style="
+      background: linear-gradient(
+        90deg,
+        rgba(131, 58, 180, 1) 0%,
+        rgba(253, 29, 29, 1) 50%,
+        rgba(252, 176, 69, 1) 100%
+      );
+    "
+  >
     <div>
       input 要有name属性才能被发送到form指定的服务器，有name
       属性的input都会被提交,不想被提交就不要写name。
     </div>
+    <div>
+      form
+      method="post",数据会更安全，url上面不会显示参数，但是get方法（默认）会显示在地址栏。超链接是get请求。
+      post提交的请求还是能够得到mae=value这样的形式
+    </div>
     <!-- action属性用于制定服务器地址，制定数据提交给哪个服务器，向服务器发送请求 -->
-    <form action="008图片和超链接.html">
+    <form action="008图片和超链接.html" method="post">
       用户名：
       <input type="text" name="username" />
+      <br />
       密码：
       <input type="password" name="password" />
-      <!-- type="submit" 表示这个按钮可以提交表单 对于按钮来说 这个value指定按钮上显示的文本信息-->
-      <input type="submit" value="Submit" name="SubmitName" />
-      <input type="reset" value="Reset" />
+      <br />
+      确认密码：
+      <input type="password" />
+      <br />
+      性别：
+      <input type="radio" name="gender" value="1" />
+      男
+      <input type="radio" name="gender" value="0" checked />
+      女
+      <br />
+      <input type="checkbox" name="interest" value="cy" />
+      抽烟
+      <input type="checkbox" name="interest" value="lq" />
+      篮球
+      <input type="checkbox" name="interest" value="ukelele" />
+      尤克里里
+      <br />
+      学历
+      <select multiple="multiple" name="grade">
+        <option value="hight_school">高中</option>
+        <option value="bk">本科</option>
+        <option value="bk">shuoshi</option>
+        <option value="bk">boshi</option>
+        <option value="bk">afterboshi</option>
+      </select>
+      <br />
+      简介
+      <div>
+        textarea没有value属性，用户填写的内容就是value,添加
+        multiple="multiple"属性 能够让select 标签可以多选
+      </div>
+      <textarea row="100" cols="60" name="jianjie"></textarea>
+      <input type="submit" value="Submit" />
     </form>
   </body>
 </html>

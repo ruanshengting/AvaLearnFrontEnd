@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>014readonlyAnddisabled.html</title>
+  </head>
+  <body
+    style="
+      background: linear-gradient(
+        0deg,
+        rgba(34, 193, 195, 1) 0%,
+        rgba(253, 187, 45, 1) 100%
+      );
+    "
+  >
+    <div>disabled不能被表单提交，但是 readonly可以</div>
+    <form>
+      用户名：
+      <input type="text" name="username" value="110" readonly />
+      <br />
+      密码：
+      <input type="text" name="password" value="112" disabled />
+      <br />
+      free：
+      <input type="text" name="text" maxlength="20" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
