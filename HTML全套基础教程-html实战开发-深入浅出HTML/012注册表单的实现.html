@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>
+      011表单.html
+    </title>
+  </head>
+  <body>
+    <div>
+      input 要有name属性才能被发送到form指定的服务器，有name
+      属性的input都会被提交,不想被提交就不要写name。
+    </div>
+    <!-- action属性用于制定服务器地址，制定数据提交给哪个服务器，向服务器发送请求 -->
+    <form action="008图片和超链接.html">
+      用户名：
+      <input type="text" name="username" />
+      密码：
+      <input type="password" name="password" />
+      <!-- type="submit" 表示这个按钮可以提交表单 对于按钮来说 这个value指定按钮上显示的文本信息-->
+      <input type="submit" value="Submit" name="SubmitName" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>
