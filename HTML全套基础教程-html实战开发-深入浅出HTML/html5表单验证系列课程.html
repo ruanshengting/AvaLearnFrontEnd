@@ -27,15 +27,17 @@
   >
     <div>
       label for的作用：点击这个label，for对应的id的input radio也会被选中
+      multipart/form-data
+      不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。
       <img style="width: 58vw;" src="表单validity属性介绍.png" />
     </div>
     <form
-      action=""
-      method="post"
+      action="011表单.html"
+      method="get"
       enctype="multipart/form-data"
       autocomplete="on"
     >
-      <input type="file" />
+      <input type="file" name="myfile" />
       <label for="">用户名</label>
       <input
         value="a"
@@ -46,6 +48,7 @@
         maxlength="5"
         minlength="2"
         pattern="^\d{5}"
+        onchange="checkValid()"
         required
         autofocus
       />
@@ -64,7 +67,7 @@
       <label for="woman">woman</label>
       <input type="radio" name="sex" id="woman" required />
       <input type="email" value="2@qq.com" id="email" />
-      <input type="search" name="seach" id="seach" value="" />
+      <input type="search" name="seach" id="seach" value="1" />
       <input
         type="number"
         value="0.02"
@@ -75,10 +78,13 @@
       <input type="submit" value="提交" />
     </form>
     <script>
-      var user = document.getElementById('username')
-      console.log(user.validity)
-      console.log('user.validity.patternMismatch=true说明不满足正则')
-      console.log(user.validity.patternMismatch)
+      function checkValid() {
+        var user = document.getElementById('username')
+        console.log(user.validity)
+        console.log('user.validity.patternMismatch=true说明不满足正则')
+        console.log(user.validity.patternMismatch)
+      }
+
       //console.log(username.validity)
       console.log(
         '======上一段代码表明，直接用id去找dom节点也是可以的，但是在项目中，不推荐这样使用======',
