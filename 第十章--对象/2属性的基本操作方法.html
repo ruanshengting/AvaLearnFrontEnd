@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2属性的基本操作方法</title>
+  </head>
+  <body>
+    <script>
+      let user = {
+        name: 'ava',
+        'my age': 18,
+      }
+      console.log('======读取对象属性的方法=====')
+      console.log('user.name', user.name)
+      console.log(`user['name']`, user['name'])
+      console.log(`user['my age']`, user['my age'])
+      console.log('======用for in遍历对象属性=====')
+      for (const key in user) {
+        console.log('key', key)
+        console.log('key', user[key])
+      }
+      console.log('======给对象添加属性=====')
+      user.age = 19
+      console.log('======给对象添加方法=====')
+      user.get = function () {
+        return `${this.name}的年龄是${this.age}`
+      }
+      console.log(user.get())
+      console.log('======给对象删除属性=====')
+      delete user.age
+      console.log(user.get())
+    </script>
+  </body>
+</html>
