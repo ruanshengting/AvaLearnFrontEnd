@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4使用展示语法完成参数合并</title>
+  </head>
+  <body></body>
+  <script>
+    let arr = [1, 2, 3, 45]
+    let a = [...arr, 5, 6, 7]
+    console.log('🚀 ~ file: 4使用展示语法完成参数合并.html ~ line 13 ~ a', a)
+    let user = { name: 'ava', age: 22 }
+    let hd = { ...user, lang: 'zh' }
+    console.log(hd)
+    function upload(params) {
+      let config = {
+        type: '*.jpg,*png',
+        size: 10000,
+      }
+      config = { ...config, ...params }
+      console.log('展开语法:后面的参数会把前面的覆盖')
+      console.log(
+        '🚀 ~ file: 4使用展示语法完成参数合并.html ~ line 22 ~ upload ~ config',
+        config,
+      )
+    }
+    console.log(upload({ size: 99, type: '*gif' }))
+  </script>
+</html>
