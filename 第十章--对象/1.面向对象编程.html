@@ -8,6 +8,9 @@
   </head>
   <body>
     <script>
+      console.log(
+        '========以下是使用函数式编程的问题，可能会出现函数的覆盖=======',
+      )
       let name = 'ava'
       let grade = [
         { name: 'js', score: 99 },
@@ -19,6 +22,27 @@
         return `${name}的平均成绩是${total / grade.length}`
       }
       console.log(average(name, grade))
+      console.log('================如果变成对象===============')
+      let user = {
+        name: 'ava',
+        grade: [
+          { name: 'js', score: 99 },
+          { name: 'php', score: 81 },
+        ],
+        /* average: function average(name, grade) {
+          const total = grade.reduce((t, l) => t + l.score, 0)
+          console.log('total', total / 2)
+          return `${name}的平均成绩是${total / grade.length}`
+        },*/
+        /*========上面的写法也OK，但是太麻烦,在一个对象里面定义函数，可以直接使用this.这样可以减少传参========*/
+        average() {
+          const total = this.grade.reduce((t, l) => t + l.score, 0)
+          console.log('total', total / 2)
+          return `${this.name}的平均成绩是${total / this.grade.length}`
+        },
+      }
+      console.log(user)
+      console.log(user.average())
     </script>
   </body>
 </html>
