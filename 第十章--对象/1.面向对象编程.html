@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.面向对象编程</title>
+  </head>
+  <body>
+    <script>
+      let name = 'ava'
+      let grade = [
+        { name: 'js', score: 99 },
+        { name: 'php', score: 99 },
+      ]
+      function average(name, grade) {
+        const total = grade.reduce((t, l) => t + l.score, 0)
+        console.log('total', total / 2)
+        return `${name}的平均成绩是${total / grade.length}`
+      }
+      console.log(average(name, grade))
+    </script>
+  </body>
+</html>
