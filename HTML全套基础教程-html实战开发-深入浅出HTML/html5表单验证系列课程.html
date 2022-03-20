@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>html5表单验证系列课程</title>
+  </head>
+  <style>
+    /*去除原生的search框旁边的清除按钮*/
+    input[type='search']::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      background-color: rgba(253, 187, 45, 1);
+    }
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  </style>
+  <body
+    style="
+      background: linear-gradient(
+        0deg,
+        rgba(34, 193, 195, 1) 0%,
+        rgba(253, 187, 45, 1) 100%
+      );
+    "
+  >
+    <div>
+      label for的作用：点击这个label，for对应的id的input radio也会被选中
+      <img style="width: 58vw;" src="表单validity属性介绍.png" />
+    </div>
+    <form
+      action=""
+      method="post"
+      enctype="multipart/form-data"
+      autocomplete="on"
+    >
+      <input type="file" />
+      <label for="">用户名</label>
+      <input
+        value="a"
+        type="text"
+        name="user"
+        id="username"
+        placeholder="Enter Username"
+        maxlength="5"
+        minlength="2"
+        pattern="^\d{5}"
+        required
+        autofocus
+      />
+      <label>工号</label>
+      <input type="text" name="number" placeholder="Enter your GUID" />
+      <input type="text" list="tips" />
+      <datalist id="tips">
+        <option value="op1"></option>
+        <option value="op2"></option>
+        <option value="op3"></option>
+        <option value="op1"></option>
+      </datalist>
+      <!-- <input type="submit" formnovalidate /> -->
+      <label for="man">man</label>
+      <input type="radio" name="sex" id="man" required />
+      <label for="woman">woman</label>
+      <input type="radio" name="sex" id="woman" required />
+      <input type="email" value="2@qq.com" id="email" />
+      <input type="search" name="seach" id="seach" value="" />
+      <input
+        type="number"
+        value="0.02"
+        step="1"
+        oninput="checkLength(this,5)"
+      />
+
+      <input type="submit" value="提交" />
+    </form>
+    <script>
+      var user = document.getElementById('username')
+      console.log(user.validity)
+      console.log('user.validity.patternMismatch=true说明不满足正则')
+      console.log(user.validity.patternMismatch)
+      //console.log(username.validity)
+      console.log(
+        '======上一段代码表明，直接用id去找dom节点也是可以的，但是在项目中，不推荐这样使用======',
+      )
+      var e = document.getElementById('email')
+      console.log(e.validity)
+
+      function checkLength(obj, length) {
+        if (obj.value > length) {
+          obj.value = obj.value.substr(0, 5)
+        }
+      }
+    </script>
+  </body>
+</html>
