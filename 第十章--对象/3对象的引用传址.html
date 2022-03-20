@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3对象的引用传址</title>
+  </head>
+  <body>
+    <script>
+      let user = { name: 'ava' }
+      let hd = user
+      console.log('object是引用类型，user和hd这两个变量公用一个内存地址')
+      console.log(hd.name)
+      console.log(
+        '如果给函数传递的参数是一个基本类型，那么传递的其实是值，在函数里面操作之后，这个基本类型不会被改变',
+      )
+      function show(a) {
+        console.log(a)
+        a += 100
+        console.log(a)
+      }
+      let a = 1
+      show(a)
+      console.log('🚀 ~ file: 3对象的引用传址.html ~ line 21 ~ a', a)
+      console.log(
+        '如果给函数传递的参数是一个对象，那么传递的其实是一个引用地址，在函数里面添加属性之后，这个对象也会被添加属性',
+      )
+      function addAge(user) {
+        user.age = 18
+        console.log(
+          '🚀 ~ file: 3对象的引用传址.html ~ line 27 ~ addAge ~ user',
+          user,
+        )
+      }
+      addAge(user)
+      console.log('🚀 ~ file: 3对象的引用传址.html ~ line 30 ~ user', user)
+    </script>
+  </body>
+</html>
