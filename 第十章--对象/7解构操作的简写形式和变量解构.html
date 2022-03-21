@@ -4,11 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6严格模式中的解构差异</title>
+    <title>7解构操作的简写形式和变量解构</title>
   </head>
   <body>
     <script>
-      // 'use strict'
+      let arr = ['hdr', 'ava']
+      let [a, b] = arr
+      console.log(
+        '🚀 ~ file: 7解构操作的简写形式和变量解构.html ~ line 13 ~ a, b',
+        a,
+        b,
+      )
+      let [, name2] = arr
+      console.log(name2)
+      let name = 'ava',
+        url = 'baidu.com'
+      let opt = { name, url }
+      console.log(
+        '🚀 ~ file: 7解构操作的简写形式和变量解构.html ~ line 23 ~ opt',
+        opt,
+      )
+      /*属性和值的名字一样，就可以简写*/
     </script>
   </body>
 </html>
