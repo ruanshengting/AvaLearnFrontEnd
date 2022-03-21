@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5解构赋值新特性</title>
+  </head>
+  <body>
+    <script>
+      /*
+      let user = { name: 'ava', age: 18 }
+      const { name: n, age: a } = user
+      console.log(n, a)*/
+      function user({ name, age }) {
+        console.log('name, age=', name, age)
+      }
+      user({ name: 'ava', age: 18 })
+      let { random } = Math
+      console.log(random())
+    </script>
+  </body>
+</html>
