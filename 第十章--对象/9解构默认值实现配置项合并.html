@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9解构默认值实现配置项合并</title>
+  </head>
+  <body>
+    <script>
+      console.log('=======数组解构且给默认值======')
+      let arr = ['ava', 'hdr', 'rst']
+      let [a, b, c = 'hdms'] = arr
+      /*c = 'hdms' 表示数组的第三项要是没有那就设置为hdms*/
+      console.log(a, b, c)
+      console.log('=======对象解构且给默认值======')
+      let user = { name: 'ava', age: 18 }
+      const { age, name, title = 'hdscm' } = user
+      console.log(age, name, title)
+      function createElement(options = {}) {
+        let { width = 200, height = 600, backgroundColor = '#20201b' } = options
+        const mydiv = document.createElement('div')
+        mydiv.style.width = width + 'px'
+        mydiv.style.height = height + 'px'
+        mydiv.style.backgroundColor = backgroundColor
+        document.body.appendChild(mydiv)
+      }
+      createElement({ width: 400 })
+    </script>
+  </body>
+</html>
