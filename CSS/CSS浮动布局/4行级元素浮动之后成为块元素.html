@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4行级元素浮动之后成为块元素</title>
+    <style>
+      main {
+        border: 3px solid black;
+        height: 220px;
+        width: 620px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      span {
+        border: solid 3px red;
+        width: 300px;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div>span 加了 float: left; 就变成了块元素 可以有width属性了</div>
+    <main>
+      <span>ava</span>
+      <span>Ruan</span>
+    </main>
+  </body>
+</html>
