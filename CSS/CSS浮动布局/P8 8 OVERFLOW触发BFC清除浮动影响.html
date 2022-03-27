@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7清除浮动影响的方法2:使用After伪元素</title>
+    <title>P8 8 OVERFLOW触发BFC清除浮动影响</title>
     <style>
       main {
         border: 3px solid black;
         width: 620px;
         margin: 0 auto;
         padding: 20px;
-      }
-      main::after {
-        content: '';
-        clear: both;
-        display: block;
+        overflow: hidden; /* OVERFLOW触发BFC清除浮动影响 ,让父级元素在计算高度的时候，把浮动元素的高度算进去 */
       }
       div {
         width: 300px;
@@ -38,7 +34,10 @@
         main 这条线没有高度
         是因为float之后这个元素缺失了，不占空间了，父级元素没有办法感知到它的高度
       </div>
-      <div>使用After伪元素 和前面的给他加上空元素的方法是一样的</div>
+      <div>
+        OVERFLOW触发BFC清除浮动影响
+        ,让父级元素在计算高度的时候，把浮动元素的高度算进去
+      </div>
     </main>
   </body>
 </html>
