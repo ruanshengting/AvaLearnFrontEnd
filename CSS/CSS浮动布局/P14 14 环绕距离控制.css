@@ -1,4 +1,15 @@
 p {
   padding: 30px;
   border: 2px dashed #333;
+  overflow: hidden;
+}
+p span.shape {
+  border: 2px dashed #5ec2c1;
+  padding: 30px;
+  margin: 50px;
+  width: 100px;
+  height: 100px;
+  float: left;
+  shape-outside: border-box;
+  /*父元素的内容会围绕着边框*/
 }
