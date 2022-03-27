@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2文档流与浮动空间丢失</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+      }
+      div:nth-of-type(1) {
+        border: solid 1px red;
+        float: left;
+      }
+      div:nth-of-type(2) {
+        background-color: blueviolet;
+        float: left;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div>
+      浮动是对后面元素的影响，浮动的那个元素相当于消失了（？！）。两个元素都浮动，它们就都有联系。
+    </div>
+    <div></div>
+  </body>
 </html>

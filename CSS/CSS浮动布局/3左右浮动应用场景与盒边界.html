@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3左右浮动应用场景与盒边界</title>
+    <style>
+      main {
+        border: 3px solid black;
+        height: 220px;
+        width: 620px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      div {
+        width: 300px;
+        height: 200px;
+        box-sizing: border-box;
+      }
+      div:nth-of-type(1) {
+        border: solid 3px red;
+        float: left;
+      }
+      div:nth-of-type(2) {
+        background-color: blueviolet;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        main 这条线没有高度
+        是因为float之后这个元素缺失了，不占空间了，父级元素没有办法感知到它的高度
+      </div>
+      <div></div>
+    </main>
+  </body>
+</html>
