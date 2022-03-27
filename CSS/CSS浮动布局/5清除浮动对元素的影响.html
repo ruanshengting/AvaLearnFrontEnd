@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5清除浮动对元素的影响</title>
+    <style>
+      main {
+        border: 3px solid black;
+        height: 220px;
+        width: 620px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      div {
+        width: 300px;
+        height: 200px;
+        box-sizing: border-box;
+      }
+      div.red {
+        border: 1px solid red;
+        float: left;
+      }
+      div.green {
+        border: 1px solid green;
+        float: right;
+      }
+      div.blue {
+        background-color: blue;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="red"></div>
+      <div class="green">
+        main 这条线没有高度
+        是因为float之后这个元素缺失了，不占空间了，父级元素没有办法感知到它的高度
+      </div>
+      <div class="blue">clear: both; 是用来清除前面浮动元素对它的影响</div>
+    </main>
+  </body>
+</html>
