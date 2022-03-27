@@ -1,0 +1,64 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  background-color: #39aecd;
+}
+header {
+  background-color: #9beb99;
+  box-shadow: 0 5px 5px #4c754b;
+  border-bottom: #5ec2c1 1px solid;
+}
+header nav {
+  padding: 30px 10px;
+  width: 1200px;
+  margin: 0 auto;
+}
+header nav ul {
+  float: left;
+}
+header nav ul li a {
+  color: #555;
+}
+header nav div.button {
+  float: right;
+  background-color: #9f3a60;
+}
+main {
+  background-color: #7778bd;
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  overflow: hidden;
+}
+main article {
+  background-color: #956e5d;
+  height: 300px;
+  float: left;
+  width: 900px;
+  border: 9px solid #333;
+  box-sizing: border-box;
+}
+main aside {
+  width: 280px;
+  height: 300px;
+  float: right;
+  background-color: #7752a8;
+  border: 9px solid #333;
+  box-sizing: border-box;
+  /* 不会因为border的尺寸而导致宽度的增加 */
+}
+footer {
+  background-color: #ffe7d4;
+  margin-top: 20px;
+  padding: 30px 10px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+footer div {
+  font-size: 15px;
+  margin: 0 auto;
+  text-align: center;
+}
