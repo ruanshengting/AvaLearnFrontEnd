@@ -12,16 +12,63 @@
         overflow: hidden;
       }
       p span.shape {
-        border: 2px dashed #5ec2c1;
+        background-color: #9beb99;
         padding: 30px;
-        margin: 50px;
+        margin: 8px;
         width: 100px;
         height: 100px;
         float: left;
-        shape-outside: border-box;
-        /*父元素的内容会围绕着边框*/
+        clip-path: polygon(0 50%, 100% 100%, 50% 0);
+        /* clip-path: circle(30%); ----30%的圆
+            clip-path: circle();   ----画圆
+        clip-path: circle(50% at 100% 0);  ---圆心移动到x是100% y是0
+        clip-path: ellipse(30% 20%);-----椭圆
+        clip-path: polygon(0 50%, 100% 100%, 50% 0)
+         ---三角形（（x,y）,(x,y）,(x,y））
+        */
+        shape-outside: polygon(
+          0 50%,
+          100% 100%,
+          50% 0
+        ); /* clip-path 和  shape-outside 一样的话就会有文字沿着这个边缘环绕的效果*/
+      }
+      div{
+        padding: 30px;
+        border: 2px dashed #333;
+        overflow: hidden;
+      }
+      div img{
+            width: 100px;
+            height: 100px;
+            shape-outside: url(Desktop.jpeg);
       }
     </style>
   </head>
-  <body></body>
+  <body>
+    <p>
+      <span class="shape"></span>
+      Never waste Hours on finding the perfect Color Palette again! JUST ENTER A
+      COLOR! And Generate nice Color Palettes Never waste Hours on finding the
+      perfect Color Palette again! JUST ENTER A COLOR! And Generate nice Color
+      Palettes Never waste Hours on finding the perfect Color Palette again!
+      JUST ENTER A COLOR! And Generate nice Color Palettes Never waste Hours on
+      finding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
+      nice Color Palettes Never waste Hours on finding the perfect Color Palette
+      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+      Generate nice Color Palettes
+    </p>
+    <div>
+      <img src="Desktop.jpeg"></img>
+      Never waste Hours on finding the perfect Color Palette again! JUST ENTER Afinding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
+      nice Color Palettes Never waste Hours on finding the perfect Color Palette
+      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+      Generate nice Color Palettesfinding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
+      nice Color Palettes Never waste Hours on finding the perfect Color Palette
+      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+      Generate nice Color Palettes
+    </div>
+  </body>
 </html>
