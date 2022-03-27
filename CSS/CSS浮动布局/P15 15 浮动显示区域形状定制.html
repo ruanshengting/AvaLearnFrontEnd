@@ -1,74 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>P15 15 浮动显示区域形状定制</title>
-    <style>
-      p {
-        padding: 30px;
-        border: 2px dashed #333;
-        overflow: hidden;
-      }
-      p span.shape {
-        background-color: #9beb99;
-        padding: 30px;
-        margin: 8px;
-        width: 100px;
-        height: 100px;
-        float: left;
-        clip-path: polygon(0 50%, 100% 100%, 50% 0);
-        /* clip-path: circle(30%); ----30%的圆
+
+<head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>P15 15 浮动显示区域形状定制</title>
+      <style>
+            p {
+                  padding: 30px;
+                  border: 2px dashed #333;
+                  overflow: hidden;
+            }
+
+            p span.shape {
+                  background-color: #9beb99;
+                  padding: 30px;
+                  margin: 8px;
+                  width: 100px;
+                  height: 100px;
+                  float: left;
+                  clip-path: polygon(0 50%, 100% 100%, 50% 0);
+                  /* clip-path: circle(30%); ----30%的圆
             clip-path: circle();   ----画圆
         clip-path: circle(50% at 100% 0);  ---圆心移动到x是100% y是0
         clip-path: ellipse(30% 20%);-----椭圆
         clip-path: polygon(0 50%, 100% 100%, 50% 0)
          ---三角形（（x,y）,(x,y）,(x,y））
         */
-        shape-outside: polygon(
-          0 50%,
-          100% 100%,
-          50% 0
-        ); /* clip-path 和  shape-outside 一样的话就会有文字沿着这个边缘环绕的效果*/
-      }
-      div{
-        padding: 30px;
-        border: 2px dashed #333;
-        overflow: hidden;
-      }
-      div img{
-            width: 100px;
-            height: 100px;
-            shape-outside: url(Desktop.jpeg);
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      <span class="shape"></span>
-      Never waste Hours on finding the perfect Color Palette again! JUST ENTER A
-      COLOR! And Generate nice Color Palettes Never waste Hours on finding the
-      perfect Color Palette again! JUST ENTER A COLOR! And Generate nice Color
-      Palettes Never waste Hours on finding the perfect Color Palette again!
-      JUST ENTER A COLOR! And Generate nice Color Palettes Never waste Hours on
-      finding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
-      nice Color Palettes Never waste Hours on finding the perfect Color Palette
-      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
-      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
-      Generate nice Color Palettes
-    </p>
-    <div>
-      <img src="Desktop.jpeg"></img>
-      Never waste Hours on finding the perfect Color Palette again! JUST ENTER Afinding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
-      nice Color Palettes Never waste Hours on finding the perfect Color Palette
-      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
-      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
-      Generate nice Color Palettesfinding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
-      nice Color Palettes Never waste Hours on finding the perfect Color Palette
-      again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
-      Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
-      Generate nice Color Palettes
-    </div>
-  </body>
+                  shape-outside: polygon(0 50%,
+                              100% 100%,
+                              50% 0);
+                  /* clip-path 和  shape-outside 一样的话就会有文字沿着这个边缘环绕的效果*/
+            }
+
+            div {
+                  padding: 30px;
+                  border: 2px dashed #333;
+                  overflow: hidden;
+            }
+
+            div img {
+                  width: 106px;
+                  height: 77px;
+                  float: left;
+                  shape-outside: url(Desktop.jpeg);
+                  /*shape-outside: url(Desktop.jpeg); 实现文字环绕这个url图片*/
+            }
+      </style>
+</head>
+
+<body>
+      <p>
+            <span class="shape"></span>
+            Never waste Hours on finding the perfect Color Palette again! JUST ENTER A
+            COLOR! And Generate nice Color Palettes Never waste Hours on finding the
+            perfect Color Palette again! JUST ENTER A COLOR! And Generate nice Color
+            Palettes Never waste Hours on finding the perfect Color Palette again!
+            JUST ENTER A COLOR! And Generate nice Color Palettes Never waste Hours on
+            finding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
+            nice Color Palettes Never waste Hours on finding the perfect Color Palette
+            again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+            Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+            Generate nice Color Palettes
+      </p>
+      <div>
+            <img src="Desktop.jpeg"></img>
+            Never waste Hours on finding the perfect Color Palette again! JUST ENTER Afinding the perfect Color Palette
+            again! JUST ENTER A COLOR! And Generate
+            nice Color Palettes Never waste Hours on finding the perfect Color Palette
+            again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+            Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+            Generate nice Color Palettesfinding the perfect Color Palette again! JUST ENTER A COLOR! And Generate
+            nice Color Palettes Never waste Hours on finding the perfect Color Palette
+            again! JUST ENTER A COLOR! And Generate nice Color Palettes Never waste
+            Hours on finding the perfect Color Palette again! JUST ENTER A COLOR! And
+            Generate nice Color Palettes
+      </div>
+</body>
+
 </html>
