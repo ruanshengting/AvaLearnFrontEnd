@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P4 4 通过定位设置尺寸</title>
+    <style>
+      article {
+        position: fixed;
+        width: 700px;
+        height: 700px;
+        border: solid 2px #4c96cf;
+      }
+      div {
+        position: absolute;
+        background-color: #4c96cf;
+        top: 50px;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+      }
+      /*如果没有*/
+    </style>
+  </head>
+  <body>
+    <article>
+      <div>
+        如果 position: absolute;
+        的元素没有设置宽高，那么这个元素的top,left属性设置的就是它的边框的位置，如果已经设置了宽高，那么就调整的是它的位置
+      </div>
+    </article>
+  </body>
+</html>

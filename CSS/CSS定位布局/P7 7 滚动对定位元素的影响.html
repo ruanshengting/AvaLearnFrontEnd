@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P7 7 滚动对定位元素的影响</title>
+    <style>
+      article {
+        position: fixed;
+        width: 700px;
+        height: 700px;
+        border: solid 2px #4c96cf;
+        overflow: scroll;
+      }
+      section {
+        height: 3000px;
+        background-color: yellowgreen;
+      }
+      div {
+        position: absolute;
+        background-color: #4c96cf;
+        top: 50px;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <section>
+        <div>这个div会随着滚动条 往上走，不会被固定</div>
+      </section>
+    </article>
+  </body>
+</html>
