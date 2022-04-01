@@ -521,21 +521,23 @@
           `.sbd_radio_group_${currentCount}`,
         )*/
         const currentRadio = document.getElementsByClassName(
-          `.sbd_radio_group_${currentCount}`,
-        )
-        currentRadio.checked = true
-        console.log('currentRadio', currentRadio)
+          `sbd_radio_group_${currentCount}`,
+        ) /*不要在类名之前加.*/
+        console.log('currentRadio1111', currentRadio)
+        Array.from(currentRadio)[0].checked = true
+        console.log('currentRadio', Array.from(currentRadio)[0])
       }
       /*========设置定时器========*/
       function closureTimer(millisecond) {
         let count = 1
+        console.log('🚀 setInterval ~ count', count)
         // eslint-disable-next-line @lwc/lwc/no-async-operation
         var timer = setInterval(() => {
           const currentRadio = document.getElementsByClassName(
-            `.sbd_radio_group_${count}`,
+            `sbd_radio_group_${count}`,
           )
-          currentRadio.checked = true
-          console.log('currentRadio', currentRadio)
+          Array.from(currentRadio)[0].checked = true
+          console.log('currentRadio', Array.from(currentRadio)[0])
           count++
           if (count > 4) {
             count = 1
@@ -544,6 +546,7 @@
         }, millisecond)
       }
       closureTimer(SBD_INTERVAL_TIME_LABEL)
+      /*HTMLCollection是个类数组 要转成 dom ,才能操作*/
     </script>
   </body>
 </html>

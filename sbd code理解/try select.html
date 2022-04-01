@@ -1,0 +1,47 @@
+<!-- appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none; -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #ffbd1e;
+      }
+      select {
+        font-family: '微软雅黑';
+        margin: 100px;
+        background: rgba(0, 0, 0, 0);
+        width: 249px;
+        height: 40px;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+        border: 1px #1a1a1a solid;
+        border-radius: 5px;
+      }
+      option {
+        color: black;
+        background: #a6e1ec;
+        line-height: 20px;
+      }
+      select:focus {
+        border: 2px #ddd solid;
+        box-shadow: 0 0 15px 1px #dddddd;
+      }
+      option:hover {
+        background: #ebccd1;
+      }
+    </style>
+  </head>
+  <body>
+    <select>
+      <option><span>All tickets</span></option>
+      <option><span>All Open tickets</span></option>
+    </select>
+  </body>
+</html>
