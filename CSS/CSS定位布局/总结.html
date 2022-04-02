@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>总结</title>
+    <style>
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      position:static --默认值，可不设置，从左到右，从上到下
+    </div>
+    <div>
+      position:relative
+      -----通过top,left,right来设置元素的偏移量，但是它原本的空间还在的，其他元素不会挤占它原本的空间
+    </div>
+    <div>
+      position:absolute（设置弹出层，叠加）
+      ---会把元素挤出正常的文档流，后面的元素会挤占它的空间。它自己会出现在挤占它的元素的上方。它的top/left是根据包含它的元素来偏移的。什么是包含元素：如果这个元素的所有父级元素都没有设置position/transform/perspective属性，那么包含元素就是窗口。否则他的包含元素就是设置了/transform/perspective属性的元素以及position不是static的最近的元素。它的偏移是相对于包含元素的padding进行偏移的
+    </div>
+
+    <div class="nav">
+      <div>position: sticky;</div>
+      ----------在距离浏览器窗口的一定位置时，把他变成固定在这个位置,其他的情况下还在正常的文档流
+    </div>
+    <div class="footer">
+      position:fixed --------它的包含元素是浏览器窗口。元素不会随着scroll
+      bar进行改变 footer { position: fixed; bottom: 0; left: 0; right: 0; }
+    </div>
+  </body>
+</html>
