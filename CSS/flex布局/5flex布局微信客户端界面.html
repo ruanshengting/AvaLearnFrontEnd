@@ -4,33 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4传统方式布局微信客户端界面</title>
+    <title>flex布局微信客户端界面</title>
     <style>
       * {
         padding: 0;
         margin: 0;
       }
-      main {
+      /*      head {
+        display: block;
+        height: 30px;
+        outline: solid 2px #ddd;
+      }*/
+      body {
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
         border-radius: 0px;
-        background: #896991;
-        box-shadow: 20px 20px 39px #5a4560, -20px -20px 39px #b88dc2;
+        background: #399d92;
+        box-shadow: 20px 20px 39px #266860, -20px -20px 39px #4cd2c4;
       }
       footer {
-        position: fixed;
-        bottom: 0;
-        height: 50px;
-        width: 100vw;
+        display: flex;
+        height: 60px;
         border-radius: 0px;
         background: #8b399d;
+        justify-content: space-evenly;
         box-shadow: 20px 20px 39px #5c2668, -20px -20px 39px #ba4cd2;
-        border-top: 1px solid #ba4cd2;
       }
       footer div {
-        float: left;
-        width: 32%;
-        height: 100%;
+        flex: 1;
         text-align: center;
+        line-height: 4rem;
       }
       footer div:nth-child(n + 1) {
         border-left: blue 2px solid;
@@ -38,11 +45,12 @@
     </style>
   </head>
   <body>
-    <main></main>
+    <main>123</main>
     <footer>
       <div>1</div>
       <div>2</div>
       <div>3</div>
+      <div>4</div>
     </footer>
   </body>
 </html>
