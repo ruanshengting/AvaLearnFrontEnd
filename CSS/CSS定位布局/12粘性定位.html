@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12粘性定位</title>
+    <style>
+      article {
+        width: 400px;
+        height: 200px;
+        border: solid 5px blanchedalmond;
+        overflow: scroll;
+      }
+      article section {
+        padding-bottom: 30px;
+      }
+      article section:nth-of-type(even) h2 {
+        background-color: whitesmoke;
+        color: blue;
+      }
+      article section h2 {
+        background-color: blanchedalmond;
+        color: blue;
+        position: sticky;
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <section>
+          <h2>h2 hhhh</h2>
+          <p>
+            实现功能：让h2滑动到顶部的时候，能够把h2固定于顶部。实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘。实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘。实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘。实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘实现功能：让h2滑动到边缘的时候，能够把h2固定在边缘
+          </p>
+        </section>
+        <section>
+          <h2>h2 hhhh</h2>
+          <p>fdghjktrewqertgf</p>
+        </section>
+        <section>
+          <h2>h2 hhhh</h2>
+          <p>fdghjktrewqertgf</p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
