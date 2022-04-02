@@ -5,6 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10京东商城购物车部件</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding-left: 200px;
+        padding-top: 200px;
+      }
+      article {
+        width: 150px;
+        position: relative;
+      }
+      article div {
+        height: 50px;
+        border: 1px solid #ddd;
+        text-align: center;
+        line-height: 3rem;
+      }
+      article div:nth-of-type(2) {
+        width: 300px;
+        position: absolute;
+        right: 0; /*右边对齐*/
+        display: none;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <article>
+      <div>我的购物车</div>
+      <div>购物车暂时嘛没有商品</div>
+    </article>
+  </body>
 </html>
