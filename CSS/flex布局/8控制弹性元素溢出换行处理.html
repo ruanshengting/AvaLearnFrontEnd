@@ -10,19 +10,31 @@
         padding: 0;
         margin: 0;
       }
-      footer {
+      body {
+        padding-left: 50px;
+        padding-top: 15px;
+      }
+      article {
+        border: burlywood 1px solid;
+        width: 500px;
         display: flex;
-        background: #333;
-        height: 400px;
+        flex-direction: column;
+      }
+      article * {
+        width: 100px;
+        margin: 10px;
+        height: 100px;
+        font-size: 26px;
+        border-radius: 0px;
+        background: #61bdb2;
       }
     </style>
   </head>
   <body>
-    <footer>
+    <article>
       <div>1</div>
       <div>2</div>
       <div>3</div>
-      <div>4</div>
-    </footer>
+    </article>
   </body>
 </html>
