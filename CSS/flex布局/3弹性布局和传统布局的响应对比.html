@@ -5,6 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3弹性布局和传统布局的响应对比</title>
+    <style>
+      /*传统布局
+          * {
+        padding: 0;
+        margin: 0;
+      }
+      main {
+        position: relative;
+        height: 100vh;
+      }
+      main nav {
+        width: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 12px;
+        background: #4d896a;
+        box-shadow: 20px 20px 39px #335a46, -20px -20px 39px #67b88e;
+      }
+      main article {
+        padding-left: 90px;
+        background-clip: content-box; //*这样的话背景就从内容开始了
+        border-radius: 12px;
+        background: #8bb6a0;
+        box-shadow: 20px 20px 39px #5c786a, -20px -20px 39px #baf4d6;
+        height: 100vh;
+      }
+
+          */
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+      }
+      main nav {
+        width: 80px;
+        border-radius: 0px;
+        background: #896991;
+        box-shadow: 20px 20px 39px #5a4560, -20px -20px 39px #b88dc2;
+      }
+      main article {
+        flex: 1;
+        border-radius: 0px;
+        background: #847288;
+        box-shadow: 20px 20px 39px #574b5a, -20px -20px 39px #b199b6;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <nav>111</nav>
+      <article>使用flex就不用像传统的一样进行计算了</article>
+    </main>
+  </body>
 </html>
