@@ -17,6 +17,7 @@
       article {
         width: 150px;
         position: relative;
+        cursor: pointer;
       }
       article div {
         height: 50px;
@@ -24,10 +25,25 @@
         text-align: center;
         line-height: 3rem;
       }
+      article div:nth-of-type(1) {
+        background-color: #fff; /*把两个div之间的线给去掉*/
+
+        position: relative;
+        z-index: 2; /*改变层级也需要position定位*/
+      }
+      article:hover div:nth-of-type(1) {
+        border-bottom: none;
+        border-color: red;
+      }
+      article:hover div:nth-of-type(2) {
+        display: block;
+        border-color: red;
+      }
       article div:nth-of-type(2) {
         width: 300px;
         position: absolute;
         right: 0; /*右边对齐*/
+        top: 50px;
         display: none;
       }
     </style>
