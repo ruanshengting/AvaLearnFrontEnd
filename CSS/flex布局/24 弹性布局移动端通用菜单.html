@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24 弹性布局移动端通用菜单</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
+        background-color: #ddd;
+      }
+      footer {
+        height: 150px;
+        background-color: #ffe5ff;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #8c0074;
+      }
+      footer section {
+        flex: 1;
+        border-right: 1px solid #8c0074;
+      }
+      footer section:last-child {
+        border-right: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main></main>
+    <footer>
+      <section></section>
+      <section></section>
+      <section></section>
+    </footer>
+  </body>
+</html>
