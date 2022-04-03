@@ -11,14 +11,22 @@
         margin: 0;
       }
       body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       header {
         height: 60px;
         background-color: #5ec2b6;
       }
       main {
-        height: 100px;
+        flex-grow: 1; /*main部分占据剩余的空间*/
         background-color: #cbf280;
+      }
+      footer {
+        height: 60px;
+        background-color: #f9f871;
       }
     </style>
   </head>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17 元素动态缩小的处理技巧</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding-left: 50px;
+        padding-top: 15px;
+      }
+      article {
+        border: burlywood 1px solid;
+        width: 400px;
+        height: 96px;
+        display: flex;
+        padding: 10px;
+      }
+      /*200*3-400=200，就是说有200的空间要进行缩小
+      *
+      *
+      */
+      article div:nth-of-type(1) {
+        flex-shrink: 0; /*原来是多大就多大*/
+      }
+      article div:nth-of-type(2) {
+        flex-shrink: 1;
+      }
+      article div:nth-of-type(3) {
+        flex-shrink: 2;
+      }
+      /**
+      优先级：min-width(max-width)>flex-basis>width
+      *
+      */
+      article div {
+        flex-basis: 100px; /*优先级比width大，如果遇到缩放，以flex-basis为基准*/
+        width: 200px;
+        height: 82px;
+        font-size: 26px;
+        border-radius: 0px;
+        border: 1px solid #5e82c2;
+        background: #61bdb2;
+        padding: 10px;
+        background-clip: content-box;
+        box-sizing: border-box;
+        /*组合定义*/
+        flex: 1 2 100px;
+        /*
+        *相当于flex-grow: 1;
+        *flex-shrink: 2;
+        *flex-basis: 100px;
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </article>
+  </body>
+</html>
