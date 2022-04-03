@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13 多行元素在交叉轴的排列方式</title>
+    <title>15 元素可用空间分配</title>
     <style>
       * {
         padding: 0;
@@ -16,35 +16,34 @@
       }
       article {
         border: burlywood 1px solid;
-        width: 338px;
+        width: 598px;
         display: flex;
         flex-direction: row;
-        /* justify-content: center; */
-        height: 280px;
-        /* align-items: stretch; */
-        flex-wrap: wrap;
-        align-content: space-evenly; /*多行元素在交叉轴的排列方式*/
+      }
+      article div:nth-of-type(1) {
+        flex-grow: 0; /*原来是多大就多大*/
+      }
+      article div:nth-of-type(2) {
+        flex-grow: 1; /*占1等分*/
+      }
+      article div:nth-of-type(3) {
+        flex-grow: 3; /*占3等分*/
       }
       article * {
         width: 82px;
         height: 82px;
         font-size: 26px;
         border-radius: 0px;
+        border: 1px solid #5e82c2;
         background: #61bdb2;
         padding: 10px;
         background-clip: content-box;
         box-sizing: border-box;
       }
-      article :first-child {
-        align-self: center; /*单个弹性元素在交叉轴上的排列*/
-      }
     </style>
   </head>
   <body>
     <article>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
       <div>1</div>
       <div>2</div>
       <div>3</div>
