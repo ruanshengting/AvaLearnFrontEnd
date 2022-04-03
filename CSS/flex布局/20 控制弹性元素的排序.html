@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20 控制弹性元素的排序</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding-left: 3px;
+        padding-top: 20px;
+      }
+      article {
+        border: #4d80c5 1px solid;
+        width: 400px;
+        height: 500px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      article section {
+        background-color: #cbf280;
+        flex: 1 0 100px;
+        background-clip: content-box;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      article section span {
+        background-color: #933f7e;
+        padding: 10px;
+        cursor: pointer;
+      }
+      article section div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <section>
+        <div>Sec1:12345</div>
+        <span onclick="up(this)">up</span>
+      </section>
+      <section>
+        <div>Sec2:12345</div>
+        <span onclick="up(this)">up</span>
+      </section>
+      <section>
+        <div>Sec3:12345</div>
+        <span onclick="up(this)">up</span>
+      </section>
+    </article>
+    <script>
+      function up(el) {
+        const order = getComputedStyle(el.parentElement, null).order
+
+        el.parentElement.style.order = order * 1 - 1
+        console.log(getComputedStyle(el.parentElement, null).order)
+      }
+    </script>
+  </body>
+</html>
