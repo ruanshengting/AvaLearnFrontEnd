@@ -5,7 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>缩放菜单案例</title>
-    <style></style>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      main {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      ul {
+        display: flex;
+        list-style: none;
+      }
+      ul li {
+        margin-right: 10px;
+      }
+      ul li strong {
+        padding: 5px 30px;
+
+        background-color: #a9b07e;
+      }
+      ul li strong + div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #c3c5dd;
+        padding: 10px;
+        transform: scale(0);
+        transition: 0.6s;
+        z-index: -1;
+        transform-origin: left top; /*从哪个点开始缩放*/
+      }
+      ul li strong + div a {
+        color: white;
+        text-decoration: none;
+      }
+      ul li:hover strong + div {
+        transform: scale(1);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <ul>
+        <li>
+          <strong>video</strong>
+          <div>
+            <a href="#abc">HTTP</a>
+            <a href="#efg">PHP</a>
+          </div>
+        </li>
+        <li>
+          <strong>LIVE</strong>
+          <div>
+            <a href="#abc">Windows</a>
+            <a href="#efg">CSS</a>
+          </div>
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>
