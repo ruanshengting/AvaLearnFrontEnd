@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19参数叠加与顺序对变形结果的影响</title>
+    <title>21倾斜语法介绍</title>
     <style>
       * {
         padding: 0;
@@ -20,7 +20,6 @@
         margin-left: -200px;
         margin-top: -200px;
         top: 50%;
-        transform-style: preserve-3d;
       }
       div {
         position: absolute;
@@ -31,28 +30,24 @@
         margin-left: -100px;
         margin-top: -100px;
         top: 50%;
-        transition: 1s;
-        transform: rotateY(45deg) rotateX(45deg);
-        /*transform: rotateY(45deg) rotateX(45deg); 和transform:rotateX(45deg) rotateY(45deg)效果不一样 ;*/
-        font-size: 15px;
       }
       div:nth-child(1) {
         background-color: #00c2d8;
         transition: 1s;
       }
-      main:hover div {
-        font-size: 5px;
-        transform: perspective(900px) translate(100%, 100%) rotateX(95deg); /*rotate3d(1, 1, 0, 95deg); 沿着对角线反转*/
+      div:nth-child(2) {
+        background-color: #93ef8d;
+        transition: 1s;
+      }
+      main:hover div:nth-child(2) {
+        transform: skew(-45deg, 45deg);
       }
     </style>
   </head>
   <body>
     <main>
-      <div>
-        div里的transform: translate(100%, 100%);
-        和他的hover类不会相互叠加，就好比div里的font-size，会被后来的hover里面有得font-size
-        给覆盖
-      </div>
+      <div></div>
+      <div></div>
     </main>
   </body>
 </html>

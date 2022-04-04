@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20网站动态logo制作</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #123636;
+      }
+      main div {
+        color: white;
+        cursor: pointer;
+        font-size: 2em;
+      }
+      main > div > strong {
+        display: inline-block;
+        transition: 1s;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        background-color: #324b4b;
+      }
+      main div:hover > strong:nth-of-type(1) {
+        transform: rotate(360deg);
+        background-color: #c75314;
+      }
+      main div:hover > strong:nth-of-type(2) {
+        transform: rotate(-360deg);
+        background-color: #c75314;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <strong>A</strong>
+        va
+        <strong>R</strong>
+        uan
+      </div>
+    </main>
+  </body>
+</html>
