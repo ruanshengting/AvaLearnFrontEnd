@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22使用skew制作按钮</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #123636;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+      main {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main a {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+        border: solid 5px #c75314;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn::after {
+        content: '';
+        width: 0px;
+        height: 100%;
+        position: absolute;
+        transform: skew(45deg);
+        background-color: #c75314;
+        z-index: -1;
+        transition: 0.5s;
+      }
+      .btn:hover::after {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="" class="btn">Ava</a>
+    </main>
+  </body>
+</html>
