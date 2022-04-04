@@ -17,12 +17,22 @@
         display: flex;
         flex-direction: column;
       }
+      body::after {
+        content: 'Ava Ruan';
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        font-size: 5em;
+        opacity: 0.3;
+      }
       main {
         flex: 1;
         position: relative;
         /* position: relative;可以使得里面的div是根据它作为定位 */
       }
       main > div {
+        z-index: 1;
         position: absolute;
         left: 0;
         top: 0;
