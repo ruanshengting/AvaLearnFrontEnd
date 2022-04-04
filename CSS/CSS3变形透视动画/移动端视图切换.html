@@ -19,6 +19,25 @@
       }
       main {
         flex: 1;
+        position: relative;
+        /* position: relative;可以使得里面的div是根据它作为定位 */
+      }
+      main > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #8d8fa6;
+      }
+      main > div:nth-child(1):target {
+        background-color: #a83900;
+      }
+      main > div:nth-child(2):target {
+        background-color: #00c598;
+      }
+      main > div:nth-child(3):target {
+        background-color: #b08876;
       }
       nav {
         height: 8vh;
@@ -43,11 +62,15 @@
     </style>
   </head>
   <body>
-    <main></main>
+    <main>
+      <div id="home"></div>
+      <div id="video"></div>
+      <div id="my"></div>
+    </main>
     <nav>
-      <a>home</a>
-      <a>video</a>
-      <a>My</a>
+      <a href="#home">home</a>
+      <a href="#video">video</a>
+      <a href="#my">My</a>
     </nav>
   </body>
 </html>
