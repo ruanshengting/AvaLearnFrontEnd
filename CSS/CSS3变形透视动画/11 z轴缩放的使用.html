@@ -22,6 +22,7 @@
         top: 50%;
         transform: perspective(903px) rotateY(45deg);
         transform-style: preserve-3d;
+        transition: 2s;
       }
       div {
         position: absolute;
@@ -53,6 +54,9 @@
       body {
         width: 100vw;
         height: 100vh;
+      }
+      body:hover main {
+        transform: perspective(900px) rotateY(45deg) scaleZ(3);
       }
     </style>
   </head>

@@ -8,6 +8,7 @@
   <body>
     <input type="text" name="txt" value="" id="aaa" />
     <input type="submit" onclick="getLabel()" value="提交LABEL" />
+    <input type="submit" onclick="getlabelName()" value="获取label名字" />
     <script type="text/javascript">
       var labelArr = []
       function getLabel() {
@@ -51,6 +52,10 @@
           }
         })
         console.log('🚀 ~ getConst:', getConst.toString())
+      }
+      function getlabelName() {
+        const myvalue = document.getElementById('aaa').value
+        console.log('SBD_' + myvalue.toUpperCase().replaceAll(' ', '_'))
       }
     </script>
   </body>
