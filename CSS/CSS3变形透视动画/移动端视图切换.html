@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>移动端视图切换</title>
+
     <style>
       * {
         padding: 0;
@@ -29,15 +30,24 @@
         width: 100%;
         height: 100%;
         background-color: #8d8fa6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100%);
+        transition: 1s;
       }
       main > div:nth-child(1):target {
-        background-color: #a83900;
+        background-color: #d699c4;
       }
       main > div:nth-child(2):target {
         background-color: #00c598;
       }
       main > div:nth-child(3):target {
         background-color: #b08876;
+      }
+      main > div:target {
+        transform: translateY(0px);
       }
       nav {
         height: 8vh;
@@ -59,13 +69,25 @@
         border-right: solid 1px silver;
         border-left: solid 1px silver;
       }
+      i[class*='fa'] {
+        font-size: 3em;
+        color: white;
+      }
     </style>
   </head>
   <body>
     <main>
-      <div id="home"></div>
-      <div id="video"></div>
-      <div id="my"></div>
+      <div id="home">
+        <i class="fa fa-home" aria-hidden="true">
+          home,a href里面的"#home"是用来联系到div的id的
+        </i>
+      </div>
+      <div id="video">
+        <i class="fa fa-home" aria-hidden="true">video</i>
+      </div>
+      <div id="my">
+        <i class="fa fa-home" aria-hidden="true">My</i>
+      </div>
     </main>
     <nav>
       <a href="#home">home</a>
