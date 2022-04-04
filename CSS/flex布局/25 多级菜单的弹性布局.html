@@ -5,6 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>25 多级菜单的弹性布局</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      main {
+        flex: 1;
+        background-color: #ddd;
+      }
+      footer {
+        height: 100px;
+        background-color: #ffe5ff;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #8c0074;
+      }
+      footer section {
+        flex: 1;
+        border-right: 1px solid #8c0074;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      footer section:last-child {
+        border-right: none;
+      }
+      footer section h4 {
+        flex: 0 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 0;
+      }
+      ul > li {
+        flex: 1 0 30px;
+        flex: 1 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main></main>
+    <footer>
+      <section>
+        <h4>教程</h4>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </section>
+      <section>
+        <h4>教程</h4>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </section>
+      <section></section>
+    </footer>
+  </body>
 </html>
