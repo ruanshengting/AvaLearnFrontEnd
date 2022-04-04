@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>控制元素居中的多种技巧分析</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      main {
+        position: absolute;
+        width: 400px; /*因为有了上面的box-sizing: border-box; 这里的width,height都还是包括border在内的*/
+        height: 400px;
+        border: 1px solid silver;
+        left: 50%;
+        /*若想要  position: absolute;元素居中，那么要通过 margin-left， margin-top移动它原来宽高的一半*/
+        /* margin-left: -200px;
+        margin-top: -200px;*/
+        transform: translate(-50%, -50%);
+        top: 50%;
+      }
+      div {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 50%;
+        background-color: #f9f871;
+        margin-left: -100px;
+        margin-top: -100px;
+        top: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        transform:
+        translateX(100px);正数是往右移动。百分数是按照原来的尺寸。100%=原本的width
+        注意z轴不可使用%
+      </div>
+    </main>
+  </body>
+</html>
