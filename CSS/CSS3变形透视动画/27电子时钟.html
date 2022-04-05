@@ -125,7 +125,7 @@
       .hour {
         width: 8px;
         background-color: #fff;
-        height: 50%;
+        height: 15%;
         position: absolute;
         left: 50%;
         bottom: 50%;
@@ -138,8 +138,20 @@
         position: absolute;
         left: 50%;
         bottom: 50%;
-        transform: translate(-50%);
+        transform: translate(-50%) rotate(60deg);
+        transform-origin: bottom;
       }
+      .second {
+        width: 1px;
+        background-color: #fff;
+        height: 35%;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform-origin: bottom;
+        transform: translate(-50%) rotate(90deg);
+      }
+      m
     </style>
   </head>
   <body>
@@ -153,6 +165,8 @@
         <div></div>
       </div>
       <div class="hour"></div>
+      <div class="minute"></div>
+      <div class="second"></div>
     </main>
   </body>
 </html>
