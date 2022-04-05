@@ -29,15 +29,28 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        letter-spacing: 0.5em;
         position: relative;
+        transform: skewX(24deg) rotate(10deg);
       }
       .btn::before {
         content: '';
         width: 10px;
         height: 100%;
+        left: -10px;
         background-color: black;
         position: absolute;
-        left: -10px;
+        transform: skewY(-45deg) translate(0, 5px);
+        /*按照y轴倾斜,y轴移动5px*/
+      }
+      .btn::after {
+        content: '';
+        width: 100%;
+        height: 10px;
+        bottom: -10px;
+        background-color: black;
+        position: absolute;
+        transform: skewX(-45deg) translate(-5px, 0);
       }
     </style>
   </head>
