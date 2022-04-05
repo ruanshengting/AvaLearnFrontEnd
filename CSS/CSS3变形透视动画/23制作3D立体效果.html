@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23制作3D立体效果</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #123636;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .btn {
+        color: white;
+        background-color: #c75314;
+        text-decoration: none;
+        width: 200px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .btn::before {
+        content: '';
+        width: 10px;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+        left: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="" class="btn">Ava</a>
+    </main>
+  </body>
+</html>
