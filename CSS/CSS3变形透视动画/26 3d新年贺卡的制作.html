@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26 3d新年贺卡的制作</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #c44a50;
+      }
+      .card {
+        width: 300px;
+        height: 200px;
+        background-color: chocolate;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: #f3eed9;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: perspective(900px) rotateX(45deg) rotateY(25deg);
+      }
+      .card::before,
+      .card::after {
+        width: 50%;
+        height: 100%;
+        background-color: #00c5ff;
+        position: absolute;
+        transition: 1s;
+      }
+      .card::before {
+        content: '新年';
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transform-origin: left;
+      }
+      .card:hover::before {
+        transform: rotateY(-180deg);
+      }
+      .card:hover::after {
+        transform: rotateY(180deg);
+      }
+      .card::after {
+        content: '快乐';
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transform-origin: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">Ava Ruan</div>
+  </body>
+</html>

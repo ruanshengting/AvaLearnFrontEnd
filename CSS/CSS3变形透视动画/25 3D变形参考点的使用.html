@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>24 2D变形参考点的使用</title>
+    <title>25 3D变形参考点的使用</title>
     <style>
       * {
         padding: 0;
@@ -20,6 +20,9 @@
         margin-left: -200px;
         margin-top: -200px;
         top: 50%;
+        transform-style: preserve-3d; /*加了之后才有3d效果*/
+        transform: perspective(900px) rotateY(45deg) rotateX(45deg);
+        /**想要从父盒子往下看 所以把透视加到父盒子**/
       }
       div {
         position: absolute;
@@ -30,7 +33,7 @@
         margin-left: -100px;
         margin-top: -100px;
         top: 50%;
-        transform-origin: left bottom;
+        transform-origin: right top 100px; /*需要把z轴的位置加上*/
         /*
         **要让哪个元素转动 参考点就设置在哪个元素上，不要写在它的伪类里面
         */
@@ -46,8 +49,8 @@
       /*  main:hover div:nth-child(2) {
         transform: translateY(100px);
       }*/
-      main:hover div:nth-child(1) {
-        transform: rotate(45deg);
+      main:hover div:nth-child(2) {
+        transform: rotateY(545deg);
       }
     </style>
   </head>
