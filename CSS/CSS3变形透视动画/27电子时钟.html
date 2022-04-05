@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>27电子时钟</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #798897;
+      }
+      main {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: linear-gradient(
+          to right top,
+          #d16ba5,
+          #c777b9,
+          #ba83ca,
+          #aa8fd8,
+          #9a9ae1,
+          #8aa7ec,
+          #79b3f4,
+          #69bff8,
+          #52cffe,
+          #41dfff,
+          #46eefa,
+          #5ffbf1
+        );
+        position: relative;
+        z-index: -2;
+      }
+      main::after {
+        background-color: #798897;
+        position: absolute;
+        content: '';
+        left: 50%;
+        top: 50%;
+        width: 90%;
+        height: 90%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -1;
+      }
+      .line {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+
+      .line > div {
+        width: 5px;
+        background-color: #fff;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+      }
+      .line ::before {
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+      .line > div:nth-of-type(1) {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      .line > div:nth-of-type(2) {
+        transform: translateX(-50%) rotate(30deg);
+      }
+      .line > div:nth-of-type(3) {
+        transform: translateX(-50%) rotate(60deg);
+      }
+      .line > div:nth-of-type(4) {
+        transform: translateX(-50%) rotate(90deg);
+      }
+      .line > div:nth-of-type(5) {
+        transform: translateX(-50%) rotate(120deg);
+      }
+      .line > div:nth-of-type(6) {
+        transform: translateX(-50%) rotate(150deg);
+      }
+      /*
+        **加上translateX(-50%) 之后这个线就可以居中
+       */
+      .line::before {
+        content: '';
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        background-color: #798897;
+        border-radius: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+      }
+      .line::after {
+        content: '';
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+      }
+      .hour {
+        width: 8px;
+        background-color: #fff;
+        height: 50%;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%);
+      }
+      .minute {
+        width: 5px;
+        background-color: #fff;
+        height: 25%;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="hour"></div>
+    </main>
+  </body>
+</html>
