@@ -130,6 +130,8 @@
         left: 50%;
         bottom: 50%;
         transform: translate(-50%);
+        transform-origin: bottom;
+        transition: 10s;
       }
       .minute {
         width: 5px;
@@ -140,6 +142,7 @@
         bottom: 50%;
         transform: translate(-50%) rotate(60deg);
         transform-origin: bottom;
+        transition: 10s;
       }
       .second {
         width: 1px;
@@ -150,8 +153,17 @@
         bottom: 50%;
         transform-origin: bottom;
         transform: translate(-50%) rotate(90deg);
+        transition: 10s;
       }
-      m
+      body:hover .second {
+        transform: translate(-50%) rotate(300deg);
+      }
+      body:hover .minute {
+        transform: translate(-50%) rotate(200deg);
+      }
+      body:hover .hour {
+        transform: translate(-50%) rotate(100deg);
+      }
     </style>
   </head>
   <body>
