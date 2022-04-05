@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>29 tranform-orgin动态旋转菜单</title>
+    <script
+      src="https://kit.fontawesome.com/88e000428b.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       * {
         padding: 0;
@@ -19,15 +23,14 @@
         background-color: #798897;
       }
       ul {
+        transform: scale(0);
         width: 300px;
         height: 300px;
 
         left: 50%;
         top: 50%;
-        border: 2px solid #ddd;
+        transition: 0.5s;
         position: absolute;
-
-        transform: translate(-50%, -50%);
       }
       li {
         list-style: none;
@@ -44,8 +47,14 @@
         transition: 0.5s;
         transform-origin: 150px 150px;
       }
+      nav li span {
+        transition: 0.5s;
+      }
       ul:hover li:nth-child(1) {
         transform: rotate(40deg);
+      }
+      ul:hover li:nth-child(1) span {
+        transform: rotate(320deg); /*让里面的图标是正的*/
       }
       ul:hover li:nth-child(2) {
         transform: rotate(80deg);
@@ -53,26 +62,50 @@
       ul:hover li:nth-child(3) {
         transform: rotate(120deg);
       }
+      ul:hover li:nth-child(3) span {
+        transform: rotate(-120deg);
+      }
       ul:hover li:nth-child(4) {
         transform: rotate(160deg);
+      }
+      ul:hover li:nth-child(4) span {
+        transform: rotate(-160deg); /*旋转负数的角度也可以*/
       }
       ul:hover li:nth-child(5) {
         transform: rotate(160deg);
       }
+      ul:hover li:nth-child(5) span {
+        transform: rotate(-160deg); /*旋转负数的角度也可以*/
+      }
       ul:hover li:nth-child(6) {
         transform: rotate(200deg);
+      }
+      ul:hover li:nth-child(6) span {
+        transform: rotate(-200deg);
       }
       ul:hover li:nth-child(7) {
         transform: rotate(240deg);
       }
+      ul:hover li:nth-child(7) span {
+        transform: rotate(-240deg); /*360*7-240=2280deg*/
+      }
       ul:hover li:nth-child(8) {
         transform: rotate(280deg);
+      }
+      ul:hover li:nth-child(8) span {
+        transform: rotate(2600deg); /*2600=360*8-280*/
       }
       ul:hover li:nth-child(9) {
         transform: rotate(320deg);
       }
+      ul:hover li:nth-child(9) span {
+        transform: rotate(2560deg); /*使得里面的图标不要倾斜2560=360*8-320*/
+      }
       ul:hover li:nth-child(10) {
         transform: rotate(360deg);
+      }
+      ul:hover li:nth-child(10) span {
+        transform: rotate(3240deg);
       }
       nav {
         width: 200px;
@@ -84,22 +117,55 @@
         justify-content: center;
         align-items: center;
       }
+      nav:hover ul {
+        transform: translate(-50%, -50%);
+      }
     </style>
   </head>
   <body>
     <nav>
       <i>Menu</i>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
+        <li><span class="fa-solid fa-user"></span></li>
+        <li>
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-file-code"></i></span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-file-code"></i></span>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-diagram-project"></i></span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-brands fa-github-square"></i>
+          </span>
+        </li>
+        <li>
+          <span>
+            中文
+          </span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-regular fa-building"></i>
+          </span>
+        </li>
       </ul>
     </nav>
   </body>
