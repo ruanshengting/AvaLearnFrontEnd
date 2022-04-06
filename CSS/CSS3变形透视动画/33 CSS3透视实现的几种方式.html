@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>33 CSS3透视实现的几种方式</title>
     <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
       body {
         width: 100vw;
         height: 100vh;
@@ -14,12 +18,31 @@
         align-items: center;
         background-color: #798897;
       }
+      main {
+        display: flex;
+        perspective: 600px;
+        border: 1px solid red;
+        transform: perspective(400px) rotateY(45deg);
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        margin-right: 20px;
+        background-color: #86e7af;
+        transform: perspective(400px) rotateY(45deg);
+      }
     </style>
   </head>
   <body>
     <main>
-      <div></div>
-      <div></div>
+      <div>
+        perspective:
+        600px;直接放在父元素里面，那么相当于选好一个角度，直接去观察里面的所有元素。
+      </div>
+      <div>
+        如果是在该元素里面直接加 transform: perspective(400px) rotateY(45deg);
+        就是分别观察
+      </div>
     </main>
   </body>
 </html>
