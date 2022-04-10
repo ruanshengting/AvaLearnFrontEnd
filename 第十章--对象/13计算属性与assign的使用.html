@@ -20,5 +20,24 @@
     hd2[`id-${++id}`] = id
     hd2[`id-${++id}`] = id
     console.log(hd2)
+
+    const lesson = [
+      { title: 'ava', category: 'name' },
+      { title: 'Flex', category: 'css' },
+      { title: 'MyObject', category: 'js' },
+    ]
+    console.log('************把lesson数组变成对象************')
+    let res = lesson.reduce((obj, cur, index) => {
+      obj[`${cur.category}--${++index}`] = cur
+      console.log(cur)
+      return obj /*不要忘记return语句*/
+    }, {})
+    console.log(
+      '🚀 ~ file: 13计算属性与assign的使用.html ~ line 35 ~ res ~ res',
+      res,
+    )
+
+    let newAssign = Object.assign({ a: 1 }, { b: 2 })
+    console.log('🚀 ~ Object.assign:把两个对象合并成一个', newAssign)
   </script>
 </html>
