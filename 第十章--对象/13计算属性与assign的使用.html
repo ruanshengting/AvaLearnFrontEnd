@@ -39,5 +39,17 @@
 
     let newAssign = Object.assign({ a: 1 }, { b: 2 })
     console.log('🚀 ~ Object.assign:把两个对象合并成一个', newAssign)
+    function upload(params) {
+      let options = {
+        size: 999,
+      }
+      options = Object.assign(options, params)
+      //options = Object.assign(params, options) /**/
+      console.log(
+        '*******Object.assign中后面的参数优先级比较高，如果有相同的属性，后面的会覆盖前面的********',
+      )
+      console.log('options:', options)
+    }
+    upload({ size: 222, type: 'jpg' })
   </script>
 </html>
