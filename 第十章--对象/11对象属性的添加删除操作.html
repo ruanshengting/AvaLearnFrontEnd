@@ -12,8 +12,13 @@
       hd.name = 'ava'
       hd['age'] = 18 /*这个age写成字符串，不然会被认为是个变量*/
       console.log(hd)
+      /**
       delete hd.name
-      console.log('delete hd.name', hd) /**删除对象的属性**/
+      console.log('delete hd.name', hd)
+      删除对象的属性**/
+      console.log(
+        hd.hasOwnProperty('name'),
+      ) /*hasOwnProperty检查hd本身是否存在该属性，不会去它的原型链上查找*/
     </script>
   </body>
 </html>
