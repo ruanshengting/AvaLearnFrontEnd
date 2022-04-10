@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15对象的浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      console.log('-----------不相互影响的赋值-----------')
+      let hd = { name: 'ava', url: 'www.baidu.com' }
+      let cms = {
+        name: hd.name,
+      }
+
+      console.log('-----------此时cms和hd是用的是两个不同的内存地址-----------')
+      console.log(hd, cms)
+      cms.name = 'rst'
+      console.log(hd, cms)
+      let obj = {}
+      console.log('-----------使用for in来赋值-----------')
+      for (const key in hd) {
+        obj[key] = hd[key]
+      }
+      obj.name = 'aho'
+      console.log(obj)
+    </script>
+  </body>
+</html>
