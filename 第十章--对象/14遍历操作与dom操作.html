@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14遍历操作与dom操作</title>
+  </head>
+  <body>
+    <script>
+      let hd = {
+        name: 'ava',
+        year: 2020,
+      }
+      console.log(Object.keys(hd))
+      console.log(Object.values(hd))
+      console.log(Object.entries(hd))
+      /*[
+            [
+                  "name",
+                  "ava"
+            ],
+            [
+                  "year",
+                  2020
+            ]
+      ]*/
+      for (const key in hd) {
+        console.log('for in', key)
+        console.log('for in hd[key]', hd[key])
+      }
+      /*
+      for (const item of hd) {
+        console.log('for of item', item) 
+        不可以用for of 来操作对象,
+      }*/
+      const lessons = [
+        { title: 'ava', category: 'name' },
+        { title: 'Flex', category: 'css' },
+        { title: 'MyObject', category: 'js' },
+      ]
+      for (const myitem of lessons) {
+        console.log(myitem) /*不可以用for of 来操作对象*/
+      }
+    </script>
+  </body>
+</html>
