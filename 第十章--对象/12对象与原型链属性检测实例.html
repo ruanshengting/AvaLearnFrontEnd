@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12对象与原型链属性检测实例</title>
+  </head>
+  <body>
+    <script>
+      let arr = ['ava', 'rst']
+      console.log(arr)
+      console.log(arr.hasOwnProperty('length'))
+      console.log(
+        arr.hasOwnProperty('concat'),
+      ) /*hasOwnProperty检查arr本身是否存在该属性，不会去它的原型链上查找*/
+      console.log('`length` in arr', 'length' in arr)
+      console.log(
+        '`concat` in arr',
+        'concat' in arr,
+      ) /*用in 的方式去查找的话，会检测父级，也检测自己*/
+
+      let a = {
+        name: 'ava',
+      }
+      let b = {
+        url: 'www.baidu.com',
+      }
+      console.log('为a设置父级b')
+      Object.setPrototypeOf(a, b) /*为a设置父级b*/
+      console.log(a, '可以看见a的原型链上有b的属性')
+      console.log(a.hasOwnProperty('url'))
+      console.log('url' in a)
+
+      function oss(options) {
+        if (!options.hasOwnProperty('host')) {
+          console.log('1234')
+          throw new Error('必须设置主机地址!')
+        }
+      }
+      oss({ user: 'admin' })
+    </script>
+  </body>
+</html>

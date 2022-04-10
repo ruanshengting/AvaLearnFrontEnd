@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13计算属性与assign的使用</title>
+  </head>
+  <body></body>
+  <script>
+    let hd = {}
+    let name = 'title'
+    hd[name] = 'hdr'
+    console.log('🚀 ~ file: 13计算属性与assign的使用.html ~ line 12 ~ hd', hd)
+    let id = 0
+    let hd2 = {}
+    hd2[`id-${++id}`] = id
+    hd2[`id-${++id}`] = id
+    hd2[`id-${++id}`] = id
+    hd2[`id-${++id}`] = id
+    hd2[`id-${++id}`] = id
+    console.log(hd2)
+  </script>
+</html>
