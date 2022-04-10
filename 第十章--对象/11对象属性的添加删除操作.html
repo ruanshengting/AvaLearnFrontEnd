@@ -6,5 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11对象属性的添加删除操作</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      let hd = {}
+      hd.name = 'ava'
+      hd['age'] = 18 /*这个age写成字符串，不然会被认为是个变量*/
+      console.log(hd)
+      delete hd.name
+      console.log('delete hd.name', hd) /**删除对象的属性**/
+    </script>
+  </body>
 </html>
