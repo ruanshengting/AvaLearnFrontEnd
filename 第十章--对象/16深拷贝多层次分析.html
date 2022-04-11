@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16深拷贝多层次分析</title>
+  </head>
+  <body></body>
+  <script>
+    let obj = {
+      name: 'ava',
+      url: 'www.baidu.com',
+      user: { name: 'rst' },
+    }
+    let hd = {
+      name: obj.name,
+      user: obj.user,
+    }
+    console.log(
+      'hd.user和obj.user是同样的，他们共用一块内存地址.但是hd.name和obj.name是不一样的',
+    )
+    hd.name = 'Mary'
+    hd.user.name = 'Eva'
+    console.log(JSON.stringify(hd, null, 2))
+    console.log(JSON.stringify(obj, null, 2))
+    console.log('-------使用递归算法进行深拷贝------')
+    let data = {
+      name: 'ava',
+      url: 'www.baidu.com',
+      user: { name: 'rst' },
+    }
+    function copy(object) {
+      let res = {}
+      for (const key in object) {
+        res[key] =
+          typeof object[key] === 'object' ? copy(object[key]) : object[key]
+      }
+      return res
+    }
+    let newData = copy(data)
+    newData.name = 'yuri'
+    newData.user.name = 'useryuri'
+    console.log(
+      '🚀 ~ file: 16深拷贝多层次分析.html ~ line 36 ~ newData',
+      JSON.stringify(newData, null, 2),
+    )
+    console.log(
+      '🚀 ~ file: 16深拷贝多层次分析.html ~ line 36 ~ data',
+      JSON.stringify(data, null, 2),
+    )
+  </script>
+</html>
