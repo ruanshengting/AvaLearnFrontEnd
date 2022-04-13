@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17使用工厂函数创建对象</title>
+  </head>
+  <body>
+    <script>
+      function user(name, year) {
+        return {
+          name,
+          year,
+          show() {
+            console.log(this.name + '---user')
+          },
+          info() {
+            console.log(this.name + 'is' + this.age)
+          },
+        }
+      }
+      let ava = user('ava', 22)
+      console.log('🚀 ~ file: 17使用工厂函数创建对象.html ~ line 20 ~ ava', ava)
+      ava.show()
+      let rst = user('rst', 18)
+      console.log('🚀 ~ file: 17使用工厂函数创建对象.html ~ line 22 ~ rst', rst)
+      rst.show()
+    </script>
+  </body>
+</html>
