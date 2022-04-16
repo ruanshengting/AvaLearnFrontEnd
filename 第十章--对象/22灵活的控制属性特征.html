@@ -6,9 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>22灵活的控制属性特征</title>
   </head>
-  <body>
-    <script>
-      const hd = { name: 'ava', url: 'www.baidu.com', mark: 'home' }
-    </script>
-  </body>
+  <body></body>
+  <script>
+    'use strict'
+    const hd = { name: 'ava', url: 'www.baidu.com', mark: 'home' }
+    console.log('🚀 ~ file: 22灵活的控制属性特征.html ~ line 13 ~ hd', hd)
+    Object.defineProperty(hd, 'info', {
+      value: 'hdr',
+      writable: false,
+    })
+    console.log('🚀 hd新增info属性', hd)
+    hd.info = 'yuyyu'
+    console.log('加了writable: false之后，就不可以修改改属性了', hd)
+  </script>
 </html>

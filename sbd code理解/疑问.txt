@@ -1,1 +1,1 @@
-1."user strict"严格模式还在用嘛？
+1.'use strict'严格模式还在用嘛？
