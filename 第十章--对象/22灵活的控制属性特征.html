@@ -15,7 +15,22 @@
       value: 'hdr',
       writable: true,
       enumerable: false,
-      configurable: false /*加了之后这个属性就不可以被删除了*/,
+      configurable: false /*加了之后这个属性就不可以被删除了，也不可以被重新配置*/,
+    })
+    console.log('============设置多个属性============')
+    Object.defineProperties(hd, {
+      lesson: {
+        value: 'css',
+        writable: true,
+        enumerable: false,
+        configurable: false /*加了之后这个属性就不可以被删除了，也不可以被重新配置*/,
+      },
+      gender: {
+        value: 'woman',
+        writable: true,
+        enumerable: false,
+        configurable: false /*加了之后这个属性就不可以被删除了，也不可以被重新配置*/,
+      },
     })
     console.log('🚀 hd新增info属性', hd)
     hd.info = 'yuyyu'
