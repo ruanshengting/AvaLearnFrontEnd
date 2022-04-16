@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28使用访问器批量设置属性</title>
+  </head>
+  <body></body>
+  <script>
+    'user strict'
+    let web = {
+      name: 'ava',
+      url: 'www.baidu.com',
+      get site() {
+        return `${this.url} 的名字是${this.name}`
+      },
+      set site(value) {
+        ;[this.name, this.url] = value.split(',')
+      },
+    }
+    web.site = 'google,www.google.com'
+    console.log('🚀 ~ file: 28使用访问器批量设置属性.html ~ line 20 ~ web', web)
+    console.log(
+      '🚀 ~ file: 28使用访问器批量设置属性.html ~ line 20 ~ web',
+      web.name,
+    )
+    console.log(web.site)
+  </script>
+</html>
