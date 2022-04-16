@@ -13,10 +13,13 @@
     console.log('🚀 ~ file: 22灵活的控制属性特征.html ~ line 13 ~ hd', hd)
     Object.defineProperty(hd, 'info', {
       value: 'hdr',
-      writable: false,
+      writable: true,
+      enumerable: false,
+      configurable: false /*加了之后这个属性就不可以被删除了*/,
     })
     console.log('🚀 hd新增info属性', hd)
     hd.info = 'yuyyu'
     console.log('加了writable: false之后，就不可以修改改属性了', hd)
+    console.log('enumerable: false, 就不可以遍历', Object.keys(hd))
   </script>
 </html>
