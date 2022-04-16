@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21什么是对象的属性特征</title>
+  </head>
+  <body>
+    <script>
+      const hd = { name: 'ava', url: 'www.baidu.com', mark: 'home' }
+      hd.lesson = 'css'
+      console.log(hd)
+      delete hd.lesson
+      console.log(hd)
+
+      console.log(
+        '打印出这个对象的某个属性的信息',
+        JSON.stringify(Object.getOwnPropertyDescriptor(hd, 'name'), null, 2),
+      )
+      console.log(
+        '打印出这个对象的所有属性的信息',
+        JSON.stringify(Object.getOwnPropertyDescriptors(hd), null, 2),
+      )
+      //{
+      //"value": "ava",
+      // "writable": true, //*这个属性可以被修改*/
+
+      //"enumerable": true, //*这个属性可以被遍历，可以用Object.keys读取*/
+
+      //"configurable": true//这个属性是否可以被删除，是不是可以被重新配置
+      //}
+
+      let arr = ['rst', 'ava']
+      for (const [key, value] of Object.entries(arr)) {
+        console.log('key,value', key, value)
+      }
+    </script>
+  </body>
+</html>
