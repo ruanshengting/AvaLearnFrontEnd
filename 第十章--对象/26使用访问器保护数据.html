@@ -6,10 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>26使用访问器保护数据</title>
   </head>
-  <body></body>
+  <body>
+    <div>在对象里面对某一个属性设置set和get方法，可以保护该属性</div>
+  </body>
   <script>
     'use strict'
-    const hd = { name: 'ava', url: 'www.baidu.com', mark: 'home', age: 19 }
-    console.log('🚀 ~ file: 26使用访问器保护数据.html ~ line 14 ~ hd', hd)
+    const user = {
+      data: { name: 'ava', url: 'www.baidu.com', mark: 'home', age: 19 },
+      set age(value) {
+        /*用set 的方法可以不改变原来的赋值方法*/
+        console.log('run.....')
+        if (typeof value !== 'number' || value < 10 || value > 120) {
+          console.log('Wrong!')
+        } else {
+          this.data.age = value
+        }
+      },
+      get age() {
+        console.log('...get')
+        return this.data.age
+      },
+    }
+    console.log('🚀 ~ file: 26使用访问器保护数据.html user', user)
+    user.age = 33
+    console.log('user.age', user.age) /*访问age属性*/
   </script>
 </html>
