@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23不允许向对象添加属性API</title>
+  </head>
+  <body></body>
+  <script>
+    'use strict'
+    const hd = { name: 'ava', url: 'www.baidu.com', mark: 'home' }
+    // Object.preventExtensions(hd) //不允许向Object添加属性
+    if (Object.isExtensible(hd)) {
+      hd.site = '11111'
+      console.log(
+        '🚀 ~ file: 23不允许向对象添加属性API.html ~ line 15 ~ hd',
+        hd,
+      )
+    }
+  </script>
+</html>
