@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20面向对象的封装与抽象</title>
+  </head>
+  <body>
+    <script>
+      //抽象处理
+      function User(name, age) {
+        let data = { name, age } /*属性封装到内部*/
+        let info = function () {
+          return data.age > 30 ? ' is old' : ' is young'
+        } /*方法封装到内部*/
+        this.show = function () {
+          console.log(data.name + info()) /*利用闭包的特性*/
+        }
+      }
+      let user = new User('Ava')
+      this.name = 'rst' /*不起作用*/
+      user.show()
+    </script>
+  </body>
+</html>
