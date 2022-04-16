@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25冻结对象的API操作</title>
+  </head>
+  <body>
+    <div>
+      加了Object.seal(user)之后，Object的所有属性的configurable:
+      false，对象就不能再添加/删除属性了,但是可以改变属性值，因为writable: true
+    </div>
+  </body>
+  <script>
+    const user = { name: 'ava', url: 'www.baidu.com', mark: 'home' }
+    Object.seal(user)
+    user.name = 'rst'
+    console.log(
+      '加了Object.seal(user)之后，Object的所有属性的configurable: false，对象就不能再添加/删除属性了，',
+      Object.getOwnPropertyDescriptors(user),
+    )
+    console.log('判断对象是不是处于封闭状态', Object.isSealed(user))
+  </script>
+</html>
