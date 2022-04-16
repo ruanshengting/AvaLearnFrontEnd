@@ -7,4 +7,31 @@
     <title>27访问器伪造属性的操作</title>
   </head>
   <body></body>
+  <script>
+    'use strict'
+    let lesson = {
+      list: [
+        {
+          name: 'js',
+          price: 33,
+        },
+        {
+          name: 'html',
+          price: 133,
+        },
+        {
+          name: 'css',
+          price: 233,
+        },
+      ],
+      get total() {
+        return this.list.reduce((total, cur) => {
+          return total + cur.price
+        }, 0)
+      },
+    }
+    console.log(lesson.total)
+    lesson.total = 99999
+    console.log(lesson.total) /*不会改变，  'use strict'状况下会报错*/
+  </script>
 </html>
