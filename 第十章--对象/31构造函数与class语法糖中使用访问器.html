@@ -7,5 +7,75 @@
     <title>31构造函数与class语法糖中使用访问器</title>
   </head>
   <body></body>
-  <script></script>
+  <script>
+    'use strict'
+    const DATA = Symbol()
+    //可以把下面的this.data全部替换成this[DATA],这个可以防止this.data.name来修改属性的值
+    //使用类(相当于构造函数的简写形式)
+    class User {
+      constructor(name, age) {
+        this.data = {
+          name,
+          age,
+        }
+      }
+      get name() {
+        return this.data.name
+      }
+      set name(value) {
+        if (value.trim() == '' || value.length > 20) {
+          throw new Error('username is invalid')
+        }
+        this.data.name = value
+        console.log('setting....' + value)
+      }
+      get age() {
+        return this.data.age
+      }
+      set age(value) {
+        this.data.age = value
+        console.log('setting....age:' + value)
+      }
+    }
+    //这是一个构造函数
+    /*
+    function User(name, age) {
+      //变成私有属性
+      let data = {
+        name,
+        age,
+      }
+      //变成访问器的形式，让name这个属性不被随意修改
+      Object.defineProperties(this, {
+        name: {
+          get() {
+            return data.name
+          },
+          set(value) {
+            if (value.trim() == '' || value.length > 20) {
+              throw new Error('username is invalid')
+            }
+            data.name = value
+            console.log('setting....' + value)
+          },
+        },
+        age: {
+          get() {
+            return data.age
+          },
+          set(value) {
+            data.age = value
+            console.log('setting....age:' + value)
+          },
+        },
+      })
+    }
+    */
+
+    let xj = new User('xj', 33)
+    // xj.name = 'ava000000000000000000000000000000000000000'
+    xj.name = 'ava'
+    console.log(xj)
+    console.log(xj.data)
+  </script>
 </html>
