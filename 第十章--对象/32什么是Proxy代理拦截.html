@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>32什么是Proxy代理拦截</title>
+  </head>
+  <body>
+    <div>通过代理操作数据</div>
+  </body>
+  <script>
+    'use strict'
+    const hd = { name: 'rst' }
+    const proxy = new Proxy(hd, {
+      get(obj, property) {
+        console.log('obj,property', obj, property)
+        return obj[property] //property是一个变量要写在中括号里面,不要写成obj.property
+      },
+      set(obj, property, value) {
+        console.log('set value:', value)
+        //严格模式下会报错'set' on proxy: trap returned falsish for property 'name'，所以要加return true
+        obj[property] = value
+        return true
+      },
+    })
+    /*new Proxy(代理谁，方法):创建一个代理
+     */
+    //通过代理来访问属性
+    console.log('proxy.name', proxy.name)
+    proxy.name = 'ava'
+    console.log('proxy.name2', proxy.name)
+  </script>
+</html>
