@@ -33,9 +33,11 @@
         <button class="btn btn-dark btn-block" id="button">Click here</button>
         <br />
         <div
-          style="height: 400px; width: 200px; background-color: #b0a8b9;"
+          style="height: 100px; width: 400px; background-color: #b0a8b9;"
           id="box"
-        ></div>
+        >
+          <h1>Zoom!!!!!</h1>
+        </div>
       </div>
     </div>
 
@@ -143,9 +145,26 @@
       }
       */
       let box = document.getElementById('box')
+      /*     
       box.addEventListener('mouseenter', runEvent) //鼠标滑入这个区域就触发事件
+      box.addEventListener('mouseleave', runEvent)
+      box.addEventListener('mouseover', runEvent) //鼠标滑入这个区域,包括这个区域中的inner element就触发事件
+      box.addEventListener('mouseout', runEvent) //鼠标滑出这个区域,包括这个区域中的inner element就触发事件
+      */
+      box.addEventListener('mousemove', runEvent)
       function runEvent(e) {
         console.log('event type:' + e.type)
+        let output = document.getElementById('output')
+        output.innerHTML =
+          '<h3>offsetX:' +
+          e.offsetX +
+          '</h3>' +
+          '<h3>offsetY:' +
+          e.offsetY +
+          '</h3>'
+        document.body.style.backgroundColor =
+          'rgb(' + e.offsetX + ',' + e.offsetY + ',40)'
+        console.log(box.style.backgroundColor)
       }
     </script>
   </body>
