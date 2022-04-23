@@ -1,2 +1,5 @@
 1.'use strict'严格模式还在用嘛？
 2.proxy代理到底要干啥用？
+3.函数柯里化是什么
+4.如果使用document.getElementsByClassName('className')，你会得到HTMLCollection，这是类数组，你需要转化成数组才能对它使用数组的方法。
+如果使用的是  document.querySelectorAll('.className')你会得到数组。

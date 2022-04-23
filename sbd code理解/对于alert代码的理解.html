@@ -546,7 +546,9 @@
         }, millisecond)
       }
       closureTimer(SBD_INTERVAL_TIME_LABEL)
-      /*HTMLCollection是个类数组 要转成 dom ,才能操作*/
+      /*HTMLCollection是个类数组 要转成 dom ,才能操作
+      如果使用document.getElementsByClassName('className')，你会得到HTMLCollection，这是类数组，你需要转化成数组才能对它使用数组的方法。
+      如果使用的是  document.querySelectorAll('.className')你会得到数组。*/
     </script>
   </body>
 </html>
