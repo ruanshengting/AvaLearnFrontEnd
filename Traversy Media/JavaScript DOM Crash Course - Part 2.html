@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>!b3cdn</title>
+  </head>
+  <body>
+    <header class="container">
+      <h1 id="h1Dom">Dom</h1>
+    </header>
+    <div id="divcontainer" class="container">
+      <div class="card card-body">
+        <h2 class="title">this is title</h2>
+        <ul id="items" class="list-group">
+          <li class="list-group-item">hello1</li>
+          <li class="list-group-item">hello2</li>
+          <li class="list-group-item">hello3</li>
+          <li class="list-group-item">hello4</li>
+        </ul>
+        <div id="output"></div>
+        <button class="btn btn-dark btn-block" id="button">Click here</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      let items = document.querySelector('#items')
+      //  console.log(
+      //   '****************getParentNode****************',
+      //   items.parentNode,
+      //  )
+      // items.parentNode.style.background = '#FF9671'
+      //console.log('parentNode.parentNode', items.parentNode.parentNode)
+      console.log('****************get Parent Element****************')
+      console.log('🚀 ~items.parentElement ', items.parentElement)
+      console.log(
+        '🚀 ~items.parentElement.parentElement ',
+        items.parentElement.parentElement,
+      )
+      console.log('****************get ChildNodes****************')
+      console.log(
+        '使用childNodes，会因为li之间有换行而有多余的text node,最好不要用childNodes',
+        items.childNodes,
+      )
+      console.log('推荐使用children，得到HTMLCollection', items.children)
+      items.children[1].style.backgroundColor = '#FF6F91'
+      console.log(
+        'items.firstChild和items.childNodes一样，因为换行而得到text node，不要用',
+        items.firstChild,
+      )
+      console.log(
+        '****************推荐使用：items.firstElementChild****************',
+        items.firstElementChild,
+      )
+      items.firstElementChild.textContent = 'firstElementChild'
+      console.log(
+        '****************使用items.lastChild****************',
+        items.lastChild,
+      )
+      console.log(
+        '****************使用items.lastElementChild****************',
+        items.lastElementChild,
+      )
+      items.lastElementChild.textContent = 'lastElementChild'
+      items.lastElementChild.style.backgroundColor = '#D65DB1'
+      console.log('items.nextSibling', items.nextSibling)
+      console.log('items.nextSibling', items.nextElementSibling)
+      console.log('不推荐items.previousSibling', items.previousSibling)
+      console.log('items.previousElementSibling', items.previousElementSibling)
+      items.previousElementSibling.style.color = '#008F7A'
+      console.log('*****************createElement*******************')
+      let newDiv = document.createElement('div')
+      newDiv.className = 'newDiv'
+      newDiv.id = 'newDivId'
+      newDiv.setAttribute('title', 'this is title')
+
+      //create text node
+      let newDivText = document.createTextNode('helloWorld')
+      //Add Text to Div
+      newDiv.appendChild(newDivText)
+      var container = document.querySelector('header.container') //header.container之间不要有空格
+
+      var h1 = document.querySelector('h1')
+
+      container.insertBefore(newDiv, h1)
+      console.log('!!newDiv!!', newDiv)
+      console.log('*********给button添加点击事件**********')
+      let button = document.getElementById('button')
+      /*
+      button.addEventListener('click', function () {
+        console.log('12345')
+      })
+      */
+      button.addEventListener('click', myfunc)
+      function myfunc(event) {
+        //  console.log('12345999999999999')
+        // document.getElementById('h1Dom').textContent = 'Changed'
+        // document.querySelector('#divcontainer').style.backgroundColor = 'red'
+        console.log(event)
+        console.log(event.target)
+        console.log(event.target.id)
+        console.log(event.target.className)
+        console.log(event.target.classList)
+        console.log(event.type)
+        let output = document.getElementById('output')
+        output.innerHTML = '<h3>' + event.target.id + '</h3>'
+        console.log('event.clientX-----从屏幕左侧开始算', event.clientX)
+        console.log('event.offsetX-----从button本身的左侧开始算', event.offsetX)
+        console.log(
+          'event.altKey看你在点击这个button的时候是不是按住了alt键',
+          event.altKey,
+        )
+      }
+    </script>
+  </body>
+</html>
