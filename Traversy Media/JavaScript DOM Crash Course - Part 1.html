@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript DOM Crash Course - Part 1</title>
+  </head>
+  <body>
+    <div>
+      hello3
+      <a href="www.google.com">Google</a>
+    </div>
+    <a href="www.baidu.com">Baidu</a>
+    <img
+      src="/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/Traversy Media/yooA.jpg"
+      width="500px"
+      title="this is pic"
+    />
+    <!-- action属性用于制定服务器地址，制定数据提交给哪个服务器，向服务器发送请求 -->
+    <form id="myform">
+      <h1 id="myh1">
+        this is H1
+        <pre style="display: none;">123321</pre>
+      </h1>
+      用户名：
+      <input id="usernameinput" type="text" name="username" />
+      密码：
+      <input type="password" name="password" />
+      <!-- type="submit" 表示这个按钮可以提交表单 对于按钮来说 这个value指定按钮上显示的文本信息-->
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+    <div id="mydiv">
+      hello my div
+    </div>
+    <ul>
+      <li class="list-item">item1</li>
+      <li class="list-item">item2</li>
+      <li class="list-item">item3</li>
+      <li class="list-item">item4</li>
+    </ul>
+    <div class="title">title1</div>
+    <div class="title">title2</div>
+  </body>
+  <script>
+    //console.dir(document)
+    //href: "http://127.0.0.1:5500/Traversy%20Media/JavaScript%20DOM%20Crash%20Course%20-%20Part%201.html"
+    //origin: 'http://127.0.0.1:5500'
+    //examine the document object
+    console.log(document.domain)
+    console.log(document.URL)
+    console.log(document.title)
+    document.title = 'ava title'
+    console.log(document.head)
+    console.log(document.all)
+    console.log(document.all[7])
+    // document.all[7].textContent = 'Ava test'
+    console.log('得到这个document里面所有的link', document.links)
+    console.log('得到这个document里面所有的images', document.images)
+
+    // console.log(document.getElementById('myh1'))
+    let myh1 = document.getElementById('myh1')
+    // myh1.textContent = 'this is Header One'
+    console.log(
+      'textContent 与 innerHTML的差别：如果里面的span被display: none; ,textContent还是会展示span,但是innerHTML不会',
+    )
+    console.log('🚀 ~  myh1.textContent', myh1.textContent)
+    // myh1.innerHTML = 'this is innerHTML'
+    console.log('🚀 ~ myh1.innerHTML', myh1.innerHTML)
+    myh1.innerHTML = '<h3>And H3</h3>' //把h3放在h1里面，而不会改变它
+
+    mydiv.style.fontWeight = 'bold'
+    mydiv.style.background = 'yellow'
+    /*getElementsByTagName*/
+    let myli = document.getElementsByTagName('li')
+    for (let i = 0; i < myli.length; i++) {
+      myli[i].style.background = 'red'
+    }
+    // myli.forEach((item) => (item.style.background = 'red'))
+    console.log(
+      '🚀 ~ file: JavaScript DOM Crash Course - Part 1.html ~ line 75 ~ myli',
+      myli,
+    )
+    console.log('querySelector可以搜索id/tag/...')
+    let usernameinput = document.querySelector('#usernameinput')
+    console.log('🚀用querySelector找id的时候加上#符号', usernameinput)
+    usernameinput.value = 'hey'
+
+    let submit = document.querySelector('input[type="submit"]')
+    console.log(
+      '🚀 ~ file: JavaScript DOM Crash Course - Part 1.html ~ line 92 ~ submit',
+      submit,
+    )
+    let listItems = document.querySelector('.list-item')
+    listItems.style.color = 'blue'
+    let lastListItems = document.querySelector('.list-item:last-child')
+    lastListItems.style.color = 'yellow'
+
+    console.log('*********document.querySelectorAll得到nodeList**********')
+    let title = document.querySelectorAll('.title')
+    console.log(
+      '🚀 ~ file: JavaScript DOM Crash Course - Part 1.html ~ line 102 ~ title',
+      title,
+    )
+    title[0].textContent = 'hello'
+  </script>
+</html>
