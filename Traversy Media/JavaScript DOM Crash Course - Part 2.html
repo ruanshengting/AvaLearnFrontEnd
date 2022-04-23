@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>!b3cdn</title>
+    <title>JavaScript DOM Crash Course - Part 2</title>
   </head>
   <body>
     <header class="container">
@@ -31,6 +31,11 @@
         </ul>
         <div id="output"></div>
         <button class="btn btn-dark btn-block" id="button">Click here</button>
+        <br />
+        <div
+          style="height: 400px; width: 200px; background-color: #b0a8b9;"
+          id="box"
+        ></div>
       </div>
     </div>
 
@@ -104,7 +109,11 @@
         console.log('12345')
       })
       */
-      button.addEventListener('click', myfunc)
+      button.addEventListener('click', runEvent) //添加单击事件
+      button.addEventListener('dblclick', runEvent) //添加双击事件
+      button.addEventListener('mousedown', runEvent) //鼠标按下出发事件
+      button.addEventListener('mouseup', runEvent) //鼠标按下出发事件
+      /*
       function myfunc(event) {
         //  console.log('12345999999999999')
         // document.getElementById('h1Dom').textContent = 'Changed'
@@ -123,6 +132,20 @@
           'event.altKey看你在点击这个button的时候是不是按住了alt键',
           event.altKey,
         )
+        console.log(
+          'event.altKey看你在点击这个button的时候是不是按住了shift键',
+          event.shiftKey,
+        )
+        console.log(
+          'event.altKey看你在点击这个button的时候是不是按住了control键',
+          event.ctrlKey,
+        )
+      }
+      */
+      let box = document.getElementById('box')
+      box.addEventListener('mouseenter', runEvent) //鼠标滑入这个区域就触发事件
+      function runEvent(e) {
+        console.log('event type:' + e.type)
       }
     </script>
   </body>
