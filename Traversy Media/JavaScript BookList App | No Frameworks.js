@@ -9,19 +9,24 @@ class Book {
 //UI class:Handle UI Task
 class UI {
   static displayBooks() {
-    const storeBooks = [
-      {
-        title: 'Book1',
-        author: 'ava',
-        isbn: '2333',
-      },
-      {
-        title: 'Book2',
-        author: 'rst',
-        isbn: '142112333',
-      },
-    ]
-    const books = storeBooks
+    // const storeBooks = [
+    //   {
+    //     title: 'Book1',
+    //     author: 'ava',
+    //     isbn: '2333',
+    //   },
+    //   {
+    //     title: 'Book2',
+    //     author: 'rst',
+    //     isbn: '142112333',
+    //   },
+    // ]
+    //const books = storeBooks
+    const books = Store.getBooks()
+    console.log(
+      '🚀 ~ file: JavaScript BookList App | No Frameworks.js ~ line 26 ~ UI ~ displayBooks ~ books',
+      books,
+    )
     books.forEach((book) => {
       UI.addBookToList(book)
     })
@@ -68,6 +73,10 @@ class Store {
       books = []
     } else {
       books = JSON.parse(localStorage.getItem('book'))
+      console.log(
+        `JSON.parse(localStorage.getItem('book')`,
+        JSON.parse(localStorage.getItem('book')),
+      )
     }
     return books
   }
@@ -76,7 +85,15 @@ class Store {
     books.push(book)
     localStorage.setItem('books', JSON.stringify(books))
   }
-  static removeBook(isbn) {}
+  static removeBook(isbn) {
+    const books = Store.getBooks()
+    books.forEach((book, index) => {
+      if (book.isbn === isbn) {
+        books.splice(index, 1)
+      }
+    })
+    localStorage.setItem('books', JSON.stringify(books))
+  }
 }
 //Event:Display a book
 document.addEventListener('DOMContentLoaded', UI.displayBooks)
@@ -96,6 +113,8 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     console.log('🚀 ~ ~ book', book)
     //Add book to UI
     UI.addBookToList(book)
+    //Add book to store
+    Store.addBook(book)
     UI.showAlert('already Added', 'success')
     //clear book
     UI.clearBook()
@@ -103,6 +122,8 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
 })
 //Eent:Remove a book
 document.getElementById('book-list').addEventListener('click', (e) => {
-  console.log(e.target)
+  console.log(e.target.parentElement.previousElementSibling.textContent)
+  //remove book from Store
+  Store.removeBook(e.target.parentElement.previousElementSibling.textContent)
   UI.deleteBook(e.target)
 })
