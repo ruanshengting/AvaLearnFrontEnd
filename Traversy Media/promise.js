@@ -26,23 +26,38 @@ function createPost(post) {
     }, 2000)
   })
 }
-/**
- * 调用这2个方法
- * getPosts()
- **createPost({ title: 'post 3', body: 'this is post 3' })
-   当createPost的方法比getPosts花的时间久我们就看不到新的post了
- */
-
-createPost({ title: 'post 3', body: 'this is post 3' })
-  .then(getPosts)
-  .catch((err) => console.log(err))
+// createPost({ title: 'post 3', body: 'this is post 3' })
+//   .then(getPosts)
+//   .catch((err) => console.log(err))
 //处理异步
-
+//Await/Async
+console.log('Await/Async方法比promise要好')
+async function init() {
+  await createPost({ title: 'post 3', body: 'this is post 3' })
+  getPosts()
+}
+init()
+console.log(' **********Await/Async/fetch **********')
+async function getUsers() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  const data = await res.json()
+  console.log('🚀 ~ file: promise.js ~ line 44 ~ getUsers ~ data', data)
+}
+getUsers()
 //Promise all
+/*
 const promise1 = Promise.resolve('Hello World')
 const promise2 = 10
 const promise3 = new Promise((resolve, reject) => {
   setTimeout(resolve, 2000, 'Goodbye')
 })
-Promise.all([promise1, promise2, promise3]).then((value) => console.log(value))
-//用Promise.all可以避免重复写.then().then()
+const promise4 = fetch(
+  'https://jsonplaceholder.typicode.com/users',
+).then((res) =>
+  res.json(),
+) //用fetch的话就要把结果.json,不然会得到一个response,不好处理
+Promise.all([promise1, promise2, promise3, promise4]).then((value) =>
+  console.log(value),
+)
+*/
+//用Promise.all可以避免重复写.then().then(),它的执行事件是上述3个promise中最长时间的一个
