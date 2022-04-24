@@ -4,3 +4,4 @@
 4.如果使用document.getElementsByClassName('className')/  document.getElementsByTagName('li')，你会得到HTMLCollection，这是类数组，你需要转化成数组才能对它使用数组的方法。
 如果使用的是  document.querySelectorAll('.className')你会得到数组。document.querySelectorAll用的比较多
 疑问：对于类数组是可以使用for(),但是不能使用forEach
+5.contains/includes的差别
