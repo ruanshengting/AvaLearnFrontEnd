@@ -61,6 +61,23 @@ class UI {
   }
 }
 //Store Class:Handles Storage
+class Store {
+  static getBooks() {
+    let books
+    if (localStorage.getItem('book') === null) {
+      books = []
+    } else {
+      books = JSON.parse(localStorage.getItem('book'))
+    }
+    return books
+  }
+  static addBook(book) {
+    const books = Store.getBooks()
+    books.push(book)
+    localStorage.setItem('books', JSON.stringify(books))
+  }
+  static removeBook(isbn) {}
+}
 //Event:Display a book
 document.addEventListener('DOMContentLoaded', UI.displayBooks)
 //Event:Add a Book
