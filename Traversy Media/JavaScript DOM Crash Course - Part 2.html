@@ -23,6 +23,24 @@
     <div id="divcontainer" class="container">
       <div class="card card-body">
         <h2 class="title">this is title</h2>
+        <form id="myform">
+          <h1 id="myh1">
+            this is H1
+            <pre style="display: none;">123321</pre>
+          </h1>
+          用户名：
+          <input id="usernameinput" type="text" name="username" />
+          密码：
+          <input type="password" name="password" />
+          <select class="form-control mr-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <!-- type="submit" 表示这个按钮可以提交表单 对于按钮来说 这个value指定按钮上显示的文本信息-->
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
         <ul id="items" class="list-group">
           <li class="list-group-item">hello1</li>
           <li class="list-group-item">hello2</li>
@@ -44,6 +62,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+      var select = document.querySelector('select')
+      select.addEventListener('change', runEvent) //这里写成input也ok
+      select.addEventListener('input', runEvent)
       let items = document.querySelector('#items')
       //  console.log(
       //   '****************getParentNode****************',
@@ -154,6 +175,7 @@
       box.addEventListener('mousemove', runEvent)
       function runEvent(e) {
         console.log('event type:' + e.type)
+        /*
         let output = document.getElementById('output')
         output.innerHTML =
           '<h3>offsetX:' +
@@ -165,7 +187,24 @@
         document.body.style.backgroundColor =
           'rgb(' + e.offsetX + ',' + e.offsetY + ',40)'
         console.log(box.style.backgroundColor)
+        */
+        let output = document.getElementById('output')
+        output.innerHTML = '<h3>' + e.target.value + '</h3>'
       }
+
+      //keydown事件
+      var input = document.querySelector('input[type="text"]')
+      var form = document.querySelector('form')
+      form.addEventListener('submit', runEvent)
+      input.addEventListener('keydown', runEvent) //键盘每按下一个字就触发
+      input.addEventListener('keyup', runEvent) //键盘弹起
+      input.addEventListener('keypress', runEvent)
+      input.addEventListener('focus', runEvent) //用户点击输入框
+      input.addEventListener('blur', runEvent) //用户离开输入框(光标离开输入框)
+
+      input.addEventListener('cut', runEvent)
+      input.addEventListener('paste', runEvent)
+      input.addEventListener('input', runEvent) //包括了keydown,keyup,keypress,cut,paste
     </script>
   </body>
 </html>
