@@ -69,13 +69,13 @@ class UI {
 class Store {
   static getBooks() {
     let books
-    if (localStorage.getItem('book') === null) {
+    if (localStorage.getItem('books') === null) {
       books = []
     } else {
-      books = JSON.parse(localStorage.getItem('book'))
+      books = JSON.parse(localStorage.getItem('books'))
       console.log(
         `JSON.parse(localStorage.getItem('book')`,
-        JSON.parse(localStorage.getItem('book')),
+        JSON.parse(localStorage.getItem('books')),
       )
     }
     return books
