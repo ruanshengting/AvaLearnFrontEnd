@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深拷贝对象里面有Array</title>
+  </head>
+  <body>
+    <div>深拷贝：拷贝完了之后，你改旧数据，是不会影响到新数据的</div>
+    <script>
+      console.log('-------使用递归算法进行深拷贝------')
+      let data = {
+        name: 'ava',
+        url: 'www.baidu.com',
+        user: { name: 'rst' },
+        //  team: ['Ava', 'RST', 'Coding'],
+      }
+      function copy(object) {
+        let res = {}
+        for (const key in object) {
+          if (object[key] === 'object') {
+            copy(object[key])
+          } else {
+            object[key]
+          }
+          /*res[key] =
+            typeof object[key] === 'object' ? copy(object[key]) : object[key]
+          */
+        }
+        return res
+      }
+      let newData = copy(data)
+      console.log(
+        '🚀 ~ file: 深拷贝对象里面有Array.html ~ line 33 ~ newData',
+        newData,
+      )
+    </script>
+  </body>
+</html>
