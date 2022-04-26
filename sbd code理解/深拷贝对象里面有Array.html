@@ -14,23 +14,29 @@
         name: 'ava',
         url: 'www.baidu.com',
         user: { name: 'rst' },
-        //  team: ['Ava', 'RST', 'Coding'],
+        team: ['Ava', 'RST', 'Coding'],
       }
+      console.log(
+        '🚀 ~ file: 深拷贝对象里面有Array.html ~ line 19 ~ data',
+        data,
+      )
       function copy(object) {
         let res = {}
+        let arr = []
         for (const key in object) {
-          if (object[key] === 'object') {
-            copy(object[key])
+          if (typeof object[key] === 'object' && !Array.isArray(object[key])) {
+            res[key] = copy(object[key])
+          } else if (Array.isArray(object[key])) {
+            console.log('object[key])', object[key])
+            object[key] = new Array(1, 2, 3)
           } else {
-            object[key]
+            res[key] = object[key]
           }
-          /*res[key] =
-            typeof object[key] === 'object' ? copy(object[key]) : object[key]
-          */
         }
         return res
       }
       let newData = copy(data)
+      data.team[0] = 'testBy'
       console.log(
         '🚀 ~ file: 深拷贝对象里面有Array.html ~ line 33 ~ newData',
         newData,

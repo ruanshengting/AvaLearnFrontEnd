@@ -43,7 +43,7 @@
       Array.prototype.method = function () {
         console.log(this.length)
       }
-      let arr = [1, 2, 3, 4, 5]
+      let arr = [1, 2, [1, 2], 4, 5]
       for (let index in arr) {
         console.log('arr[index]', arr[index])
         console.log('typeof index=', typeof index)

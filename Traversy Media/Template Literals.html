@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Literals</title>
+  </head>
+  <body>
+    <div>
+      hello
+      <div id="template"></div>
+    </div>
+  </body>
+  <script>
+    function makeUpperCase(word) {
+      return word.toUpperCase()
+    }
+    let name = 'Ava'
+    let template = `<h1>${makeUpperCase('hello')} World
+        </h1><p>I am ${name}</p>`
+    document.getElementById('template').innerHTML = template
+  </script>
+</html>
