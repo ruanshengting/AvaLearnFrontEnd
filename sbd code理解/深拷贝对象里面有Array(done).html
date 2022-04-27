@@ -16,10 +16,6 @@
         user: { name: 'rst' },
         team: ['Ava', 'RST', 'Coding'],
       }
-      console.log(
-        '🚀 ~ file: 深拷贝对象里面有Array.html ~ line 19 ~ data',
-        data,
-      )
       function copy(object) {
         let res = {}
         let arr = []
@@ -27,8 +23,8 @@
           if (typeof object[key] === 'object' && !Array.isArray(object[key])) {
             res[key] = copy(object[key])
           } else if (Array.isArray(object[key])) {
-            console.log('object[key])', object[key])
-            object[key] = new Array(1, 2, 3)
+            arr.push(...object[key])
+            res[key] = arr
           } else {
             res[key] = object[key]
           }
@@ -37,10 +33,8 @@
       }
       let newData = copy(data)
       data.team[0] = 'testBy'
-      console.log(
-        '🚀 ~ file: 深拷贝对象里面有Array.html ~ line 33 ~ newData',
-        newData,
-      )
+      console.log('🚀 ~ old data', data)
+      console.log('🚀 ~  newData', newData)
     </script>
   </body>
 </html>

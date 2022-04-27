@@ -33,6 +33,10 @@
     function copy(object) {
       let res = {}
       for (const key in object) {
+        console.log(
+          '🚀 ~ file: 16深拷贝多层次分析.html ~ line 36 ~ copy ~ key',
+          key,
+        )
         res[key] =
           typeof object[key] === 'object' ? copy(object[key]) : object[key]
       }
