@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[08] Set, Map, WeakSet and WeakMap</title>
+  </head>
+  <body>
+    <script>
+      'use strict'
+      console.log('***************使用Set***************')
+      let myArr = [1, 22, 33, 46]
+      let mySet = new Set(myArr)
+      mySet.add('100')
+      mySet.add({ a: 'ava', b: 'rst' })
+      mySet.delete(22)
+      mySet.clear()
+      mySet.add('99')
+      mySet.add('98')
+
+      mySet.add('97')
+      console.log(mySet.size)
+      console.log(mySet)
+      mySet.forEach((item) => {
+        console.log(item)
+      })
+      console.log('***************使用Map:键值对***************')
+      let myMap = new Map([
+        ['key1', 'Value1'],
+        ['key2', 'Value2'],
+      ])
+      myMap.set('key3', 'Value3') //增加一个Map:myMap.set
+      console.log('🚀  myMap', myMap)
+      console.log('delete by the Key')
+      myMap.delete('key1')
+      console.log('🚀  myMap', myMap)
+    </script>
+  </body>
+</html>
