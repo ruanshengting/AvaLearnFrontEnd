@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[11] Generators</title>
+  </head>
+  <body>
+    <body>
+    <script>
+      'use strict'
+      console.log('******设置一个Generator*******')
+      function *g1(){
+            console.log('hello')
+            yield 'yield1 ...'
+            console.log('World')
+            yield 'yield2 ...'
+            return 'return//'//加上这句return 这样在done:true的时候就会有value了
+      }
+      console.log('******Set Generator to a variable*******')
+      var g=g1()
+     // console.log(g.next())
+     // console.log(g.next())
+     // console.log(g.next())
+      console.log('用for循环不打印return')
+      for(let val of g){
+      console.log(val)
+      }
+
+    </script>
+  </body>
+</html>
