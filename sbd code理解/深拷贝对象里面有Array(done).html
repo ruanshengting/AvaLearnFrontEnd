@@ -14,17 +14,37 @@
         name: 'ava',
         url: 'www.baidu.com',
         user: { name: 'rst' },
-        team: ['Ava', 'RST', 'Coding', [1, 2, 3]],
+        team: ['Ava', 'RST', 'Coding', [1, 2, 3, [4, 5, [6, 7, [8, 9]]]]],
       }
+      function copyArr(arr) {
+        let tempArr = []
+        for (const key in arr) {
+          console.log(arr[key])
+          Array.isArray(arr[key])
+            ? tempArr.push(copyArr(arr[key]))
+            : tempArr.push(arr[key])
+        }
+        return tempArr
+      }
+
       function copy(object) {
         let res = {}
-        let arr = []
+        let tempArr = []
         for (const key in object) {
           if (typeof object[key] === 'object' && !Array.isArray(object[key])) {
             res[key] = copy(object[key])
           } else if (Array.isArray(object[key])) {
-            arr.push(...object[key])
-            res[key] = arr
+            for (const akey in object[key]) {
+              console.log('!!!!object[key][akey]:' + object[key][akey])
+              console.log(
+                'Array.isArray(object[key][akey]):' +
+                  Array.isArray(object[key][akey]),
+              )
+              Array.isArray(object[key][akey])
+                ? tempArr.push(copy(object[key][akey]))
+                : tempArr.push(object[key][akey])
+            }
+            res[key] = tempArr
           } else {
             res[key] = object[key]
           }
@@ -32,9 +52,11 @@
         return res
       }
       let newData = copy(data)
-      data.team[0] = 'testBy'
+      data.team[0] = 'test1'
+      data.team[3][0] = 'test2'
       console.log('🚀 ~ old data', data)
       console.log('🚀 ~  newData', newData)
+      // let newArr = copyArr(['Ava', 'RST', 'Coding', [1, 2, 3, [4, 5]]])
     </script>
   </body>
 </html>

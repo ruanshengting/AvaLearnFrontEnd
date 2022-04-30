@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[09] Arrow Functions</title>
+  </head>
+  <body>
+    <script>
+      'use strict'
+      function prefixer(prefix) {
+        this.prefix = prefix
+      }
+      prefixer.prototype.prefixArray = function (arr) {
+        /*写法1
+            let that = this //用that才不会报错
+        return arr.map(function (x) {
+          console.log('!!', that.prefix + x)
+        })*/
+        //写法2:使用=> 这样就可以使用this
+        return arr.map((x) => {
+          console.log('写法2:使用=> 这样就可以使用this', this.prefix + x)
+        })
+      }
+      let pre = new prefixer('hello ')
+      pre.prefixArray(['ava', 'rst'])
+      //旧的写法
+      let add = function (a, b) {
+        let sum = a + b
+        console.log(
+          '🚀 ~ file: [09] Arrow Functions.html ~ line 31 ~ add ~ sum',
+          sum,
+        )
+        return false
+      }
+      add(2, 3)
+      // 新的写法
+      let newadd = (a, b) => {
+        let sum = a + b
+        console.log(
+          '🚀 ~ file: [09] Arrow Functions.html ~ line 31 ~ add ~ sum',
+          sum,
+        )
+        //return false
+        //这句话可以不要
+      }
+      newadd(2, 2)
+    </script>
+  </body>
+</html>

@@ -35,6 +35,36 @@
       console.log('delete by the Key')
       myMap.delete('key1')
       console.log('🚀  myMap', myMap)
+      console.log('🚀 myMap.size', myMap.size)
+      console.log('***************使用WeakSet***************')
+      let carWeakSet = new WeakSet()
+
+      let car1 = {
+        make: 'make1',
+        model: 'model1',
+      }
+      carWeakSet.add(car1)
+      let car2 = {
+        make: 'make2',
+        model: 'model2',
+      }
+      carWeakSet.add(car2)
+      console.log('🚀  carWeakSet', carWeakSet)
+      console.log('***************使用WeakMap***************')
+      let carWeakMap = new WeakMap()
+      let key1 = {
+        id: 1,
+      }
+      let key2 = {
+        id: 2,
+      }
+      carWeakMap.set(key1, car1)
+      carWeakMap.set(key2, car2)
+      carWeakMap.delete(key1)
+      console.log(
+        '🚀 ~ file:  [08] Set, Map, WeakSet and WeakMap.html ~ line 59 ~ carWeakMap',
+        carWeakMap,
+      )
     </script>
   </body>
 </html>
