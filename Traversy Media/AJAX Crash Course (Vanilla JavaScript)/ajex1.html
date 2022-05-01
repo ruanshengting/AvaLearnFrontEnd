@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Crash Course (Vanilla JavaScript)</title>
+  </head>
+  <body>
+    <button id="button">Get Text file</button>
+    <script>
+      //Create event Listener
+      document.getElementById('button').addEventListener('click', loadText)
+      function loadText() {
+        console.log(
+          '*******HTTP Status:200(OK) 403(Forbidden) 404(Not Found)******',
+        )
+        //Create XHR Object
+        var xhr = new XMLHttpRequest()
+        console.log('🚀 ~ file: ajex1.html ~ line 17 ~ loadText ~ xhr', xhr)
+        //OPEN--type,url/file,isAsync
+        xhr.open('GET', 'sample.txt', true)
+
+        /*
+        xhr.onload = function () {
+          if (this.status == 200) {
+            console.log(this.responseText)
+          }
+        }
+        */
+        xhr.onreadystatechange=function(){
+              
+        }
+        //send request
+        xhr.send()
+      }
+    </script>
+  </body>
+</html>
