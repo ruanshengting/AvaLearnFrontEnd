@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajex4--PHP</title>
+  </head>
+  <body>
+    <button id="button">GET Name</button>
+    <form action="process.php" method="GET">
+      <input type="text" name="name" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+  <script>
+    document.getElementById('button').addEventListener('click', getName)
+    function getName() {
+      let xhr = new XMLHttpRequest()
+      xhr.open('GET', 'process.php?name=ava', true)
+      xhr.onload = function () {
+        console.log(this.responseText)
+      }
+      xhr.send()
+    }
+  </script>
+</html>
