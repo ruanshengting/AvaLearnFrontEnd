@@ -45,7 +45,7 @@
     let fact = document.querySelector('#fact')
     let factText = document.querySelector('#factText')
     let numberInput=document.querySelector('#numberInput')
-    numberInput.addEventListener('input',getFactAjex)
+    numberInput.addEventListener('input',getFactFetch)
     /*
     function getFactAjex(){
       let number=numberInput.value
@@ -60,6 +60,22 @@
       xhr.send()
     }
     */
+    function getFactFetch(){
+      let number=numberInput.value;
+      fetch('http://numbersapi.com/'+number)
+      .then(response=>  response.text())//疑问为什么写成.then(response=> { response.text()})就不行，是不是{ response.text()}其实就是下面的then的data？？
+      .then((data)=>{
+            if(number!=''){
+                  console.log(data)
+                  fact.style.display='block';
+                  factText.innerHTML=data  
+            }
+            
+      })
+      .catch((err)=>{
+            console.log('err:'+err)
+      })
+    }
   </script>
   </script>
 </html>
