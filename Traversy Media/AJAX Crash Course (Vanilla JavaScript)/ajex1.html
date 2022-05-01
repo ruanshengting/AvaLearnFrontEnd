@@ -8,6 +8,8 @@
   </head>
   <body>
     <button id="button">Get Text file</button>
+    <br />
+    <div id="text"></div>
     <script>
       //Create event Listener
       document.getElementById('button').addEventListener('click', loadText)
@@ -15,21 +17,42 @@
         console.log(
           '*******HTTP Status:200(OK) 403(Forbidden) 404(Not Found)******',
         )
+        console.log(
+          '*******readyStatus value:0(request not initailized);1(server connection established);2(request received) 3(processing request) 4(request finish)******',
+        )
         //Create XHR Object
         var xhr = new XMLHttpRequest()
-        console.log('🚀 ~ file: ajex1.html ~ line 17 ~ loadText ~ xhr', xhr)
+        console.log('🚀333', xhr.readyState)
         //OPEN--type,url/file,isAsync
         xhr.open('GET', 'sample.txt', true)
 
-        /*
+        //Optional---used for loaders
+        xhr.onprogress = function () {
+          console.log('onprogress readyState', xhr.readyState)
+        }
         xhr.onload = function () {
+          console.log(
+            '🚀onload readyState是4，也就是说只有readyState=4，才会跑onload方法，这是onreadystatechange和onload的差别:',
+            xhr.readyState,
+          ) //是4，也就是说只有readyState=4，才会跑onload方法
           if (this.status == 200) {
+            console.log(this.responseText)
+            document.getElementById('text').innerHTML = this.responseText
+          } else if (this.status == 404) {
+            document.getElementById('text').innerHTML = 'Error'
+          }
+        }
+
+        /*
+        xhr.onreadystatechange = function () {
+          console.log('🚀', xhr.readyState)
+          if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText)
           }
         }
         */
-        xhr.onreadystatechange=function(){
-              
+        xhr.onerror = function () {
+          console.log('Request Error......')
         }
         //send request
         xhr.send()
