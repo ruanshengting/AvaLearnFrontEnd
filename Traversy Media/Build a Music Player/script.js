@@ -68,3 +68,7 @@ nextBtn.addEventListener('click', nextSong)
 audio.addEventListener('timeupdate', updateProgress)
 progressContainer.addEventListener('click', setProgress)
 audio.addEventListener('ended', nextSong)
+
+Array.from(document.getElementsByClassName('socialOption'))
+const targetDom = [...tempDom.getElementsByClassName('bBody')][0] || ''
+Array.from(tempDom.getElementsByClassName('bBody'))[0]

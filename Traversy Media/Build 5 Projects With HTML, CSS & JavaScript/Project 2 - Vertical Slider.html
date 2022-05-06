@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Project 2 - Vertical Slider</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        height: 100vh;
+        font-size: 35px;
+      }
+      .slide-container {
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+      }
+      .left-slide {
+        height: 100%;
+        width: 35%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .left-slide > div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      .left-slide h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+      .right-slide {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 35%;
+        width: 65%;
+      }
+      .right-slide > div {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="left-slide">
+        <div style="background-color: #ff6f91;">
+          <h1>Nature Flower</h1>
+          <p>All in Pink</p>
+        </div>
+        <div style="background-color: #ff9671;">
+          <h1>Nature Flower</h1>
+          <p>All in Pink</p>
+        </div>
+        <div style="background-color: #ffc75f;">
+          <h1>Nature Flower</h1>
+          <p>All in Pink</p>
+        </div>
+        <div style="background-color: #d65db1;">
+          <h1>Nature Flower</h1>
+          <p>All in Pink</p>
+        </div>
+      </div>
+      <div class="right-slide">
+        <div
+          style="
+            background-image: url(/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/image/yooA.jpg);
+          "
+        ></div>
+        <div
+          style="
+            background-image: url(/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/image/bonVoyage.jpg);
+          "
+        ></div>
+        <div
+          style="
+            background-image: url(/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/image/Desktop.jpeg);
+          "
+        ></div>
+        <div
+          style="
+            background-image: url(/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/image/YouNuanChi.png);
+          "
+        ></div>
+        <!-- 不要直接写background: url(/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/image/YouNuanChi.png);否则 background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;会失效 -->
+      </div>
+      <div class="action-buttons">
+        <button class="down-button">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="up-button">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
