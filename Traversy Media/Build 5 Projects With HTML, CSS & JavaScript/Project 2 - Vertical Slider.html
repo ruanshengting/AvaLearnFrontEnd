@@ -36,6 +36,7 @@
         position: absolute;
         left: 0;
         top: 0;
+        transition: transform 0.2s ease-in-out;
       }
       .left-slide > div {
         height: 100%;
@@ -56,14 +57,41 @@
         top: 0;
         left: 35%;
         width: 65%;
+        transition: transform 0.2s ease-in-out;
       }
       .right-slide > div {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-
         height: 100%;
         width: 100%;
+      }
+      button {
+        background-color: #fff;
+        font-size: 16px;
+        padding: 15px;
+        border: 0;
+        color: #ccc;
+        cursor: pointer;
+      }
+      button:hover {
+        color: #222;
+      }
+      button:focus {
+        outline: none;
+      }
+      .slide-container .action-buttons button {
+        position: absolute;
+        left: 35%;
+        top: 50%;
+      }
+      .slide-container .action-buttons .up-button {
+        transform: translateY(-100%);
+        border-top-right-radius: 15px;
+      }
+      .slide-container .action-buttons .down-button {
+        transform: translateX(-100%);
+        border-top-left-radius: 15px;
       }
     </style>
   </head>
