@@ -99,19 +99,19 @@
     <div class="slide-container">
       <div class="left-slide">
         <div style="background-color: #ff6f91;">
-          <h1>Nature Flower</h1>
+          <h1>Nature Flower1</h1>
           <p>All in Pink</p>
         </div>
         <div style="background-color: #ff9671;">
-          <h1>Nature Flower</h1>
+          <h1>Nature Flower2</h1>
           <p>All in Pink</p>
         </div>
         <div style="background-color: #ffc75f;">
-          <h1>Nature Flower</h1>
+          <h1>Nature Flower3</h1>
           <p>All in Pink</p>
         </div>
         <div style="background-color: #d65db1;">
-          <h1>Nature Flower</h1>
+          <h1>Nature Flower4</h1>
           <p>All in Pink</p>
         </div>
       </div>
@@ -150,4 +150,39 @@
       </div>
     </div>
   </body>
+  <script>
+    const slideContainer = document.querySelector('.slide-container')
+    const leftSlide = document.querySelector('.left-slide')
+    const rightSlide = document.querySelector('.right-slide')
+    const downButton = document.querySelector('.down-button')
+    const upButton = document.querySelector('.up-button')
+    const slideNum = rightSlide.querySelectorAll('div').length
+
+    let activeSlideIndex = 0
+    leftSlide.style.top = `-${(slideNum - 1) * 100}vh`
+    /*加上这句话，让左边的slide能够从最后开始一张开始*/
+    upButton.addEventListener('click', () => directionEvent('up')) //?
+    downButton.addEventListener('click', () => directionEvent('down'))
+    const directionEvent = (direction) => {
+      const sildeClientHeight = slideContainer.clientHeight
+      if (direction === 'up') {
+        activeSlideIndex >= slideNum - 1
+          ? (activeSlideIndex = 0)
+          : activeSlideIndex++
+      }
+      if (direction === 'down') {
+        activeSlideIndex <= 0
+          ? (activeSlideIndex = slideNum - 1)
+          : activeSlideIndex--
+      }
+
+      rightSlide.style.transform = `translateY(-${
+        activeSlideIndex * sildeClientHeight
+      }px)`
+
+      leftSlide.style.transform = `translateY(${
+        activeSlideIndex * sildeClientHeight
+      }px)`
+    }
+  </script>
 </html>
