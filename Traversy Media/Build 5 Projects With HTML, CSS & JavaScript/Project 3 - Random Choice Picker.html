@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 3 - Random Choice Picker</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: linear-gradient(
+          to right top,
+          #c180a5,
+          #b486b7,
+          #a18ec5,
+          #8996ce,
+          #6f9dd1,
+          #57a8d9,
+          #39b2dc,
+          #06bcda,
+          #00cddc,
+          #00ded6,
+          #18edc9,
+          #5ffbb6
+        );
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        font-size: 30px;
+      }
+      h3 {
+        font-size: 50px;
+      }
+      textarea {
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+      }
+      .tags {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      .tag {
+        background-color: #ff9671;
+        width: auto;
+        border-radius: 50px;
+        padding: 0 10px;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .highlight {
+        background: #d65db1;
+        border-radius: 50px;
+        padding: 0 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>
+        Random Choice Picker
+        <br />
+      </h3>
+      <textarea id="textarea"></textarea>
+      <div class="tags"></div>
+    </div>
+  </body>
+  <script>
+    const textarea = document.getElementById('textarea')
+    const tagsContainer = document.querySelector('.tags')
+    textarea.focus()
+
+    textarea.addEventListener('keyup', (e) => {
+      createTags(e.target.value)
+      if (e.key === 'Enter') {
+        setTimeout(() => (e.target.value = ''), 10)
+        //什么作用？？？
+        randomSelect()
+      }
+    })
+
+    function createTags(args) {
+      const tags = args
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter((tag) => !!tag)
+      tagsContainer.innerHTML = '' //不要漏了这一句，否则会反复添加
+      tags.forEach((tag) => {
+        const tagDiv = document.createElement('div')
+        tagDiv.innerHTML = tag
+        tagDiv.classList = 'tag'
+        tagsContainer.appendChild(tagDiv)
+      })
+    }
+    function randomSelect() {
+      const time = 30
+      const interval = setInterval(() => {
+        const randomTag = pickRandom()
+        highLightTag(randomTag)
+        setTimeout(() => {
+          removeHighLight()
+        }, 100)
+      }, 100)
+      // clearInterval(interval, time * 100)
+    }
+    function pickRandom() {
+      const tags = document.querySelectorAll('.tag')
+      console.log(
+        '🚀 ~ file: Project 3 - Random Choice Picker.html ~ line 115 ~ pickRandom ~ tags',
+        Array.from(tags),
+      )
+      return tags[Math.floor(Math.random() * tags.length)]
+    }
+    function highLightTag(tagEl) {
+      tagEl.classList = 'highlight'
+    }
+    function removeHighLight(tagEl) {
+      tagEl.removeClassList('highlight')
+    }
+  </script>
+</html>
