@@ -85,6 +85,7 @@
     textarea.focus()
 
     textarea.addEventListener('keyup', (e) => {
+      console.log('e.target.value', e.target.value)
       createTags(e.target.value)
       if (e.key === 'Enter') {
         setTimeout(() => (e.target.value = ''), 10)
@@ -92,7 +93,7 @@
         randomSelect()
       }
     })
-
+    //342,234,45,5,2
     function createTags(args) {
       const tags = args
         .split(',')
@@ -112,24 +113,46 @@
         const randomTag = pickRandom()
         highLightTag(randomTag)
         setTimeout(() => {
-          removeHighLight()
+          removeHighLight(randomTag)
         }, 100)
       }, 100)
-      // clearInterval(interval, time * 100)
+      setTimeout(() => {
+        clearInterval(interval)
+        setTimeout(() => {
+          //？？？？
+          const finalTag = pickRandom()
+          highLightTag(finalTag)
+        }, 100)
+      }, time * 100)
+      /*
+          同步异步？？为啥
+          const finalTag = pickRandom()
+          highLightTag(finalTag)
+          一定要写在setTimeout的里面
+
+          为啥不能写成
+          const finalTag = pickRandom()
+          highLightTag(finalTag)
+          直接在setTimeout的外面？
+        */
     }
     function pickRandom() {
       const tags = document.querySelectorAll('.tag')
-      console.log(
-        '🚀 ~ file: Project 3 - Random Choice Picker.html ~ line 115 ~ pickRandom ~ tags',
-        Array.from(tags),
-      )
       return tags[Math.floor(Math.random() * tags.length)]
     }
     function highLightTag(tagEl) {
-      tagEl.classList = 'highlight'
+      tagEl.classList.add('highlight')
     }
     function removeHighLight(tagEl) {
-      tagEl.removeClassList('highlight')
+      tagEl.classList.remove('highlight')
+    }
+    function decideTag() {
+      const tags = document.querySelectorAll('.tag')
+      tags.forEach((tag) => {
+        tag.classList.remove('highlight')
+      })
+      const finalTag = pickRandom()
+      highLightTag(finalTag)
     }
   </script>
 </html>
