@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 * {
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -12,54 +11,88 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
-  font-size: 20px;
-}
-.header {
-  display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-  background: #0081cf;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  gap: 10px;
-}
-.search-input {
-  outline: none;
-  height: 25px;
-  border-radius: 20px;
-  border: none;
-  padding: 10px 15px;
 }
 img {
+  max-width: 100%;
+}
+.card {
+  box-shadow: 0 2px 10px rgba(107, 107, 107, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 350px;
+}
+.card-header {
+  height: 150px;
+}
+.card-header img {
+  object-fit: cover;
+  /*图片比container要大的话，把图片多余的部分隐藏，要配合 width: 100%;
+  height: 100%;一起使用*/
+  width: 100%;
+  height: 100%;
+}
+.card-contain {
+  padding: 30px;
+  background-color: #fff;
+}
+.card-title {
+  margin: 0;
+  height: 20px;
+}
+.card-excerpt {
+  color: #777;
+  margin: 10px 0 20px;
+}
+.profile-img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  width: 30%;
+  overflow: hidden;
 }
-.user-list li {
-  flex-direction: row;
-  display: flex;
-  gap: 20px;
-  padding: 5px 20px;
-  border-bottom: 1px solid #ccc;
-}
-.user-info {
+.author-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
+  margin-left: 10px;
+  width: 100px;
 }
-ul.user-list {
+.author {
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  height: 240px;
-  overflow-y: scroll;
+  align-items: center;
 }
-.location {
-  font-size: 10px;
+.author-info small {
+  color: #aaa;
+  margin-top: 5px;
 }
-.user-list li:nth-last-child(2) {
-  border: none;
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #d1d1d1,
+    #d9d9d9,
+    #e1e1e1,
+    #e9e9e9,
+    #f1f1f1
+  );
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
 }
-.hide {
-  display: none !important;
+.animated-bg-text {
+  border-radius: 50px;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  height: 10px;
+  /*
+   display: inline-block;
+  width: 100%;
+  让span可以变成行
+  */
+}
+@keyframes bgPos {
+  0% {
+    background-size: 50% 0;
+  }
+  100% {
+    background-size: -150% 0;
+  }
 }
