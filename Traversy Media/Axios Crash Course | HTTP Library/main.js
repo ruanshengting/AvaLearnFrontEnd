@@ -20,12 +20,14 @@ function getData() {
 
   //写法2
   axios
-    .get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    .get('https://jsonplaceholder.typicode.com/todos?_limit=5', {
+      timeout: 5,
+    })
     .then((res) => {
       console.log(res)
     })
     .catch((err) => {
-      console.log(err)
+      console.log('err:', err) //5ms之后还没出结果就会得到message: 'timeout of 5ms exceeded
     })
 }
 //post data
@@ -184,9 +186,13 @@ function transformResponse() {
 }
 function errorHandle() {
   axios
-    .get('https://jsonplaceholder.typicode.com/todo12313')
+    .get('https://jsonplaceholder.typicode.com/todo12313', {
+      validateStatus: function (status) {
+        return status < 500 //如果status>500或者=500，都会被reject。会进入then语句，但是不会进入catch error语句。也就是说：只要status是<500都不算错误，都不会被reject
+      },
+    })
     .then((res) => {
-      console.log(res)
+      console.log('res:', res)
     })
     .catch((err) => {
       if (err.request) {
@@ -223,3 +229,10 @@ function cancelToken() {
     console.log('直接就没有response回来了')
   }
 }
+//Axios instance
+const axiosInstance = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com', //会出现在config的url里面
+})
+axiosInstance.get('/comments').then((res) => {
+  console.log(res)
+})
