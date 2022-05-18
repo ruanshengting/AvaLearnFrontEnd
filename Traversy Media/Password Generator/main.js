@@ -4,3 +4,4 @@ function getRandomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)]
 }
 console.log('...', getRandomSymbol())
+//https://net-comber.com/charset.html
