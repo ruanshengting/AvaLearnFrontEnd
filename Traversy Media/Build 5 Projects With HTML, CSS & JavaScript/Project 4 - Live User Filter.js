@@ -5,6 +5,10 @@ getData()
 async function getData() {
   const res = await fetch('https://randomuser.me/api?results=20')
   const { results } = await res.json()
+  console.log(
+    '🚀 ~ file: Project 4 - Live User Filter.js ~ line 8 ~ getData ~ results',
+    results,
+  )
   result.innerHTML = '' //原本ul里面的loading的这个标签去掉
   results.forEach((user) => {
     const li = document.createElement('li')
