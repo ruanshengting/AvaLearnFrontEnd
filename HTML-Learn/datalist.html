@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>input list 属性</h1>
+
+    <p>list 属性引用包含 input 元素的预定义选项的 datalist 元素。</p>
+
+    <form action="/action_page.php">
+      <input list="browsers" name="browser" />
+      <datalist id="browsers">
+        <option value="Internet Explorer"></option>
+        <option value="Firefox"></option>
+        <option value="Chrome"></option>
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+      </datalist>
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <p>
+      <b>注释：</b>
+      Safari 12.0（或更早版本）不支持 datalist 标签。
+    </p>
+  </body>
+</html>

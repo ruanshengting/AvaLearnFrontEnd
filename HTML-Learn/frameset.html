@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frameset标签不要放在body元素里面</title>
+  </head>
+<frameset rows="50%,50%">
+
+      <frame src="./test.html">
+
+            <frameset cols="25%,75%">
+            <frame src="./address.html" >
+            <frame src="./dd.html">
+            </frameset>
+
+</frameset>
+
+  <!-- <frameset cols="120,*">
+    <frame src="./test.html" />
+    <frame src="./address.html" />
+    <frame src="./dd.html" />
+  </frameset> -->
+</html>
