@@ -20,13 +20,14 @@
       ]
 
       let list = test,
-        data = []
+        data = [] //这个data数组用来存放最后的结果
       for (var i = 0, length = test.length; i < length; i++) {
         console.log('list[i].city', list[i].city)
         console.log('data[list[i].city]', data[list[i].city])
         if (!data[list[i].city]) {
-          var arr = []
-          arr.push(list[i])
+          //这个key在最终的数组里，存在了吗？不存在就...
+          var arr = [] //开辟新的数组空间
+          arr.push(list[i]) //把第一次被放入的元素，放进新的数组空间里
           data[
             list[i].city
           ] = arr /*让 data[list[i].city] 成为一个新的数组 用类别来作为新数组的索引*/

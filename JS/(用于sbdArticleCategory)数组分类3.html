@@ -61,8 +61,10 @@
           obj[item.DataCategoryGroupName].push(formatItem)
         }
       })
+      console.log('obj=', obj)
       /*这个forEach循环可以得到把数组分类好的object*/
       let afterFormat = []
+
       for (let item in obj) {
         const categoryGroupNameItem = {
           label: item,
@@ -72,6 +74,8 @@
         }
         afterFormat.push(categoryGroupNameItem)
       }
+
+      console.log('afterFormat=', afterFormat)
       /*通过for in 遍历object,然后把刚刚得到的分类好的数组放进items属性中*/
     </script>
   </body>
