@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex-grow</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      height: 800px;
+      background-color: rgb(219, 219, 219);
+    }
+    .item {
+      padding: 100px;
+    }
+    .item1 {
+      /* 其他的都是0，这一个是1，所以能所有剩下的空间都是item1的 */
+      flex-grow: 1;
+    }
+  </style>
+  <body>
+    <div>
+      .flex-grow 长大 在容器主轴上存在剩余空间时, flex-grow才有意义
+      该属性的值,称为放大因子, 常见的属性值如下:
+      <div>1. 0默认值</div>
+      <div>2.initial 设置默认值,与0等效</div>
+      <div>3. n 放大因子: 正数</div>
+    </div>
+    <div class="container">
+      <div class="item item1" style="background-color: antiquewhite;">
+        1---其他的都是0，这一个是1，所以能所有剩下的空间都是item1的
+      </div>
+      <div class="item" style="background-color: aqua;">2</div>
+      <div class="item" style="background-color: aquamarine;">3</div>
+    </div>
+  </body>
+</html>

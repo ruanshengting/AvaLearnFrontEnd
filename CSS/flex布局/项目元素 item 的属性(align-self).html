@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>align-self: 覆盖container align-items 属性</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      height: 800px;
+      background-color: rgb(219, 219, 219);
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .container {
+      /* container指定容器的对齐 flex-start */
+      align-items: flex-start;
+    }
+    .item {
+      width: 200px;
+      height: 200px;
+    }
+    .item3 {
+      /* 元素3 item3 覆盖container的设置，flex-end */
+      align-self: flex-end;
+    }
+  </style>
+  <body>
+    <div>该属性可覆盖容器的align-items, 用以自定义某个项目的对齐方式</div>
+    <div class="container">
+      <div class="item item1" style="background-color: antiquewhite;">1</div>
+      <div class="item item2" style="background-color: aqua;">2</div>
+      <div class="item item3" style="background-color: aquamarine;">3</div>
+    </div>
+  </body>
+</html>
