@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transition和animation的区别</title>
+  </head>
+  <style>
+    #transition {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      cursor: pointer;
+      transition: width 2s;
+      /*通过transition属性监听div元素width属性的变化，动画在两秒内完成。当鼠标悬浮于div之上的时候，设置width的宽度500px，宽度的变化此时被transition监听到。于是开始动画效果，宽度会进行平滑的过渡。*/
+    }
+    #transition:hover {
+      width: 500px;
+    }
+    /*原文链接：https://blog.csdn.net/Q_Q420427/article/details/90418565*/
+
+    #animation {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: relative;
+      top: 100px;
+      animation: move 4s infinite alternate;
+    }
+    @keyframes move {
+      0% {
+        left: 0px;
+        background: red;
+      }
+      25% {
+        left: 30px;
+        background: blue;
+      }
+      50% {
+        left: 60px;
+        background: yellow;
+      }
+      75% {
+        left: 120px;
+        background: green;
+      }
+      100% {
+        left: 240px;
+        background: red;
+      }
+    }
+  </style>
+
+  <body>
+    <div id="transition"></div>
+    <div>
+      transition 需要一个事件来触发，比如hover，所以没法在网页加载时自动触发。
+      是一次性的，不能重复发生，除非一再触发。
+      只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态。
+    </div>
+    <div id="animation"></div>
+    <pre>
+      transition和animation的区别
+      1.动画状态的区别
+      animation动画可以通过@keyframes属性对动画进行更为精细的控制，设置多个状态。但是transition属性则只有两个状态，起始状态与结束状态。
+      2.触发条件不同
+       transition需要触发一个事件才能改变属性，而animation在不需要触发任何事件的情况下也可以显式的随着时间变化来改变元素css的属性值，从而达到一种动画的效果。
+
+    </pre>
+  </body>
+</html>

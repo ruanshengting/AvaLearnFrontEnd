@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .slds-list_horizontal {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      list-style: none;
+    }
+    /*nav bar update*/
+    .slds-list_horizontal.navigation-main-menu {
+      position: relative;
+    }
+    .slds-list_horizontal.navigation-main-menu::before {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      /* border-bottom: 0.5rem solid #ffdb0a !important; */
+      background: #fff;
+      transition: all 1s ease-in;
+    }
+    .slds-list_horizontal.navigation-main-menu::after {
+      content: ' ';
+      border: 5px dotted #9a9a99;
+      border-top: 5px dotted #393838;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: block;
+      position: absolute;
+      animation: spin 1s linear infinite;
+      /*animation:动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者结束的状态;*/
+      /*animation-iteration-count:infinite:规定动画被播放的次数，默认是1,还有 infinite*/
+      transition: opacity 1s ease-in;
+      /*这里是transition-property:all  这只属性是用来指定元素中哪一个属性执行过渡效果，取值有
+        none 没有属性需要执行过渡
+
+        all 所有属性发生变化（默认值）
+
+        indent 元素的某一个属性值*/
+      /*transition用来定义 从opacity: 1到opacity: 0 要用多久时间，可以写成transition: opacity 1s ease-in;*/
+    }
+    /* @keyframes(关键帧) 定义动画
+    
+    0%是动画的开始，100%是动画的完成。这样的规则就是动画序列
+    在 @keyframes 中规定某项CSS样式，就能创建由当前样式逐渐改为新样式的动画效果
+    动画是使元素从一种样式逐渐变化为另一种样式的效果。您可以改变任意多的样式任意多的次数。
+    请用百分比来规定变化发生的时间，或用关键词"from"和"to",等同于0%和100%
+    ————————————————
+    版权声明：本文为CSDN博主「优雅哥cc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+    原文链接：https://blog.csdn.net/weixin_43742708/article/details/114926809
+    */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .slds-list_horizontal.navigation-main-menu.nav-loaded::after {
+      /* opacity: 0;*/
+    }
+    .slds-list_horizontal.navigation-main-menu.nav-loaded::before {
+      width: 0px;
+      opacity: 0;
+    }
+  </style>
+  <body>
+    <nav class="desktop" role="navigation" slot="desktop">
+      <ul class="slds-list_horizontal navigation-main-menu nav-loaded">
+        <li>
+          <c-navigation-menu-item
+            class="menu-item container--default slds-is-active"
+          >
+            <a class="slds-truncate" href="javascript:void(0);" title="Home">
+              Home
+            </a>
+          </c-navigation-menu-item>
+        </li>
+        <li>
+          <c-navigation-menu-item class="menu-item container--default">
+            <a class="slds-truncate" href="javascript:void(0);" title="GUEST">
+              GUEST
+            </a>
+          </c-navigation-menu-item>
+        </li>
+        <li>
+          <c-navigation-menu-item class="menu-item container--default">
+            <a class="slds-truncate" href="javascript:void(0);" title="SUPPORT">
+              SUPPORT
+            </a>
+          </c-navigation-menu-item>
+        </li>
+      </ul>
+    </nav>
+    <pre>
+      值	              描述
+      linear      动画从头到尾的速度是相同的。匀速
+      ease	       默认。动画以低東开始，然后加快，在结束前变慢。
+      ease-in	      动画以低速开始。
+      ease-out	     动画以低速结束。
+      ease-in-out	    动画以低速开始和结束。
+      steps	          指定了时间函数中的间隔数量（步长）steps 就是分几步来完成动画，有了 steps 不要写ease linear了
+      例如:animation: move 4s steps(10) forwards;
+    </pre>
+  </body>
+</html>

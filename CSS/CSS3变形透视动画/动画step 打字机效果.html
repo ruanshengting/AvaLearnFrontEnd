@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打字机效果</title>
+  </head>
+  <body>
+    <style>
+      div {
+        font-size: 40px;
+        font-family: monospace;
+        /* 1ch 代表0的宽度  */
+        width: 0ch;
+        white-space: nowrap;
+        /* animation: move 4s linear  forwards; */
+        /* steps 就是分几步来完成动画，有了 steps 不要写ease linear了 */
+        animation: move 4s steps(9) forwards;
+        overflow: hidden;
+      }
+
+      @keyframes move {
+        0% {
+        }
+        100% {
+          /*width: 9ch;*/
+          width: 18ch;
+        }
+      }
+    </style>
+
+    <div>我不知道你在想什么</div>
+    <div>asdfghjkl</div>
+    <span>
+      注意：1ch 等于一个 0 的宽度！宽度！宽度！ ch还有另一个规则： 1ch = 1个英文
+      = 1个数字 2ch = 1个中文
+    </span>
+  </body>
+</html>
