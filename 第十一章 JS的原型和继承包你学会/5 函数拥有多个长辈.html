@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 函数拥有多个长辈</title>
+  </head>
+  <body></body>
+  <script>
+    //let hd = {}
+    // console.dir('hd只有一个长辈', hd)
+    function User() {}
+    console.dir(User)
+    User.prototype.show = function () {
+      console.log(' User.prototype.show=')
+    }
+    User.__proto__.view = function () {
+      console.log('view!!')
+    }
+    User.view()
+    let hd = new User()
+    hd.show()
+    console.dir(hd)
+    console.log(User.prototype == hd.__proto__)
+    console.log(User.__proto__)
+    console.log('服务于实例化对象prototype')
+    console.log(
+      'User.__proto__服务于函数对象  __proto__是指向构造函数的原型对象',
+    )
+  </script>
+</html>

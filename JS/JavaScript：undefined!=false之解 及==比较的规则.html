@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript：undefined!=false之解 及==比较的规则</title>
+  </head>
+  <body>
+    <!-- https://blog.csdn.net/qq_34629352/article/details/106462090 -->
+    <pre>
+        首先看看JS中的==比较是如何比较的 
+        对于标量，“==”直接比较其中的值就行了 
+        而对于两个对象（这里特指除去原始值的对象……因为在JS可以说一切皆对象） 
+        则是比较其引用 
+        因此对于两个对象的比较，看它们是不是同一个对象，是不需要用===(严格相等，值相等且类型相同)的 
+    </pre>
+
+    <pre>
+      再深入分析下JS对于标量应用==比较时的情况 
+        对于相同类型的两个标量的比较，除了NaN比较特殊之外（NaN==NaN返回false），都没什么疑点 
+        而对于类型不同的两个标量的比较，JS就有一套严格的规则
+        
+      1.将Boolean,Number,String这三种类型进行不同类型的==比较时，其规则是，总将两边的值转换成数字，再看看转换结果数字是否相等 
+      alert(1==true);//true转换成数字也是1   
+      alert('1'==true);//将字符串'1'与true都转换成数字    
+      alert('abc'==true);//虽然字符串'abc'转换成布尔值是true，但这里会返回false   
+      //因为'abc'转换成数字是NaN，而true转换成数字是1   
+      alert(123=='123');//同理，true  
+    </pre>
+    <div>
+      <strong>JS中简单类型与引用类型进行==比较的情况</strong>
+      <div>
+        这种比较与是有规则的，并且可以用代码来验证JS内部的执行情况
+        将一个简单类型（这里指除undefined与null的值）与一个对象比较时，
+        <span style="font-weight: bolder; color: blue;">
+          先调用对象的valueOf方法
+        </span>
+        ，以期待返回一个标量，如果对象的valueOf方法返回的仍然是一个复合对象的话
+        就
+        <span style="font-weight: bolder; color: blue;">
+          接着调用对象的toString方法以期待返回一个标量
+        </span>
+        ，如果仍然没有返回标量的话，就判为不相等
+        如果valueOf或toString方法之一返回一个标量，就用这个标量同==另一边的标量进行比较
+      </div>
+      <pre>
+        var obj={};   
+
+        alert(obj=="abc");//false   
+
+        obj.toString=function () {   
+
+            return 'abc';   
+
+        };   
+
+        alert(obj=='abc');//这时就返回true了   
+
+          
+
+        alert(obj==123);//false   
+
+        obj.valueOf=function () {return 123};   
+
+        alert(obj==123);//true!!!   
+      </pre>
+
+      <pre>
+        事实上还可以用下面的代码进行验证，将一个复合对象与标量进行比较时，总会先调用对象的valueOf， 
+        valueOf方法返回不是一个标量的话还会接着调用toString方法
+
+Js代码 
+var obj={   
+
+    toString:function () {   
+
+        alert('valueOf方法没有返回标量，我会被调用');   
+
+    },   
+
+    valueOf:function () {   
+
+        alert('我先被调用,Object的valueOf方法默认实现是返回对象自身');   
+
+    }   
+
+};   
+
+alert(1==obj);//可以看到执行次序  
+      </pre>
+    </div>
+    <div>
+      a与b进行比较，如果a与b是Number,String,Boolean这三种类型中的一种，
+      并且a与b的类型不同，那么就将a与b都转换成数字再进行比较
+      <pre>
+        var a="true";   
+        var b=true;  
+        alert(a==b);   
+        //结果等同于下面的代码   
+        alert(Number(a)===Number(b)); 
+      </pre>
+    </div>
+    <div style="font-weight: bolder; color: blue; font-size: larger;">
+      Number,Boolean,String,Undefined这几种基本类型混合比较时，会将其转换成数字再进行比较
+      基本类型与复合对象进行比较时，会先将复合对象转换成基本类型（依次调用valueOf与toString方法）再进行比较
+      undefined被当成基本类型，undefined转换成数字是NaN，因此undefined与除null之外的其它类型值进行比较时始终返回false(注意NaN==NaN返回false)
+      null被当成复合对象，由于null没有valueOf与toString方法，因此和除了undefined之外的其它类型值进行比较时始终返回false
+    </div>
+    <div>
+      js常用的基本数据类型包括undefined、null、number、boolean、string;
+    </div>
+  </body>
+</html>
