@@ -1,199 +1,58 @@
-Knowledge Read Access AD Company CO-L91
-Knowledge Read Access AD Company CO-LNQ
-Knowledge Read Access AD Company CO-LU1
-Knowledge Read Access AD Company CO-MA1
-Knowledge Read Access AD Company CO-MMS
-Knowledge Read Access AD Company CO-MO1
-Knowledge Read Access AD Company CO-MO2
-Knowledge Read Access AD Company CO-MX1
-Knowledge Read Access AD Company CO-MX2
-Knowledge Read Access AD Company CO-MX3
-Knowledge Read Access AD Company CO-MX4
-Knowledge Read Access AD Company CO-MX5
-Knowledge Read Access AD Company CO-MX6
-Knowledge Read Access AD Company CO-MX7
-Knowledge Read Access AD Company CO-MY1
-Knowledge Read Access AD Company CO-MY2
-Knowledge Read Access AD Company CO-MY3
-Knowledge Read Access AD Company CO-MY4
-Knowledge Read Access AD Company CO-NF1
-Knowledge Read Access AD Company CO-NF2
-Knowledge Read Access AD Company CO-NF3
-Knowledge Read Access AD Company CO-NF5
-Knowledge Read Access AD Company CO-NF6
-Knowledge Read Access AD Company CO-NF7
-Knowledge Read Access AD Company CO-NF8
-Knowledge Read Access AD Company CO-NL3
-Knowledge Read Access AD Company CO-NL4
-Knowledge Read Access AD Company CO-NL5
-Knowledge Read Access AD Company CO-NL6
-Knowledge Read Access AD Company CO-NL7
-Knowledge Read Access AD Company CO-NL8
-Knowledge Read Access AD Company CO-NLM
-Knowledge Read Access AD Company CO-NO1
-Knowledge Read Access AD Company CO-NO3
-Knowledge Read Access AD Company CO-NSW
-Knowledge Read Access AD Company CO-NWL
-Knowledge Read Access AD Company CO-NZ1
-Knowledge Read Access AD Company CO-OAO
-Knowledge Read Access AD Company CO-OM1
-Knowledge Read Access AD Company CO-PA1
-Knowledge Read Access AD Company CO-PA2
-Knowledge Read Access AD Company CO-PA3
-Knowledge Read Access AD Company CO-PAB
-Knowledge Read Access AD Company CO-PAL
-Knowledge Read Access AD Company CO-PCM
-Knowledge Read Access AD Company CO-PE1
-Knowledge Read Access AD Company CO-PEN
-Knowledge Read Access AD Company CO-PH1
-Knowledge Read Access AD Company CO-PH2
-Knowledge Read Access AD Company CO-PHU
-Knowledge Read Access AD Company CO-PL1
-Knowledge Read Access AD Company CO-PL2
-Knowledge Read Access AD Company CO-PL3
-Knowledge Read Access AD Company CO-PL4
-Knowledge Read Access AD Company CO-PLM
-Knowledge Read Access AD Company CO-PR1
-Knowledge Read Access AD Company CO-PT1
-Knowledge Read Access AD Company CO-PT2
-Knowledge Read Access AD Company CO-QA1
-Knowledge Read Access AD Company CO-QRP
-Knowledge Read Access AD Company CO-RO1
-Knowledge Read Access AD Company CO-RU1
-Knowledge Read Access AD Company CO-RU2
-Knowledge Read Access AD Company CO-RU3
-Knowledge Read Access AD Company CO-SAT
-Knowledge Read Access AD Company CO-SCL
-Knowledge Read Access AD Company CO-SCW
-Knowledge Read Access AD Company CO-SE1
-Knowledge Read Access AD Company CO-SE2
-Knowledge Read Access AD Company CO-SE3
-Knowledge Read Access AD Company CO-SE4
-Knowledge Read Access AD Company CO-SEH
-Knowledge Read Access AD Company CO-SEM
-Knowledge Read Access AD Company CO-SFR
-Knowledge Read Access AD Company CO-SFT
-Knowledge Read Access AD Company CO-SG1
-Knowledge Read Access AD Company CO-SG2
-Knowledge Read Access AD Company CO-SG4
-Knowledge Read Access AD Company CO-SG6
-Knowledge Read Access AD Company CO-SG7
-Knowledge Read Access AD Company CO-SGM
-Knowledge Read Access AD Company CO-SIA
-Knowledge Read Access AD Company CO-SIC
-Knowledge Read Access AD Company CO-SID
-Knowledge Read Access AD Company CO-SIF
-Knowledge Read Access AD Company CO-SIH
-Knowledge Read Access AD Company CO-SIU
-Knowledge Read Access AD Company CO-SK1
-Knowledge Read Access AD Company CO-SLL
-Knowledge Read Access AD Company CO-SNU
-Knowledge Read Access AD Company CO-SPL
-Knowledge Read Access AD Company CO-SPM
-Knowledge Read Access AD Company CO-SSB
-Knowledge Read Access AD Company CO-SSG
-Knowledge Read Access AD Company CO-SSS
-Knowledge Read Access AD Company CO-STS
-Knowledge Read Access AD Company CO-SWK
-Knowledge Read Access AD Company CO-SWP
-Knowledge Read Access AD Company CO-TEC
-Knowledge Read Access AD Company CO-TEN
-Knowledge Read Access AD Company CO-TH1
-Knowledge Read Access AD Company CO-TH2
-Knowledge Read Access AD Company CO-TH3
-Knowledge Read Access AD Company CO-TH4
-Knowledge Read Access AD Company CO-TM
-Knowledge Read Access AD Company CO-TOG
-Knowledge Read Access AD Company CO-TR2
-Knowledge Read Access AD Company CO-TSM
-Knowledge Read Access AD Company CO-TSS
-Knowledge Read Access AD Company CO-TW1
-Knowledge Read Access AD Company CO-TW2
-Knowledge Read Access AD Company CO-TW3
-Knowledge Read Access AD Company CO-TW6
-Knowledge Read Access AD Company CO-TW7
-Knowledge Read Access AD Company CO-TW8
-Knowledge Read Access AD Company CO-TW9
-Knowledge Read Access AD Company CO-VN1
-Knowledge Read Access AD Company CO-VOS
-Knowledge Read Access AD Company CO-WRL
-Knowledge Read Access AD Company CO-ZA1
-Knowledge Read Access AD Company CO-ZA2
-Knowledge Read Access AD Company CO-ZA3
-Knowledge Read Access AD Company CO-ZA4
-Knowledge Read Access AD Labor
-Knowledge Read Access AD RPlan 0
-Knowledge Read Access AD RPlan 1
-Knowledge Read Access AD RPlan 2
-Knowledge Read Access AD RPlan 23
-Knowledge Read Access AD RPlan 4
-Knowledge Read Access AD RPlan 6
-Knowledge Read Access AD RPlan RXW0102
-Knowledge Read Access AD Union 0001
-Knowledge Read Access AD Union 0003
-Knowledge Read Access AD Union 003A
-Knowledge Read Access AD Union 0051
-Knowledge Read Access AD Union 0058
-Knowledge Read Access AD Union 0134
-Knowledge Read Access AD Union 0181
-Knowledge Read Access AD Union 0188
-Knowledge Read Access AD Union 0252
-Knowledge Read Access AD Union 0292
-Knowledge Read Access AD Union 0385
-Knowledge Read Access AD Union 0416
-Knowledge Read Access AD Union 0507
-Knowledge Read Access AD Union 0745
-Knowledge Read Access AD Union 0751
-Knowledge Read Access AD Union 0771
-Knowledge Read Access AD Union 0974
-Knowledge Read Access AD Union 0983
-Knowledge Read Access AD Union 1009
-Knowledge Read Access AD Union 1106
-Knowledge Read Access AD Union 112
-Knowledge Read Access AD Union 1249
-Knowledge Read Access AD Union 1333
-Knowledge Read Access AD Union 1433
-Knowledge Read Access AD Union 1537
-Knowledge Read Access AD Union 2001
-Knowledge Read Access AD Union 2396
-Knowledge Read Access AD Union 252A
-Knowledge Read Access AD Union 439F
-Knowledge Read Access AD Union 439N
-Knowledge Read Access AD Union CCQSAT
-Knowledge Read Access AD Union IUPAT
-Knowledge Read Access AD Union Non-union
-Knowledge Read Access Advanced JFG AIDA
-Knowledge Read Access Advanced JFG AS
-Knowledge Read Access Advanced JFG BM
-Knowledge Read Access Advanced JFG Commu
-Knowledge Read Access Advanced JFG CS
-Knowledge Read Access Advanced JFG Devel
-Knowledge Read Access Advanced JFG EHS
-Knowledge Read Access Advanced JFG Engin
-Knowledge Read Access Advanced JFG Finan
-Knowledge Read Access Advanced JFG HR
-Knowledge Read Access Advanced JFG IS
-Knowledge Read Access Advanced JFG Legal
-Knowledge Read Access Advanced JFG MB
-Knowledge Read Access Advanced JFG MO
-Knowledge Read Access Advanced JFG PM
-Knowledge Read Access Advanced JFG QCI
-Knowledge Read Access Advanced JFG Sales
-Knowledge Read Access Advanced JFG SCL
-Knowledge Read Access Advanced Non Labor
-Knowledge Read Access BS Corporate
-Knowledge Read Access BS DNU
-Knowledge Read Access BS GTS
-Knowledge Read Access BS Industrial
-Knowledge Read Access BS Oil Gas
-Knowledge Read Access BS Outdoor
-Knowledge Read Access BS SS
-Knowledge Read Access Region AE
-Knowledge Read Access Region AR
-Knowledge Read Access Region AT
-Knowledge Read Access Region AU
-Knowledge Read Access Region BE
-Knowledge Read Access Region BG
-Knowledge Read Access Region BR
-Knowledge Read Access Region CA
-Knowledge Read Access Region CH
+pre Period
+Knowledge Read Access Region CN
+Knowledge Read Access Region CO
+Knowledge Read Access Region CR
+Knowledge Read Access Region CZ
+Knowledge Read Access Region DE
+Knowledge Read Access Region DK
+Knowledge Read Access Region EC
+Knowledge Read Access Region ES
+Knowledge Read Access Region FI
+Knowledge Read Access Region FR
+Knowledge Read Access Region GB
+Knowledge Read Access Region GR
+Knowledge Read Access Region GT
+Knowledge Read Access Region HK
+Knowledge Read Access Region HN
+Knowledge Read Access Region HU
+Knowledge Read Access Region ID
+Knowledge Read Access Region IE
+Knowledge Read Access Region IL
+Knowledge Read Access Region IN
+Knowledge Read Access Region IT
+Knowledge Read Access Region JP
+Knowledge Read Access Region KR
+Knowledge Read Access Region LU
+Knowledge Read Access Region MA
+Knowledge Read Access Region MO
+Knowledge Read Access Region MX
+Knowledge Read Access Region MY
+Knowledge Read Access Region NL
+Knowledge Read Access Region NO
+Knowledge Read Access Region NZ
+Knowledge Read Access Region OM
+Knowledge Read Access Region PA
+Knowledge Read Access Region PE
+Knowledge Read Access Region PH
+Knowledge Read Access Region PT
+Knowledge Read Access Region QA
+Knowledge Read Access Region RO
+Knowledge Read Access Region RU
+Knowledge Read Access Region SE
+Knowledge Read Access Region SG
+Knowledge Read Access Region SK
+Knowledge Read Access Region TH
+Knowledge Read Access Region TR
+Knowledge Read Access Region TW
+Knowledge Read Access Region UA
+Knowledge Read Access Region US
+Knowledge Read Access Region VN
+Knowledge Read Access Region ZA
+Knowledge Read Access Role CW
+Knowledge Read Access Role Employee
+Knowledge Read Access Role Highly Emp
+Knowledge Read Access Role Highly Mgr
+Knowledge Read Access Role Highly VIP
+Knowledge Read Access Role HR
+Knowledge Read Access Role Manager
+Knowledge Read Access Role VIP
