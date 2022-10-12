@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 定时器的任务轮询</title>
+  </head>
+  <style>
+    div {
+      background-color: rgb(148, 189, 150);
+      width: 300px;
+      height: 300px;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    function interval(callback, delay = 50) {
+      let id = setInterval(() => callback(id), delay) //第一个定时器，会返回1
+    }
+    interval((timeId) => {
+      const div = document.querySelector('div')
+      let left = parseInt(window.getComputedStyle(div).left) //这里要给div定位，不然获取是NAN
+      //getComputedStyle() 方法返回一个样式对象，它是 CSSStyleDeclaration 对象的一个实例。https://juejin.cn/post/7023730235698839582
+      div.style.left = left + 10 + 'px'
+      if (left >= 200) {
+        clearInterval(timeId)
+        interval((timeId) => {
+          let width = parseInt(window.getComputedStyle(div).width)
+          div.style.width = width - 10 + 'px'
+          if (width <= 20) {
+            clearInterval(timeId)
+          }
+        }, 10)
+      }
+    })
+  </script>
+</html>
