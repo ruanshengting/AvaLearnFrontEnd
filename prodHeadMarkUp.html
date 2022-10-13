@@ -1,0 +1,207 @@
+<link rel="shortcut icon" href="/mysbd/favicon.ico?v=2" />
+<script type="text/javascript">
+  window.addEventListener('executeHeaderScript', function (e) {
+    headerCode(e)
+  })
+
+  window.addEventListener('roleTrigger', function (e) {
+    navController(e)
+  })
+  function headerCode(e) {
+    if (e.detail) {
+      const parentDom = document.querySelector('.slds-context-bar__secondary')
+      const currentDom = parentDom.querySelector('.slds-button')
+      const loginDom = document.querySelector('.headerBar__profileMenuRegion')
+      const footerSection = document.querySelector(
+        '[data-region-name="footer"]',
+      )
+      const ui_widget = footerSection.querySelectorAll('.ui-widget')
+      const ui_widget_list = Array.from(ui_widget)
+      ui_widget_list[0].style.display = 'none'
+      currentDom.style.display = 'none'
+      loginDom.style.display = 'none'
+    }
+    //nav for guest
+    setTimeout(() => {
+      const navDoms = document.querySelector('.nav--desktop')
+      if (navDoms) {
+        const currentDom = navDoms.querySelector('.slds-context-bar__primary')
+        const liList = currentDom.querySelector('.slds-list_horizontal')
+        if (liList.className.indexOf('nav-loaded') == -1 && e.detail) {
+          liList.className += ' nav-loaded'
+        }
+        const liArray = liList.querySelectorAll(':scope > li')
+        const realArray = Array.from(liArray)
+        let haveActive = false
+        realArray &&
+          realArray.forEach((r, i) => {
+            if (r.querySelector('.menu-item.slds-is-active')) {
+              haveActive = true
+            }
+          })
+        if (!haveActive) {
+          let { value: navName, map } = getCurrentPagePath(e.detail)
+          if (undefined !== map[navName]) {
+            realArray[map[navName]]
+              .querySelector('.menu-item')
+              .classList.add('slds-is-active')
+            realArray.forEach((r, i) => {
+              r.addEventListener('click', function (e) {
+                realArray.forEach((li, index) => {
+                  if (index == i) {
+                    li.querySelector('.menu-item').classList.add(
+                      'slds-is-active',
+                    )
+                  } else {
+                    li.querySelector('.menu-item').classList.remove(
+                      'slds-is-active',
+                    )
+                  }
+                })
+              })
+            })
+          }
+        }
+      }
+    }, 3000)
+  }
+
+  function getCurrentPagePath(isGuest) {
+    let path = window.location.pathname,
+      searchChart = 'mysbd/s/',
+      start =
+        path.toLocaleLowerCase().indexOf(searchChart) / 1 + searchChart.length,
+      end = path.indexOf('/', start / 1)
+
+    let result = { map: {} }
+    if (end > -1 || path.indexOf('loginwithusername') !== -1) {
+      result.value = path.slice(start, end)
+      result.map = {
+        support: 4,
+        guest: 2,
+        login: 0,
+      }
+      if (isGuest) {
+        if (path.indexOf('loginwithusername') !== -1) {
+          result.value = 'login'
+        }
+        result.map = {
+          support: 2,
+          login: 0,
+        }
+      }
+    }
+    return result
+  }
+
+  window.onload = function () {
+    if (window.innerWidth > 821) {
+      //  document.querySelector('.siteforceContentArea').style.minHeight = window.innerHeight - 61 + 'px !important';
+      //avoid console error at login page
+      const siteforceContentArea = document.querySelector(
+        '.siteforceContentArea',
+      )
+      if (siteforceContentArea) {
+        siteforceContentArea.style.minHeight =
+          window.innerHeight - 61 + 'px !important'
+      }
+    }
+  }
+  function navController({ detail: { isGuestUser, isViewOnboarding, isHR } }) {
+    setTimeout(() => {
+      let realArray = false
+      const navDoms = document.querySelector('.nav--desktop')
+      if (navDoms) {
+        const currentDom = navDoms.querySelector('.slds-context-bar__primary')
+        const liList = currentDom.querySelector('.slds-list_horizontal')
+        /*hide nav bar cover*/
+        liList.className += ' nav-loaded'
+        const liArray = liList.querySelectorAll(':scope > li')
+        realArray = Array.from(liArray)
+      }
+      const mobileDoms = document.querySelector('.nav--phone')
+      if (mobileDoms) {
+        const liList = mobileDoms.querySelector('ul')
+        const liArray = liList.querySelectorAll(':scope > li')
+        realArray = Array.from(liArray)
+      }
+
+      realArray &&
+        realArray.forEach((r, i) => {
+          if (!isGuestUser && i === 2) {
+            r.style.display = 'none'
+          }
+          if (!isViewOnboarding && i === 1) {
+            r.style.display = 'none'
+          }
+          if (!isHR && i === 3) {
+            r.style.display = 'none'
+          }
+        })
+    }, 2000)
+  }
+
+  /*
+     window.onload = function() {
+      setTimeout(() => {
+    			const buttonDom = document.querySelector('.socialOptionsContainer button');
+    	  buttonDom.innerHTML = 'SSO Login'
+    	  buttonDom.title = 'SSO Login'
+    	  buttonDom.style.cssText = `margin-top: 15px;
+     margin-bottom: 5px;
+     color: var(--lwc-colorTextButtonBrand,rgb(255, 255, 255));
+     cursor: pointer;
+     display: inline-block;
+     text-align: center;
+     vertical-align: middle;
+     background-image: none;
+     border: 1px solid transparent;
+     white-space: nowrap;
+     padding: 10px28px;
+     font-size: 28px;
+     font-family: var(--lwc-fontFamily,Montserrat);
+     font-weight: 700;
+     line-height: 1.42857143;
+     border-radius: 2px;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     outline: none;
+     background-color: #ffc700 !important;
+     border-radius: 10px !important;
+     height: 60px !important;
+     color:black !important;
+    `
+      }, 400)
+    }
+    */
+
+  /*
+     (function () {
+    	  console.log('test head markup');
+    	  const tempDom = document.querySelector('.uiButton--none');
+      console.log('!!!tempDom',tempDom);
+    	  //console.log('!!!tempDom',tempDom123);
+    	  const targetDom = tempDom.getElementsByClassName('bBody');
+    	  targetDom.setAttribute('title', 'SSO Login');
+    	  targetDom.innerHTML = 'SSO Login';
+     })()
+     */
+
+  /*
+    window.onload = function() {
+      setTimeout(() => {
+    			const navDoms = document.querySelector('.nav--desktop')
+    	  const currentDom = navDoms.querySelector('.slds-context-bar__primary')
+    	  const liList = currentDom.querySelector('.slds-list_horizontal')
+    	  const liArray = liList.querySelectorAll(":scope > li");
+    	  const realArray = Array.from(liArray)
+
+    	  //realArray[0].style.display="none";
+
+    	  console.log('navDoms',realArray)
+      }, 1000)
+    }
+    */
+</script>
