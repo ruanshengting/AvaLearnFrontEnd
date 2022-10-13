@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body></body>
+  <script>
+    console.log(
+      '----------------Promise的构造函数接收一个参数：函数，并且这个函数需要传入两个参数： resolve ：异步操作执行成功后的回调函数 reject：异步操作执行失败后的回调函数--------------------',
+    )
+    let p = new Promise((resolve, reject) => {
+      //做一些异步操作
+      setTimeout(() => {
+        console.log('执行完成')
+        resolve('我是成功！！')
+      }, 2000)
+    })
+    p.then((data) => {
+      console.log('data==', data)
+    })
+      .then((data) => {
+        console.log('data=', data)
+      })
+      .then((data) => {
+        console.log('data==---', data)
+      })
+  </script>
+</html>
