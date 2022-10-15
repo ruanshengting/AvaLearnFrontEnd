@@ -22,6 +22,7 @@
       let id = setInterval(() => callback(id), delay) //第一个定时器，会返回1
     }
     interval((timeId) => {
+      console.log('timeId=', timeId)
       const div = document.querySelector('div')
       let left = parseInt(window.getComputedStyle(div).left) //这里要给div定位，不然获取是NAN
       //getComputedStyle() 方法返回一个样式对象，它是 CSSStyleDeclaration 对象的一个实例。https://juejin.cn/post/7023730235698839582
@@ -29,6 +30,7 @@
       if (left >= 200) {
         clearInterval(timeId)
         interval((timeId) => {
+          console.log('timeId2=', timeId)
           let width = parseInt(window.getComputedStyle(div).width)
           div.style.width = width - 10 + 'px'
           if (width <= 20) {

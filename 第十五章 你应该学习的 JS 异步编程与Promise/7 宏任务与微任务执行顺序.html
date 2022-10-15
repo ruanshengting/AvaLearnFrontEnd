@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7 宏任务与微任务执行顺序</title>
+  </head>
+  <body>
+    <div>
+      顺序：同步任务>微任务>宏任务
+    </div>
+  </body>
+  <script>
+    setTimeout(() => {
+      console.log('setTimeout是宏任务')
+    }, 0) //setTimeout是宏任务
+    new Promise((resolve) => {
+      console.log('promise是同步任务') //promise是同步任务
+      resolve('resolved') /*resolve执行完之后就会创建.then微任务*/
+    }).then(
+      (res) => console.log('.then是微任务', res),
+      //.then是微任务
+    )
+    console.log('test')
+  </script>
+</html>

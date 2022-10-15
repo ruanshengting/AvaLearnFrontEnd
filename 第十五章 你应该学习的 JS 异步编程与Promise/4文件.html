@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4文件依赖了解任务排序</title>
+  </head>
+  <body></body>
+  <script>
+    function load(src, resolve) {
+      let script = document.createElement('script')
+      script.src = src
+      script.onload = resolve
+      document.body.appendChild(script)
+    }
+    /**
+     load('hd.js', () => {
+       hd()
+     })
+     load('houdunren.js', () => {
+       houdunren()
+     })
+      //有的时候houdunren.js加载的比较快，就会有报错：houdunren.js:2 Uncaught ReferenceError: hd is not defined
+    **/
+    load('hd.js', () => {
+      load('houdunren.js', () => {
+        houdunren()
+      })
+    })
+    //这样写可以保证houdunren.js在hd.js加载完了之后再被使用，就没有报错了
+    console.log('99999999')
+  </script>
+</html>

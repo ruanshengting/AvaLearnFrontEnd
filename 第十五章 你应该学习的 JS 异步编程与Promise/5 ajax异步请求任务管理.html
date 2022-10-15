@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 ajax异步请求任务管理</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    let a = 'this is let'
+    ajax(`http://localhost:4000/user/playlist?uid=32953014`, (res) => {
+      console.log('this is ajax res', res)
+      console.log('a---异步操作可以使用主线程的数据', a)
+      ajax(
+        `http://localhost:4000/playlist/detail?id=${res.playlist[0].id}`,
+        (res_detail) => {
+          console.log('res_detail=', res_detail)
+        },
+      )
+    })
+    /*太多的回调函数*/
+    console.log('hello')
+  </script>
+</html>
