@@ -16,6 +16,22 @@
         /* return {
           name: 'ava',//下面的.then中会直接得到这个对象
         }*/
+        /*
+        return {
+          then(resolve, reject) {
+            resolve('this is then function')
+          },
+        }
+       */
+        class hd {
+          then(resolve, reject) {
+            resolve('this is then function')
+          }
+        }
+        console.log(
+          '//只要记住一点，只要有then就会返回一个promise对象，你可以直接将其作为promise来使用',
+        )
+        return new hd()
       })
       .then(
         (res1) => {
