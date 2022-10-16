@@ -15,6 +15,7 @@
       new Promise((resolve, reject) => {
         // resolve('成功状态')
         reject('拒绝')
+        //状态只能改变一次，执行完resolve('成功状态') 之后就不会执行   reject('拒绝')
       })
         .then(
           (value) => console.log('value1', value),

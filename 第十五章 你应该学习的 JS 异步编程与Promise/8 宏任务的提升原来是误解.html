@@ -29,7 +29,7 @@
         resolve('will create .then')
         console.log('this is setTimeout')
       }, 0)
-      /*必须要执行完setTimeout这个宏任务之后，才能执行resolve*/
+      /*必须要执行完setTimeout这个宏任务之后，才能执行resolve(才能创建微任务)*/
       console.log('promise同步')
     }).then((res) => {
       console.log(res)
