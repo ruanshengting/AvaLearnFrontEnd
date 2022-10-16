@@ -6,6 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11 Promise.then也是一个Promise</title>
   </head>
-  <body></body>
-  <script></script>
+  <body>
+    <div>
+      setTimeout也是异步操作并且是宏任务 是晚于微任务的 所以当微任务执行完毕后
+      定时器的p2就变成了fulfilled
+    </div>
+  </body>
+  <script>
+    let p1 = new Promise((resolve, reject) => {
+      //resolve('this is p1 resolve')
+      reject('reject promise')
+    })
+    let p2 = p1
+      .then(
+        (value) => {
+          console.log('value=', value)
+        },
+        (error) => {
+          console.log('error=', error)
+        },
+      )
+      .then(
+        (value2) => console.log('value2', value2), //因为第一个then内部相当于在执行完代码以后，直接resolve(undefined),所以第二个.then也会被执行
+        (error2) => console.log('error2', error2),
+      )
+
+    /*
+    console.log('p1= ', p1) //Promise {<fulfilled>: 'this is p1 resolve'}
+    console.log('🚀 ~ p2', p2) //Promise {<pending>}*/
+
+    setTimeout(() => {
+      console.log('p1=', p1) // Promise {<fulfilled>: 'this is p1 resolve'}
+      console.log('🚀 ~ p2', p2) //Promise {<fulfilled>: undefined}
+    })
+  </script>
 </html>
