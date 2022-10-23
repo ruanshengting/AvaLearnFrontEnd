@@ -28,7 +28,7 @@ function ajax(url) {
       }
     }
     xhr.onerror = function () {
-      reject('加载失败 onerror')
+      reject('加载失败 onerror' + this)
     }
   })
 }

@@ -7,5 +7,17 @@
     <title>14 使用Promise封装AJAX异步请求</title>
   </head>
   <body></body>
-  <script></script>
+  <script src="ajax.js"></script>
+  <script>
+    let url = 'http://localhost:4000/user/playlist?uid=32953014'
+    ajax(url).then(
+      (res) => {
+        console.log('res=', res)
+        ajax(
+          `http://localhost:4000/playlist/detail?id=${res.playlist[0].id}`,
+        ).then((res2) => console.log(res2))
+      },
+      (reason) => console.log('reason', reason),
+    )
+  </script>
 </html>
