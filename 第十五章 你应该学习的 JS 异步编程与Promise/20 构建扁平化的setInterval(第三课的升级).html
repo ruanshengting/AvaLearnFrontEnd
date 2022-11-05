@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20 构建扁平化的setInterval</title>
+  </head>
+  <style>
+    div {
+      background-color: rgb(148, 189, 150);
+      width: 300px;
+      height: 300px;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    function interval(delay = 100, callback) {
+      return new Promise((resolve) => {
+        let id = setInterval(() => {
+          callback(id, resolve)
+        }, delay)
+      })
+    }
+    interval(10, (id, resolve) => {
+      const div = document.querySelector('div')
+      let left = parseInt(window.getComputedStyle(div).left) //这里要给div定位，不然获取是NAN
+      //getComputedStyle() 方法返回一个样式对象，它是 CSSStyleDeclaration 对象的一个实例。https://juejin.cn/post/7023730235698839582
+      div.style.left = left + 10 + 'px'
+      if (left > 200) {
+        clearInterval(id)
+        resolve(div)
+      }
+    })
+      .then((div) => {
+        console.log('fulfilled', div)
+        return interval(50, (id, resolve) => {
+          //要加return 不然下面就接收不到div
+          let width = parseInt(window.getComputedStyle(div).width)
+          div.style.width = width - 10 + 'px'
+          if (width <= 20) {
+            clearInterval(id)
+            resolve(div)
+          }
+        })
+      })
+      .then((div) => {
+        console.log('fulfilled2', div)
+        div.style.backgroundColor = 'red'
+      })
+  </script>
+</html>

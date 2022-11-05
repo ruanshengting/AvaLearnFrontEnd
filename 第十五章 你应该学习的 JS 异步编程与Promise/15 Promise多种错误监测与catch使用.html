@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //方法1:每一个promise都有相应的错误处理
+      new Promise((resolve, reject) => {
+        reject('test reject')
+      })
+        .then(
+          (value) => {
+            console.log('value', value)
+          },
+          (reason) => {
+            console.log('reason', reason)
+          },
+        )
+        .then(
+          (value) => {
+            console.log('value2', value)
+          },
+          (reason) => {
+            console.log('reason2', reason)
+          },
+        )
+      //方法2:错误都在catch中处理
+      new Promise((resolve, reject) => {
+        resolve('ok')
+        reject('test reject')
+      })
+        .then((value) => {
+          console.log('value', value)
+          hd + 1 //引发报错
+        })
+        .then((value) => {
+          console.log('value2', value)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    </script>
+  </body>
+</html>
