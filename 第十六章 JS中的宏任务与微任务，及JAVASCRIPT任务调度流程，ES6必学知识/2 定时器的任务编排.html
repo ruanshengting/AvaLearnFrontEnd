@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 定时器的任务编排</title>
+  </head>
+  <body></body>
+  <script>
+    setTimeout(() => {
+      console.log(
+        'JS一开始，这个2秒就开始计时了，2s的时候 会被放进宏任务队列.同步任务一旦结束，他就被执行',
+      )
+    }, 2000)
+    setTimeout(() => {
+      console.log('JS一开始，这个1秒就开始计时了，1s的时候 会被放进宏任务队列')
+    }, 1000)
+    console.log('这是同步任务')
+    for (let i = 0; i < 5000; i++) {
+      console.log('这是同步任务 in for')
+    }
+  </script>
+</html>
