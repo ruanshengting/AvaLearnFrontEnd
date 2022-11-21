@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26 Promise.race后台请求超时处理</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    let promise = [
+      ajax(`http://localhost:4000/search?keywords='蔡依林'`),
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject('请求超时')
+        }, 5000)
+      }),
+    ]
+    //Promise.race:多个promise请求，哪个返回的快就用哪一个
+    Promise.race(promise)
+      .then((value) => {
+        const msg = document.createElement('div')
+        msg.innerHTML = JSON.stringify(value)
+        document.body.appendChild(msg)
+      })
+      .catch((error) => console.log(error))
+  </script>
+</html>

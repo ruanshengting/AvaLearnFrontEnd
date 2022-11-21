@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>31 async与await语法糖</title>
+  </head>
+  <body></body>
+  <script>
+    async function hd() {
+      //await相当于promise里的.then
+      let name = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('后盾人') //要有这句话 才能表示这个Promise已经解决了，才能执行下一句
+        }, 100)
+      })
+      let site = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(name + 'baidu.com')
+        }, 200)
+      })
+      console.log('🚀 ~  site=', site)
+    }
+    hd()
+  </script>
+</html>

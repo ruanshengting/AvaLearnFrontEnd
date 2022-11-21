@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>34 await制作加载进度条</title>
+  </head>
+  <style>
+    .progress {
+      background-color: #845ec2;
+      color: #fff;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <div class="progress"></div>
+  </body>
+  <script src="ajax.js"></script>
+  <script>
+    async function getPlaylist(keywords) {
+      for (let i = 0; i < keywords.length; i++) {
+        let searchResult = await ajax(
+          'http://localhost:4000/search?keywords=' + keywords[i],
+        )
+        let progress = ((i + 1) / keywords.length) * 100
+        let progressDom = document.querySelector('.progress')
+        progressDom.innerHTML = Math.round(progress)
+        progressDom.style.width = progress + '%'
+        console.log(
+          '🚀 ~ file: 34 await制作加载进度条.html ~ line 29 ~ getPlaylist ~ searchResult',
+          searchResult,
+        )
+      }
+    }
+    getPlaylist([
+      'AOA',
+      'aespa',
+      '蔡依林',
+      '少女时代',
+      '张学友',
+      'Tara',
+      'Wonder Girl',
+      '林俊杰',
+      'Honey',
+    ])
+  </script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24 Promise.all批量获取数据</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    function getSongsByKeywords(keywords) {
+      let promises = keywords.map((item) => {
+        console.log('item=', item)
+        return ajax(`http://localhost:4000/search?keywords=${item}`)
+      })
+      return Promise.all(promises) //全部的keywords的Promise都处理完了，才返回
+    }
+    getSongsByKeywords(['海阔天空', '七里香', '蔡依林']).then((result) =>
+      console.log('result=', result),
+    ) //这样就可以批量获得songs的数据
+  </script>
+</html>

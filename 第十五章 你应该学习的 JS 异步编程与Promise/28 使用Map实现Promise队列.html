@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28 使用Map实现Promise队列</title>
+  </head>
+  <body>
+    <script src="ajax.js"></script>
+    <script>
+      //案例1
+      function queue(num) {
+        let promise = Promise.resolve()
+
+        num.map((item) => {
+          promise = promise.then(() => {
+            //要把promise = 给加上，不然就是1s之后全部数组元素都打印完了.如果不加promise =，相当于是对let promise = Promise.resolve()这一个Promise去处理，那就不是promise的排队了
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                console.log(item)
+                resolve()
+              }, 1000)
+            })
+          })
+        })
+      }
+
+      // queue([1, 2, 3, 4, 5, 6])
+      //案例2
+      function queue2(promiseArr) {
+        let promise2 = Promise.resolve()
+        promiseArr.map((v) => {
+          promise2 = promise2.then(() => {
+            return v()
+          })
+          console.log(
+            '🚀 ~ file: 28 使用Map实现Promise队列.html ~ line 33 ~ queue2 ~ promise2',
+            promise2,
+          )
+        })
+      }
+      function p1() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('p1')
+            resolve()
+          }, 1000)
+        })
+      }
+      function p2() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('p2')
+            resolve()
+          }, 1000)
+        })
+      }
+      queue2([p1, p2])
+    </script>
+  </body>
+</html>

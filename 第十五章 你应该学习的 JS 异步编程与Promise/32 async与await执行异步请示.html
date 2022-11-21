@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>32 async与await执行异步请示</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    async function get(keyword) {
+      let searchResult = await ajax(
+        'http://localhost:4000/search?keywords=' + keyword,
+      )
+      console.log(
+        'searchResult.result.songs[3].mvid=',
+        searchResult.result.songs[0].mvid,
+      )
+      let video = await ajax(
+        'http://localhost:4000/mv/url?id=' + searchResult.result.songs[0].mvid,
+      )
+      console.log('🚀 ~  video', video.data.url)
+      let videoDom = document.createElement('embed')
+      videoDom.src = video.data.url
+
+      document.body.appendChild(videoDom)
+    }
+    get('少女时代')
+  </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22 Promise.resolve缓存后台数据</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function query(name) {
+      const cache = query.cache || (query.cache = new Map()) //function本身就是一个Object， 可以给query这个Object添加一个属性
+
+      if (cache.has(name)) {
+        console.log('走缓存')
+        return Promise.resolve(cache.get(name))
+      }
+      return ajax(`http://localhost:4000/user/playlist?uid=${name}`).then(
+        (result) => {
+          console.log('没有走缓存')
+          cache.set(name, result)
+          console.log(
+            '🚀 ~ file: 22 Promise.resolve缓存后台数据.html ~ line 26 ~ query ~ cache',
+            cache,
+          )
+          return result
+        },
+      )
+    } //要有这句话才能走缓存，如果直接写setTimeOut的话 就没有缓存，或者是下面的时间不同才会走缓存
+    /*
+    query('32953014').then((result) => {
+      console.log('🚀 ~ file:~ from query function result', result)
+    })
+    */
+
+    setTimeout(() => {
+      query('32953014').then((result) => {
+        console.log('🚀 ~ file:~setTimeout ', result)
+      })
+    }, 1000)
+    setTimeout(() => {
+      query('32953014').then((result) => {
+        console.log('🚀 ~ file:~ setTimeout', result)
+      })
+    }, 5000)
+  </script>
+</html>

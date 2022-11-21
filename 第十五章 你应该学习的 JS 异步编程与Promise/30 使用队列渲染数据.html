@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30 使用队列渲染数据</title>
+  </head>
+  <body></body>
+  <script>
+    class User {
+      ajax(user, urlParam) {
+        let url = urlParam + `${user}`
+        return new Promise((resolve, reject) => {
+          let xhr = new XMLHttpRequest() //基于 new 出来的 XMLHttpRequest 实例对象, 可以发起 Ajax 的请求。
+          xhr.open('GET', url) //调用 open() 方法创建请求, xhr.open('请求方式', '请求路径'...)
+          xhr.send() // 调用 send() 发送请求
+          xhr.onload = function () {
+            //onload: 接收得到的数据
+            if (this.status == 200) {
+              console.log(
+                '🚀 ~JSON.parse(this.response)，urlParam',
+                urlParam,
+                JSON.parse(this.response),
+              )
+              resolve(JSON.parse(this.response))
+            } else {
+              reject('加载失败')
+            }
+          }
+          xhr.onerror = function () {
+            reject('加载失败 onerror' + this)
+          }
+        })
+      }
+      render(users) {
+        users.reduce((promise, user) => {
+          return promise
+            .then(() => {
+              return this.ajax(user, 'http://localhost:4000/search?keywords=')
+            })
+            .then((user) => {
+              return this.view(user, user.result.songs[3].name)
+            })
+            .then((user) => {
+              console.log(
+                '🚀 ~ file: 30  user.result.songs[3].mvid=',
+                user.result.songs[3].mvid,
+              )
+              return this.ajax(
+                user.result.songs[3].mvid,
+                'http://localhost:4000/comment/mv?id=',
+              ) //忘记写返回（return）了！！！
+            })
+            .then((comment) => {
+              console.log(
+                '🚀 ~ file: 30 使用队列渲染数据.html ~ line 51 ~ User ~ .then ~ comment',
+                comment,
+              )
+              return this.view(comment, comment.comments[3].content)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        }, Promise.resolve())
+      }
+      view(user, propertyPath) {
+        return new Promise((resolve) => {
+          let h2
+          h2 = document.createElement('h4')
+          h2.innerHTML = propertyPath
+          document.body.appendChild(h2)
+          resolve(user) //如果不加这一句，就只有第一条数据了
+        })
+      }
+    }
+    //http://localhost:4000/comment/mv?id=14364882
+    /*
+        获取视频播放地址
+        说明 : 调用此接口 , 传入视频 id,可获取视频播放地址
+
+        必选参数 : id: 视频 的 id
+
+        接口地址 : /video/url
+
+        调用例子 : /video/url?id=89ADDE33C0AAE8EC14B99F6750DB954D
+        */
+    new User().render(['AOA', 'aespa', '蔡依林'])
+  </script>
+</html>

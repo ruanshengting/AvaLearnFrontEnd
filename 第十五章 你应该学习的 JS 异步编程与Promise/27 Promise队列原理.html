@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>27 Promise队列原理</title>
+  </head>
+  <body></body>
+  <script>
+    let promise = Promise.resolve('OK')
+    //写法1:没有排队的效果
+    /*
+    promise
+      .then((result) => {
+        console.log('🚀 1~ file: promise.then ~ result', result)
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log('第一个Promise')
+          }, 1000)
+          resolve('第一个Promise完成') //如果不加这句话，第二个.then因为要一直等待这个promise的回应，第二个.then就一直不会执行
+        })
+      })
+      .then((result) => {
+        console.log('🚀 2~ file: 第二个promise是对上一个promise的处理', result)
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log('第2个Promise')
+          }, 1000)
+          resolve('第2个Promise完成') //如果不加这句话，第二个.then因为要一直等待这个promise的回应，第二个.then就一直不会执行
+        })
+      })
+      .then((result) => {
+        console.log('🚀 3~ file: 第3个promise是对上一个promise的处理', result)
+      })
+    */
+    //写法2:给这些promise排队
+    promise = promise.then((result) => {
+      console.log('🚀 1~ file: 第1个promise result', result)
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('第一个Promise')
+          resolve(
+            '第一个Promise完成,resolve要写在setTimeout里面，否则还没有开始setTimeout，这个promise就已经被解决了',
+          )
+        }, 1000)
+      })
+    })
+    promise = promise.then((result) => {
+      console.log('🚀 2~ file: 第二个promise result', result)
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('第2个Promise')
+          resolve('第2个Promise完成')
+        }, 2000)
+      })
+    })
+    promise = promise.then((result) => {
+      console.log('🚀 3~ file: 第3个promise是对上一个promise的处理', result)
+    })
+  </script>
+</html>

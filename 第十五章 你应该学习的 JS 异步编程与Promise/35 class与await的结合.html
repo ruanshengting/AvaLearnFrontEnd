@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>35 class与await的结合</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    class songList {
+      constructor(keyword) {
+        this.keyword = keyword
+      }
+      then(resolve, reject) {
+        let data = ajax('http://localhost:4000/search?keywords=' + this.keyword)
+        resolve(data) //把这句话写上才有数据
+      }
+    }
+    async function getSongList(keyword) {
+      let songs = await new songList(keyword)
+      console.log(
+        '🚀 ~ file: 35 class与await的结合.html ~ line 22 ~ getSongList ~ songs',
+        songs,
+      )
+    }
+    getSongList('AOA')
+  </script>
+</html>

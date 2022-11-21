@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>36 异步封装在类内部</title>
+  </head>
+  <body>
+    <div>
+      new songList().getSongList('AOA')
+      只能得到Promise，.then里面的value才是class方法的返回值
+    </div>
+  </body>
+  <script src="ajax.js"></script>
+  <script>
+    class songList {
+      async getSongList(keyword) {
+        let songsArr = await ajax(
+          'http://localhost:4000/search?keywords=' + keyword,
+        )
+        let name = songsArr.result.songs[4].name + ' Ava-Test'
+        return name
+      }
+    }
+    new songList().getSongList('AOA').then((value) => console.log(value))
+  </script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>29 reduce封装Promise队列</title>
+  </head>
+  <body></body>
+  <script src="ajax.js"></script>
+  <script>
+    //例子
+    function queue(num) {
+      num.reduce((promise, currentNum) => {
+        return promise.then(() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log('currentNum=', currentNum)
+              resolve()
+            }, 1000)
+          })
+        })
+      }, Promise.resolve())
+    }
+    queue([1, 2, 3, 4, 5])
+    //自己的尝试 先不管
+    function queueAPI(ajaxArray) {
+      ajaxArray.reduce((promise, currentAPI) => {
+        return promise.then(() => {
+          return new Promise((resolve) => {
+            console.log('currentAPI=', currentAPI)
+            resolve()
+          })
+        })
+      }, Promise.resolve())
+    }
+    let keywords = ['海阔天空', '七里香', '蔡依林']
+    let ajaxArray = keywords.map((item) => {
+      ajax(`http://localhost:4000/search?keywords=${item}`).then((res) => {
+        return res.result
+      })
+    })
+
+    console.log(
+      '🚀 ~ file: 29 reduce封装Promise队列.html ~ line 41 ~ ajaxArray ~ ajaxArray',
+      ajaxArray,
+    )
+    queueAPI(ajaxArray)
+  </script>
+</html>
