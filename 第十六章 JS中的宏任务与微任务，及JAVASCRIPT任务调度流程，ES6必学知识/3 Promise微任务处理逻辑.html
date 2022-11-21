@@ -7,4 +7,36 @@
     <title>3 Promise微任务处理逻辑</title>
   </head>
   <body></body>
+  <script>
+    console.log('-------------------------场景1-------------------------')
+    /*
+    setTimeout(() => {
+      console.log('setTimeout是宏任务')
+    }, 0)
+    new Promise((resolve) => {
+      console.log('promise 同步任务')
+      resolve()
+    }).then(() => {
+      console.log('promise then 微任务')
+    })
+    console.log('这个是同步任务')
+   */
+    console.log('-------------------------场景2-------------------------')
+    setTimeout(() => {
+      console.log('setTimeout')
+      new Promise((resolve) => {
+        console.log('promise 同步任务')
+        resolve()
+      }).then(() => {
+        console.log('promise then 微任务')
+      })
+    }, 2000)
+    new Promise((resolve) => {
+      console.log('promise 同步任务')
+      resolve()
+    }).then(() => {
+      console.log('promise then 微任务')
+    })
+    console.log('这个是同步任务')
+  </script>
 </html>
