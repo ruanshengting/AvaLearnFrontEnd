@@ -18,6 +18,7 @@ function ajax(url, callback) {
 function ajax(url) {
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest() //基于 new 出来的 XMLHttpRequest 实例对象, 可以发起 Ajax 的请求。
+    // xhr.withCredentials = true
     xhr.open('GET', url) //调用 open() 方法创建请求, xhr.open('请求方式', '请求路径'...)
     xhr.send() // 调用 send() 发送请求
     xhr.onload = function () {
@@ -29,7 +30,7 @@ function ajax(url) {
       }
     }
     xhr.onerror = function () {
-      reject('加载失败 onerror' + this)
+      reject('加载失败 onerror' + JSON.stringify(this))
     }
   })
 }

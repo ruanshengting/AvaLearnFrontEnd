@@ -24,7 +24,7 @@ function getData() {
       timeout: 5,
     })
     .then((res) => {
-      console.log(res)
+      console.log('get', res)
     })
     .catch((err) => {
       console.log('err:', err) //5ms之后还没出结果就会得到message: 'timeout of 5ms exceeded
@@ -234,5 +234,5 @@ const axiosInstance = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com', //会出现在config的url里面
 })
 axiosInstance.get('/comments').then((res) => {
-  console.log(res)
+  console.log(`get('/comments')=`, res)
 })

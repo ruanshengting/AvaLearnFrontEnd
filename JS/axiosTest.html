@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/Users/sruan006/Desktop/ava/AvaLearnFrontEnd/第十五章 你应该学习的 JS 异步编程与Promise/ajax.js"></script>
+  <script>
+    const { axios } = window
+    const imgUrl = 'https://img.paulzzh.com/touhou/random'
+    axios({
+      method: 'get',
+      url: imgUrl,
+      withCredentials: false,
+    })
+      .then((res) => {
+        console.log('axios', res)
+      })
+      .catch((err) => console.log('axios', err))
+    async function getData() {
+      const imgUrl1 = 'https://img.paulzzh.com/touhou/random' // 'http://localhost:4000/search?keywords=AvaMax'
+      let searchResult = await ajax(imgUrl1)
+        .then((res) => {
+          console.log('await', res)
+        })
+        .catch((err) => console.log('await', err))
+    }
+    getData()
+  </script>
+</html>
