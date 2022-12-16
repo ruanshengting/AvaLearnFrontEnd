@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 根据栅格线编号放置元素</title>
+  </head>
+  <style>
+    article {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+    div.test1 {
+      background-color: rgb(163, 195, 207);
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 3;
+    }
+    .flex_center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    div.test2 {
+      background-color: rgb(196, 123, 123);
+      grid-row-start: 2;
+      grid-column-start: 3;
+      grid-row-end: 4;
+      grid-column-end: 4;
+    }
+  </style>
+  <body>
+    <article>
+      <div class="test1 flex_center">1</div>
+      <div class="test2 flex_center">2</div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gird Template Areas</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-size: 16px;
+      height: 100vh;
+      display: grid;
+      grid-template-areas:
+        'header header header'
+        'nav main sidebar'
+        'nav footer footer'; /*相当于用文字表述了每块area的占比和位置*/
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-rows: 80px 1fr 70px;
+    }
+    header,
+    nav,
+    main,
+    aside,
+    footer {
+      color: #fff;
+      background-color: steelblue;
+      border: 1px skyblue solid;
+      padding: 20px;
+    }
+    header {
+      grid-area: header; /*给area取名*/
+    }
+    nav {
+      grid-area: nav;
+    }
+    main {
+      grid-area: main;
+    }
+    aside {
+      grid-area: sidebar;
+    }
+    footer {
+      grid-area: footer;
+    }
+  </style>
+  <body>
+    <header>Header</header>
+    <main>Content</main>
+    <nav>Navigation</nav>
+    <aside>SideBar</aside>
+    <footer>Footer</footer>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13 重复栅格命名技巧</title>
+  </head>
+  <style>
+    article {
+      border: 1px dashed #ddd;
+      display: grid;
+      width: 300px;
+      height: 300px;
+      grid-template-columns: repeat(3, [c-start] 1fr [c-end]);
+      grid-template-rows: repeat(
+        3,
+        [r-start] 1fr [r-end]
+      ); /*每一条边都有名字，叫做行的开始边（r-start),行的结束边（r-end）,列的开始边(c-start)，列的结束边（c-end）*/
+    }
+    div {
+      grid-row-start: r-start 1;
+      grid-column-start: c-start 1;
+      grid-row-end: r-end 3;
+      grid-column-end: c-start 2;
+      background-color: burlywood;
+    }
+  </style>
+  <body>
+    <article>
+      <div>1</div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9 栅格控制间距</title>
+  </head>
+  <style>
+    article {
+      display: grid;
+      border: 3px solid #007;
+      /* grid-template-rows: repeat(8, 1fr); 每行3份，每一份都平均*/
+      grid-template-rows: repeat(
+        2,
+        minmax(50px, 100px)
+      ); /*每个格子的大小在50px~100px之间*/
+      grid-template-columns: repeat(5, 1fr);
+      width: 600px;
+      height: 150px;
+      /*row-gap: 10px;行间距*/
+      /*column-gap: 5px;列间距*/
+      /*复合写法:先行后列*/
+      gap: 10px 5px;
+    }
+    div {
+      background-color: burlywood;
+      background-clip: content-box;
+      box-sizing: border-box;
+    }
+  </style>
+  <body>
+    <article>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+    </article>
+  </body>
+</html>

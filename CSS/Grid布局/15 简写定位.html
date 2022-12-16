@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15 简写定位</title>
+  </head>
+  <style>
+    article {
+      width: 300px;
+      height: 300px;
+      border: 1px dashed #ccc;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+    div {
+      background-color: cadetblue;
+      /*复杂写法
+      grid-row-start: 2; 
+      grid-column-start: 2; 
+      grid-row-end: 3;
+      grid-column-end: 3;
+      */
+      /*简写*/
+      grid-row: 2/3; /*row从2到3结束*/
+      grid-column: 2/3;
+    }
+  </style>
+  <body>
+    <article>
+      <div></div>
+    </article>
+  </body>
+</html>

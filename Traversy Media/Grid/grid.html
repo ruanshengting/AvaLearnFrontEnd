@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gird</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 960px; /*最好不要钉死Width*/
+      margin: 100px auto;
+      padding: 10px;
+      display: grid;
+      /* grid-template-columns: repeat(3, 1fr);*/
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+      ); /**保证column不会小于200px/
+      gap: 10px;
+      /*  grid-auto-rows: 200px;row就只有200px,超出200px的字符会被覆盖*/
+      grid-auto-rows: minmax(
+        100px,
+        auto
+      ); /*row最小有100px,会根据长的row来决定有多长*/
+      /*
+       align-items: center;
+      justify-content: end;
+      */
+    }
+    .item {
+      background-color: steelblue;
+      color: #fff;
+      border: 1px skyblue solid;
+      padding: 10px;
+      font-size: 20px;
+    }
+    /*
+      .item:nth-child(1) {
+      background-color: #000;
+      grid-column: 1 / span 2; 
+    }
+    .item:nth-child(3) {
+      background-color: #ddd;
+      grid-row: 2/4;
+    }
+    .item:nth-child(4) {
+      background-color: #333;
+      grid-row: 2/4;
+    }
+    */
+
+    /* align items
+    .item:nth-child(2) {
+      width: 100px;
+      height: 100px;
+      align-self: center;
+      justify-self: center;
+    }
+    */
+    @media screen and (max-width: 500px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="item">
+        1
+        <!-- iste ut laborum aliquid velit facere itaque\nquo ut soluta dicta
+        voluptate\nerror tempore aut et\nsequi reiciendis dignissimos expedita
+        consequuntur libero sed fugiat facilis.consequatur necessitatibus totam
+        sed sit dolorum\nrecusandae quae odio excepturi voluptatum harum
+        voluptas\nquisquam sit ad eveniet delectus\ndoloribus odio qui non
+        labore -->
+      </div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+    </div>
+  </body>
+</html>
