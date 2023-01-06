@@ -1,0 +1,49 @@
+body {
+  background-color: #333;
+}
+.box {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  animation-name: myanimation;
+  animation-duration: 4s;
+  animation-iteration-count: 1; /*循环2次  iteration：迭代*/
+  /*animation-delay: 2s;延迟两秒之后进行*/
+  /*animation-direction: reverse;动画倒放*/
+  /* animation-direction: alternate; 先正常播放，再倒放*/
+  animation-timing-function: linear; /*ease-in:开始快，ease-out:开始慢，结束快，linear:匀速*/
+  animation-fill-mode: forwards; /*动画结束的时候会保持结束的样子，而不是变回原样*/
+}
+@keyframes myanimation {
+  0% {
+    background-color: #fff;
+    left: 0px;
+    top: 0px;
+    border-radius: 0 0 0 0;
+  }
+  25% {
+    background-color: #c1a875;
+    left: 300px;
+    top: 0px;
+    border-radius: 50% 0 0 0;
+  }
+  50% {
+    background-color: #0050b6;
+    left: 300px;
+    top: 300px;
+    border-radius: 0 50% 0 0;
+  }
+  75% {
+    background-color: #857555;
+    left: 0px;
+    top: 300px;
+    border-radius: 0 0 50% 0;
+  }
+  100% {
+    background-color: #b2caff;
+    left: 0px;
+    top: 0px;
+    border-radius: 0 0 0 50%;
+  }
+}

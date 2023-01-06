@@ -1,0 +1,21 @@
+body {
+  background-color: #333;
+}
+.box {
+  background-color: #fff;
+  position: relative;
+  top: 200px;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  transition-property: background-color, border-radius, transform; /*transition的属性 用,分割*/
+  transition-duration: 1s;
+  /*transition-duration: 2s, 1s;background的变化是2s, border-radius的变化是1s*/
+  /* transition-delay: 0.5s; 延迟0.5s之后再开始动画*/
+  transition-timing-function: ease-in;
+}
+.box:hover {
+  background-color: #c8fcea;
+  border-radius: 50%;
+  transform: rotateY(180deg);
+}

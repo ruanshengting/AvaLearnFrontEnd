@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  background-color: #518071;
+  color: #fff;
+  line-height: 1.5;
+  text-align: center;
+}
+.container {
+  max-width: 560px;
+  margin: auto;
+  padding: 0rem 30px;
+  position: relative;
+  animation-name: lorem;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+#showcase {
+  height: 300px;
+  animation: header;
+  animation-duration: 3s;
+  font-size: 50px;
+  position: relative;
+  animation-fill-mode: forwards;
+}
+@keyframes header {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 200px;
+  }
+}
+@keyframes lorem {
+  0% {
+    left: -500px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem 2rem;
+  margin-top: 10px;
+  border: 1px solid #fff;
+  transition-property: transform;
+  transform: rotateY(0deg);
+  transition-duration: 2s;
+  transition-delay: 0.5s;
+}
+.btn:hover {
+  transform: rotateY(180deg);
+}

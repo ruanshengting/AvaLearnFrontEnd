@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh; /*加了这一句 才能居中*/
+  overflow: hidden;
+  background-color: steelblue;
+}
+.form_container {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 40px 30px;
+  color: #fff;
+}
+.header {
+  text-align: center;
+}
+.row_control {
+  position: relative;
+}
+.row_control:nth-child(2) {
+  margin-top: 60px;
+}
+.row_control label {
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+.row_control input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-bottom: 1px #fff solid;
+}
+.row_control input:focus {
+  outline: none;
+  border-bottom-color: lightblue;
+}
+.btn {
+  margin-top: 20px;
+  background-color: #c4fcef;
+  width: 100%;
+  border-color: transparent;
+  padding: 10px;
+  border-radius: 15px;
+}
+.row_control label span {
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+.row_control input:focus + label span {
+  transform: translateY(-30px);
+}
+.row_control input:valid + label span {
+  transform: translateY(-30px);
+}
