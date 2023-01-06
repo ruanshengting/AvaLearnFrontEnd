@@ -57,5 +57,5 @@ body {
   transform: translateY(-30px);
 }
 .row_control input:valid + label span {
-  transform: translateY(-30px);
+  transform: translateY(-30px); /*input有内容的时候也会往上*/
 }
