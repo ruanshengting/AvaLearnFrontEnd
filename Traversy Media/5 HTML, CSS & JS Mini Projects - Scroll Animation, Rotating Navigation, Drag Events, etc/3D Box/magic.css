@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+.magic {
+  background-color: #f9ca24;
+  outline: 0;
+  box-shadow: 0 3px rgba(249, 204, 39, 0.4);
+  padding: 12px 20px;
+  position: fixed;
+  top: 20px;
+  border: 0;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 16px;
+  z-index: 100;
+}
+.magic:focus {
+  outline: 0;
+}
+.magic:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.boxes {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* transition: 0.4s ease;  或许这句话可以不要*/
+}
+.boxes.big {
+  height: 600px;
+  width: 600px;
+}
+.box {
+  width: 125px;
+  height: 125px;
+  background-image: url(giphy.webp);
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  transition: 0.4s ease;
+  position: relative;
+}
+.boxes.big .box {
+  transform: rotateZ(360deg);
+}
+.box::after {
+  content: ' ';
+  position: absolute;
+  width: 15px;
+  top: 8px;
+  right: -15px;
+  height: 100%;
+  background-color: #f6e58d;
+  transform: skewY(45deg);
+}
+.box::before {
+  content: ' ';
+  position: absolute;
+  background-color: #f9ca24;
+  bottom: -15px;
+  left: 8px;
+  width: 100%;
+  height: 15px;
+  transform: skewX(45deg);
+}
