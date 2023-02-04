@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+* {
+  box-sizing: border-box; /*
+  border-box tells the browser to account for any border and padding in the values you specify for an element's width and height. If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width. 
+  https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+  */
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+p {
+  margin: 10px 0;
+}
+img {
+  width: 100%;
+}
+/** Showcase **/
+.nav_bar {
+  background-color: #076aed;
+  color: #fff;
+  height: 70px;
+}
+.nav_bar .flex {
+  justify-content: space-between;
+}
+.nav_bar ul {
+  display: flex;
+}
+.nav_bar a {
+  padding: 10px;
+  margin: 0 10px;
+  color: #fff;
+}
+.nav_bar a:hover {
+  border-bottom: 2px solid #fff;
+}
+/* Utilities */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto; /*消除h1,h2的margin问题*/
+  padding: 0 40px;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

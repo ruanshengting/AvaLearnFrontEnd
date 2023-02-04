@@ -1,0 +1,143 @@
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>饼图demo</title>
+    <style>
+      .pie {
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+
+      .pie .sector {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease-in;
+      }
+
+      .pie .sector:hover {
+        transform: scale(1.1);
+      }
+
+      .pie .title {
+        display: none;
+      }
+
+      .pie .sector:hover + .title {
+        position: absolute;
+        top: 50%;
+        left: 110%;
+        width: 120px;
+        transform: translateY(-50%);
+        display: block;
+      }
+      /*变成环形：添加中间的白心*/
+      .container {
+        position: relative;
+      }
+      .center {
+        position: absolute;
+        top: 77px;
+        left: 75px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="pie"></div>
+      <div class="center"></div>
+    </div>
+
+    <script>
+      const data = [
+        { ratio: 0.55, title: 'Python 55%' },
+        { ratio: 0.35, title: 'C 35%' },
+        { ratio: 0.1, title: 'Java 10%' },
+        /*
+        { ratio: 0.0829, title: 'C++ 8.29%' },
+        { ratio: 0.0568, title: 'C# 5.68%' },
+        { ratio: 0.0474, title: 'Visual Basic 4.74%' },
+        { ratio: 0.0209, title: 'JavaScript 2.09%' },
+        { ratio: 0.4252, title: 'Other 42.52%' },
+        */
+      ]
+
+      function execPoint(cx, cy, r, ratio) {
+        /*(cx,cy)是圆形坐标，r是半径，radio是占比的累加（范围是0-1）*/
+        // 计算弧度，一个整圆弧度是 2π
+        const rad = ratio * 2 * Math.PI
+        console.log('cx + Math.sin(rad) * r=', cx + Math.sin(rad) * r)
+        return {
+          x: cx + Math.sin(rad) * r,
+          y: cy - Math.cos(rad) * r,
+        }
+      }
+
+      /**
+       * 构建裁剪路径
+       * @param data 数据
+       * @param width 元素宽度，宽高相同
+       */
+      function buildSectorPaths(data, width) {
+        // 偏转量
+        let offset = 0
+        // 圆心坐标
+        const cx = width / 2
+        const cy = width / 2
+        // 半径
+        const r = width / 2
+        const result = []
+        for (const datum of data) {
+          /*M 移动，L 绘制直线，A 绘制弧形，Z 关闭路径*/
+          let path = `M ${cx},${cy}`
+          // 圆弧起点
+          const start = execPoint(cx, cy, r, offset)
+          path += ` L ${start.x},${start.y}`
+          // 圆弧终点
+          offset += datum.ratio
+          console.log('🚀  ~ offset', offset)
+          const end = execPoint(cx, cy, r, offset)
+          // 圆弧大关圆画大圆，否则画小圆
+          const angle = datum.ratio * 2 * Math.PI
+          path += ` A ${r},${r} 0,${angle > Math.PI ? 1 : 0},1 ${end.x},${
+            end.y
+          }`
+          path += ' Z'
+          result.push(path)
+        }
+        return result
+      }
+
+      function buildPie(containerEl, data) {
+        containerEl.classList.add('pie')
+        const paths = buildSectorPaths(data, 300)
+        for (let i = 0; i < paths.length; i++) {
+          const path = paths[i]
+          const sector = document.createElement('div')
+          sector.classList.add('sector')
+          sector.style.clipPath = `path('${path}')`
+          // 给个随机背景色
+          const r = Math.floor(Math.random() * 255)
+          const g = Math.floor(Math.random() * 255)
+          const b = Math.floor(Math.random() * 255)
+          sector.style.backgroundColor = `rgb(${r},${g},${b})`
+          containerEl.appendChild(sector)
+          // 新增加的标题
+          const title = document.createElement('div')
+          title.classList.add('title')
+          title.innerText = data[i].title
+          containerEl.appendChild(title)
+        }
+      }
+
+      const pie = document.getElementById('pie')
+      buildPie(pie, data)
+    </script>
+  </body>
+</html>
+<!--参考： https://juejin.cn/post/7054924254952816676#comment -->
