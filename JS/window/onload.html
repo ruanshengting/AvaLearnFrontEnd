@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Onload</title>
+  </head>
+  <body>
+    <div class="controls">
+      <button id="reload" type="button">Reload</button>
+    </div>
+
+    <div class="event-log">
+      <label for="eventLog">Event log:</label>
+      <textarea
+        readonly
+        class="event-log-contents"
+        rows="8"
+        cols="30"
+        id="eventLog"
+      ></textarea>
+    </div>
+  </body>
+  <script>
+    const log = document.querySelector('.event-log-contents')
+    const reload = document.querySelector('#reload')
+
+    reload.addEventListener('click', () => {
+      log.textContent = ''
+      setTimeout(() => {
+        window.location.reload(true)
+      }, 200)
+    })
+
+    window.addEventListener('load', (event) => {
+      log.textContent += 'load\n'
+    })
+
+    /*
+Document.readyState 属性描述了document 的加载状态。
+当该属性值发生变化时，会在 document 对象上触发 readystatechange 事件。
+    */
+
+    document.addEventListener('readystatechange', () => {
+      log.textContent += `readystate: ${document.readyState}\n`
+    })
+    /*
+    当纯 HTML 被完全加载以及解析时，DOMContentLoaded 事件会被触发，而不必等待样式表，图片或者子框架完成加载。
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/Document/DOMContentLoaded_event
+    */
+
+    document.addEventListener('DOMContentLoaded', () => {
+      log.textContent += `DOMContentLoaded\n`
+    })
+  </script>
+</html>

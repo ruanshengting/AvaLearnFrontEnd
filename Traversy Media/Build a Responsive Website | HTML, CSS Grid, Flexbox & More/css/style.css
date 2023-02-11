@@ -7,57 +7,136 @@
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
-  color: #333;
+  /* color: #333; */
   line-height: 1.6;
 }
-ul {
-  list-style-type: none;
+/** defined variables **/
+:root {
+  --primary-color: #047aed;
+  --secondary-color: #1c3fa8;
+  --dark-color: #002240;
+  --light-color: #f4f4f4;
 }
-a {
-  text-decoration: none;
-}
-h1,
-h2 {
-  font-weight: 300;
-  line-height: 1.2;
-  margin: 10px 0;
-}
-p {
-  margin: 10px 0;
-}
-img {
-  width: 100%;
-}
-/** Showcase **/
-.nav_bar {
-  background-color: #076aed;
+
+/**nav bar **/
+
+.nav-bar {
+  background-color: var(--primary-color);
   color: #fff;
   height: 70px;
 }
-.nav_bar .flex {
+.nav-bar .flex {
   justify-content: space-between;
 }
-.nav_bar ul {
+.nav-bar ul {
   display: flex;
 }
-.nav_bar a {
+.nav-bar .logo {
+  color: #fff;
+}
+.nav-bar a {
   padding: 10px;
   margin: 0 10px;
   color: #fff;
 }
-.nav_bar a:hover {
+.nav-bar a:hover {
   border-bottom: 2px solid #fff;
 }
-/* Utilities */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  overflow: auto; /*消除h1,h2的margin问题*/
-  padding: 0 40px;
+/** Showcase **/
+.showcase {
+  background-color: var(--primary-color);
+  height: 400px;
+  color: #fff;
+  position: relative;
 }
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.showcase::after,
+.showcase::before {
+  content: ' ';
+  position: absolute;
+  height: 100px;
+  background-color: #fff;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  transform: skewY(-3deg);
+  -webkit-transform: skewY(-3deg);
+  -moz-transform: skewY(-3deg);
+  -ms-transform: skewY(-3deg);
+}
+.showcase h1 {
+  font-size: 40px;
+  color: #fff;
+}
+.showcase p {
+  margin: 20px 0;
+  color: #fff;
+}
+.showcase .grid {
+  grid-template-columns: 55% 45%;
+  gap: 30px;
+  overflow: visible;
+}
+.showcase-form {
+  height: 350px;
+  width: 400px;
+  padding: 40px;
+  top: 60px;
+  position: relative;
+  z-index: 100;
+}
+.showcase-form .form-control {
+  margin: 30px 0;
+}
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 3px;
+  outline: none;
+}
+/*Stats*/
+.stats {
+  padding-top: 100px;
+}
+.stats-heading {
+  max-width: 500px;
+  margin: auto;
+}
+.stats .grid h3 {
+  font-size: 35px;
+}
+.stats .grid p {
+  font-size: 20px;
+  font-weight: bold;
+} /*CLI*/
+.cli .grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.cli .grid > *:first-child {
+  grid-column: 1 / span 2; /*从1开始 跨越2个column*/
+  grid-row: 1 / span 2;
+  height: 50%;
+  width: 90%;
+}
+/* Cloud */
+.cloud .grid {
+  grid-template-columns: 4fr 3fr;
+}
+/*Language*/
+.languages .flex {
+  flex-wrap: wrap;
+}
+.languages .card {
+  text-align: center;
+  margin: 18px 10px 40px;
+  transition: transform 0.2s ease-in;
+}
+.languages .card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.languages .card:hover {
+  transform: translateY(-15px);
 }
