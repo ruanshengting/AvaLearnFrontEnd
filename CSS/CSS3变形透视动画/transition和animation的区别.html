@@ -13,6 +13,7 @@
       background: blue;
       cursor: pointer;
       transition: width 2s;
+      margin-left: 50px;
       /*通过transition属性监听div元素width属性的变化，动画在两秒内完成。当鼠标悬浮于div之上的时候，设置width的宽度500px，宽度的变化此时被transition监听到。于是开始动画效果，宽度会进行平滑的过渡。*/
     }
     #transition:hover {
@@ -25,7 +26,7 @@
       height: 100px;
       background: red;
       position: relative;
-      top: 100px;
+      top: 500px;
       animation: move 4s infinite alternate;
     }
     @keyframes move {

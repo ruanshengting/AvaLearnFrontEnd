@@ -4,37 +4,70 @@
     <meta charset="utf-8" />
     <title>Auto get Custom label Alert</title>
   </head>
-
+  <style>
+    .show_import {
+      list-style: none;
+    }
+    body {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .show_label_name {
+      margin-top: 50px;
+    }
+    #text_area {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
   <body>
-    <input type="text" name="txt" value="" id="aaa" />
-    <input type="submit" onclick="getLabel()" value="提交LABEL" />
-    <input type="submit" onclick="getlabelName()" value="获取label名字" />
+    <div>
+      <div>used at footer WynPay Link</div>
+    </div>
+    <div>Communities</div>
+    <textarea type="text" name="txt" value="" id="text_area"></textarea>
+    <div class="button_container">
+      <input type="submit" onclick="getImportLabel()" value="得到import语句" />
+      <input type="submit" onclick="getlabelName()" value="获取label名字" />
+    </div>
+    <ul class="show_import"></ul>
+    <div class="show_label_name"></div>
     <script type="text/javascript">
       var labelArr = []
-      function getLabel() {
-        var label = document.getElementById('aaa').value
-        if (label.includes(',')) {
-          let pushThings = label.split(',')
-          console.log(
-            '🚀 ~ file: autoGetCustomLabel.html ~ line 15 ~ getLabel ~ pushThings',
-            pushThings,
-          )
+      function getTextArea() {
+        const text_area_value = document.getElementById('text_area').value
+        console.log(
+          '🚀 ~ file: autoGetCustomLabel.html:35 ~ text_area_value',
+          text_area_value,
+        )
+        return text_area_value
+      }
 
-          labelArr.push.apply(labelArr, label.split(','))
-        } else {
-          labelArr.push(label)
-        }
-        console.log('labelArr', labelArr)
+      function getImportLabel() {
+        const text_area_value = getTextArea()
+        text_area_value.includes(',')
+          ? labelArr.push.apply(labelArr, text_area_value.split(','))
+          : labelArr.push(text_area_value)
         /*=============get import ==================*/
-        const getImport = labelArr.map((item) => {
-          const trimItem = item.trim()
-          if (trimItem) {
-            return `import ${trimItem} from '@salesforce/label/c.${trimItem}';`
-          }
-        })
-        console.log('🚀 ~ ', getImport.toString().replaceAll(',', ''))
-        /*========get const cunstom label alert==========*/
-        const getConstAlert = labelArr.map((item) => {
+        const getImport = labelArr
+          .map((item) => {
+            const trimItem = item.trim()
+            if (trimItem) {
+              return `<li>import ${trimItem} from '@salesforce/label/c.${trimItem}';</li>`
+            }
+          })
+          .toString()
+          .replaceAll(',', '')
+        const show_import = document.querySelector('.show_import')
+        show_import.innerHTML = getImport
+
+        /*========get const cunstom label alert==========
+
+         const getConstAlert = labelArr.map((item) => {
           const trimItem = item.trim()
           if (trimItem) {
             return `const ${trimItem}_LABEL = label.${trimItem};`
@@ -44,18 +77,39 @@
           '🚀 ~ getConstAlert:',
           getConstAlert.toString().replaceAll(',', ''),
         )
-        /*========get const cunstom label==========*/
+
+        */
+
+        /*========get const cunstom label==========
+
         const getConst = labelArr.map((item) => {
           const trimItem = item.trim()
           if (trimItem) {
             return `${trimItem}_LABEL`
           }
         })
-        console.log('🚀 ~ getConst:', getConst.toString())
+         console.log('🚀 ~ getConst:', getConst.toString())
+        */
       }
       function getlabelName() {
-        const myvalue = document.getElementById('aaa').value
-        console.log('SBD_' + myvalue.toUpperCase().replaceAll(' ', '_'))
+        let arr = []
+        const text_area_value = getTextArea()
+        text_area_value.includes(',')
+          ? arr.push.apply(arr, text_area_value.split(','))
+          : arr.push(text_area_value)
+        let labelName = arr
+          .map((item) => {
+            console.log('item=', item.replace(/\s*/g, ''))
+            return 'wc_' + capitalizedWord(item.replace(/\s*/g, ''))
+          })
+          .toString()
+
+        const show_label_name = document.querySelector('.show_label_name')
+        show_label_name.innerText = labelName
+      }
+      function capitalizedWord(word) {
+        const capitalized = word.charAt(0).toUpperCase() + word.slice(1)
+        return capitalized
       }
     </script>
   </body>
