@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        {
+          title: 'Tag type',
+          option: [
+            {
+              label: 'Urgent',
+              value: 'Urgent',
+              selected: false,
+            },
+            {
+              label: 'Potential Cost',
+              value: 'Potential Cost',
+              selected: false,
+            },
+            {
+              label: 'Revenue Opportunity',
+              value: 'Revenue Opportunity',
+              selected: false,
+            },
+          ],
+        },
+        {
+          title: 'Status',
+          option: [
+            { label: 'Open', value: 'Open', selected: true },
+            { label: 'Complete', value: 'Complete', selected: false },
+            { label: 'Expired', value: 'Expired', selected: false },
+          ],
+        },
+        {
+          title: 'Due Date',
+          option: [
+            { label: 'Past', value: 'Past', selected: false },
+            { label: 'All Upcoming', value: 'All Upcoming', selected: false },
+            { label: 'Next 30 Days', value: 'Next 30 Days', selected: false },
+            { label: 'Next 6 Months', value: 'Next 6 Months', selected: false },
+            { label: 'Next Year', value: 'Next Year', selected: false },
+          ],
+        },
+      ]
+      console.log('arr[1].option[2]===', arr[1].option[2])
+      arr[1].option[2].selected = !arr[1].option[2].selected
+      console.log('arr=', arr)
+    </script>
+  </body>
+</html>

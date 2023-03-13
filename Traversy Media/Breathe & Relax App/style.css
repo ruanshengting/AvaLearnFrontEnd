@@ -1,0 +1,84 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/image/Desktop.jpeg') no-repeat top center/cover;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+h1 {
+  margin-bottom: 90px;
+}
+.circle {
+  width: 260px;
+  height: 260px;
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  z-index: -2;
+  background-color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.gradient_circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    #fe939c 120deg,
+    #00c9c3 120deg 240deg,
+    #47817d 240deg 360deg
+  );
+  z-index: -3;
+  position: absolute;
+}
+.pointer_container {
+  position: absolute;
+  top: -50px;
+  height: 190px;
+  transform-origin: bottom center;
+  animation: rotate 7.5s linear forwards infinite; /*在这里加动画命令才能起作用*/
+}
+.pointer {
+  border-radius: 50%;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+}
+.container.grow {
+  animation: grow 3.5s linear forwards;
+}
+.container.shrink {
+  animation: shrink 3.5s linear forwards;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
